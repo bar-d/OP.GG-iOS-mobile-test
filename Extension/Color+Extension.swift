@@ -10,7 +10,7 @@ import UIKit.UIColor
 extension UIColor {
     static let charcoalGrey = UIColor(red: 0.200, green: 0.220, blue: 0.235, alpha: 1)
     static let coolGrey = UIColor(red: 0.596, green: 0.627, blue: 0.655, alpha: 1)
-    static let darkgrey = UIColor(red: 0.118, green: 0.125, blue: 0.133, alpha: 1)
+    static let darkGrey = UIColor(red: 0.118, green: 0.125, blue: 0.133, alpha: 1)
     static let darkishPink = UIColor(red: 0.910, green: 0.251, blue: 0.341, alpha: 1)
     static let greenBlue = UIColor(red: 0.039, green: 0.773, blue: 0.557, alpha: 1)
     static let gunmetal = UIColor(red: 0.322, green: 0.349, blue: 0.373, alpha: 1)

@@ -16,7 +16,7 @@ final class TopView: UIView {
     private let summonerLevelLabel: PaddingLabel = {
         let label = PaddingLabel(top: 5, left: 8, bottom: 5, right: 8)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .darkgrey
+        label.backgroundColor = .darkGrey
         label.textColor = .white
         label.font = .fontWith(type: .SFProTextRegular, size: 12)
         label.layer.cornerRadius = 12
@@ -29,7 +29,7 @@ final class TopView: UIView {
     private let summonerNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .darkgrey
+        label.textColor = .darkGrey
         label.font = .fontWith(type: .SFProTextBold, size: 24)
         label.text = "OPGG"
         
