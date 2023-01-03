@@ -44,7 +44,7 @@ final class SummonerGameHistoryViewController: UIViewController {
     
     private func setupTopViewConstraints() {
         NSLayoutConstraint.activate([
-            topView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
+            topView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 24),
             topView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])

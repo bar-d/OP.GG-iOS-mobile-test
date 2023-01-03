@@ -104,10 +104,17 @@ final class TopView: UIView {
     }
     
     private func setupConstraints() {
+        setupTopViewConstraints()
         setupIconImageViewConstraints()
         setupLevelLabelConstraints()
         setupSummoonerNameLabelConstraints()
         setupRefreshGameHistoryButtonConstraints()
+    }
+    
+    private func setupTopViewConstraints() {
+        NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalToConstant: 88)
+        ])
     }
     
     private func setupIconImageViewConstraints() {
@@ -117,8 +124,7 @@ final class TopView: UIView {
                 constant: 16
             ),
             iconImageView.topAnchor.constraint(
-                equalTo: topAnchor,
-                constant: 24
+                equalTo: topAnchor
             ),
             iconImageView.widthAnchor.constraint(
                 equalToConstant: 88
