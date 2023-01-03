@@ -13,7 +13,7 @@ final class TopView: UIView {
     
     private let iconImageView: CircleImageView = {
         let circleImageView = CircleImageView()
-        circleImageView.image = UIImage(named: "defaultIcon")
+        circleImageView.image = Design.iconImage
         
         return circleImageView
     }()
@@ -183,6 +183,7 @@ final class TopView: UIView {
 // MARK: - Namespace
 
 private enum Design {
+    static let iconImage = UIImage(named: "defaultIcon")
     static let summonerLevelLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 12)
     static let summonerLevelLabelCornerRadius: CGFloat = 12
     static let summonerNameLabelFont: UIFont = .fontWith(type: .SFProTextBold, size: 24)
