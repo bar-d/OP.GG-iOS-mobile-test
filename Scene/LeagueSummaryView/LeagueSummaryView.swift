@@ -63,9 +63,10 @@ final class LeagueSummaryView: UIView {
     
     // MARK: - Initializers
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(with type: RankType) {
+        super.init(frame: .zero)
         
+        setupRankTypeLabel(with: type)
         commonInit()
     }
     
@@ -228,6 +229,10 @@ final class LeagueSummaryView: UIView {
                 equalTo: indicatorView.heightAnchor
             )
         ])
+    }
+    
+    private func setupRankTypeLabel(with type: RankType) {
+        rankTypeLabel.text = type.name
     }
 }
 
