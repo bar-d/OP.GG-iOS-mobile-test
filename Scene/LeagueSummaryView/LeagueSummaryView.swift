@@ -134,7 +134,12 @@ final class LeagueSummaryView: UIView {
     
     private func setupLeagueSummaryViewConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: Design.leagueSummaryViewHeight)
+            heightAnchor.constraint(
+                equalToConstant: Design.leagueSummaryViewHeight
+            ),
+            widthAnchor.constraint(
+                equalToConstant: Design.leagueSummaryViewWidth
+            )
         ])
     }
     
@@ -243,6 +248,7 @@ private enum Design {
     static let winRateLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 10)
     static let cornerRadius: CGFloat = 4
     static let leagueSummaryViewHeight: CGFloat = 100
+    static let leagueSummaryViewWidth: CGFloat = 272
     static let layerAlpha: Float = 0.2
     static let layerX: CGFloat = 0
     static let layerY: CGFloat = 4
