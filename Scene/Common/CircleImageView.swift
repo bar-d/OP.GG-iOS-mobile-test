@@ -9,12 +9,43 @@ import UIKit
 
 final class CircleImageView: UIImageView {
     
+    // MARK: - Initializers
+    
+    init() {
+        super.init(frame: .zero)
+        
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        commonInit()
+    }
+    
     // MARK: - Methods
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        setupLayerCircle()
+    }
+    
+    private func setupLayerCircle() {
         layer.cornerRadius = frame.size.width / 2
         clipsToBounds = true
+    }
+    
+    private func commonInit() {
+        setupConstraintsAutomatic(false)
+        setupBackgroundColor(.paleGrey2)
+    }
+    
+    private func setupConstraintsAutomatic(_ bool: Bool) {
+        translatesAutoresizingMaskIntoConstraints = bool
+    }
+    
+    private func setupBackgroundColor(_ color: UIColor?) {
+        backgroundColor = color
     }
 }
