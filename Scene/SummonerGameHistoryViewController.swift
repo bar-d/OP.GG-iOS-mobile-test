@@ -12,6 +12,7 @@ final class SummonerGameHistoryViewController: UIViewController {
     // MARK: Properties
     
     private let topView = TopView()
+    private let leagueSummaryScrollView = LeagueSummaryScrollView()
     
     // MARK: - View Life Cycle
     
@@ -34,12 +35,13 @@ final class SummonerGameHistoryViewController: UIViewController {
     }
     
     private func setupSubviews() {
-        [topView]
+        [topView, leagueSummaryScrollView]
             .forEach { view.addSubview($0) }
     }
     
     private func setupConstraints() {
         setupTopViewConstraints()
+        setupLeagueSummaryViewConstraints()
     }
     
     private func setupTopViewConstraints() {
@@ -47,6 +49,24 @@ final class SummonerGameHistoryViewController: UIViewController {
             topView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 24),
             topView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+    }
+    
+    private func setupLeagueSummaryViewConstraints() {
+        NSLayoutConstraint.activate([
+            leagueSummaryScrollView.topAnchor.constraint(
+                equalTo: topView.bottomAnchor,
+                constant: 24
+            ),
+            leagueSummaryScrollView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor
+            ),
+            leagueSummaryScrollView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor
+            ),
+            leagueSummaryScrollView.heightAnchor.constraint(
+                equalToConstant: 100
+            )
         ])
     }
 }
