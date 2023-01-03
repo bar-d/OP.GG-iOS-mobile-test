@@ -42,7 +42,7 @@ final class IndicatorView: UIView {
     }
     
     private func setupLayerCircle() {
-        layer.cornerRadius = frame.size.width / 2
+        layer.cornerRadius = frame.circleRadius
         clipsToBounds = true
     }
     
