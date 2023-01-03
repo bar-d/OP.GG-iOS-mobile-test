@@ -13,6 +13,7 @@ final class SummonerGameHistoryViewController: UIViewController {
     
     private let topView = TopView()
     private let leagueSummaryScrollView = LeagueSummaryScrollView()
+    private let recentGameAnalysisView = RecentGameAnalysisView()
     
     // MARK: - View Life Cycle
     
@@ -35,13 +36,14 @@ final class SummonerGameHistoryViewController: UIViewController {
     }
     
     private func setupSubviews() {
-        [topView, leagueSummaryScrollView]
+        [topView, leagueSummaryScrollView, recentGameAnalysisView]
             .forEach { view.addSubview($0) }
     }
     
     private func setupConstraints() {
         setupTopViewConstraints()
         setupLeagueSummaryScrollViewConstraints()
+        setupRecentGameAnalysisViewConstraints()
     }
     
     private func setupTopViewConstraints() {
@@ -76,6 +78,23 @@ final class SummonerGameHistoryViewController: UIViewController {
             )
         ])
     }
+    
+    private func setupRecentGameAnalysisViewConstraints() {
+        NSLayoutConstraint.activate([
+            recentGameAnalysisView.topAnchor.constraint(
+                equalTo: leagueSummaryScrollView.bottomAnchor
+            ),
+            recentGameAnalysisView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor
+            ),
+            recentGameAnalysisView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor
+            ),
+            recentGameAnalysisView.heightAnchor.constraint(
+                equalToConstant: Design.recentGameAnalysisViewHeightConstant
+            )
+        ])
+    }
 }
 
 // MARK: - Namespace
@@ -83,4 +102,5 @@ final class SummonerGameHistoryViewController: UIViewController {
 private enum Design {
     static let topViewAndSummaryScrollViewtopConstant: CGFloat = 24
     static let leagueSummaryScrollViewHeightConstant: CGFloat = 116
+    static let recentGameAnalysisViewHeightConstant: CGFloat = 90
 }
