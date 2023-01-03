@@ -13,5 +13,17 @@ final class SummonerGameHistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        commonInit()
+    }
+    
+    // MARK: - Methods
+    
+    private func commonInit() {
+        setupBackgroundColor(.paleGrey)
+    }
+    
+    private func setupBackgroundColor(_ color: UIColor?) {
+        view.backgroundColor = color
     }
 }
