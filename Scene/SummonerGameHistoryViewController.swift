@@ -41,22 +41,29 @@ final class SummonerGameHistoryViewController: UIViewController {
     
     private func setupConstraints() {
         setupTopViewConstraints()
-        setupLeagueSummaryViewConstraints()
+        setupLeagueSummaryScrollViewConstraints()
     }
     
     private func setupTopViewConstraints() {
         NSLayoutConstraint.activate([
-            topView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 24),
-            topView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            topView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            topView.topAnchor.constraint(
+                equalTo: topLayoutGuide.bottomAnchor,
+                constant: Design.topViewAndSummaryScrollViewtopConstant
+            ),
+            topView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor
+            ),
+            topView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor
+            )
         ])
     }
     
-    private func setupLeagueSummaryViewConstraints() {
+    private func setupLeagueSummaryScrollViewConstraints() {
         NSLayoutConstraint.activate([
             leagueSummaryScrollView.topAnchor.constraint(
                 equalTo: topView.bottomAnchor,
-                constant: 24
+                constant: Design.topViewAndSummaryScrollViewtopConstant
             ),
             leagueSummaryScrollView.leadingAnchor.constraint(
                 equalTo: view.leadingAnchor
@@ -65,8 +72,15 @@ final class SummonerGameHistoryViewController: UIViewController {
                 equalTo: view.trailingAnchor
             ),
             leagueSummaryScrollView.heightAnchor.constraint(
-                equalToConstant: 100
+                equalToConstant: Design.leagueSummaryScrollViewHeight
             )
         ])
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let topViewAndSummaryScrollViewtopConstant: CGFloat = 24
+    static let leagueSummaryScrollViewHeight: CGFloat = 100
 }

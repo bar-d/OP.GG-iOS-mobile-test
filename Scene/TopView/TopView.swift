@@ -19,14 +19,14 @@ final class TopView: UIView {
     }()
     
     private let summonerLevelLabel: PaddingLabel = {
-        let label = PaddingLabel(top: 5, left: 8, bottom: 5, right: 8)
+        let label = Design.summonerLevelPaddingLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .darkGrey
         label.textColor = .white
         label.font = Design.summonerLevelLabelFont
         label.layer.cornerRadius = Design.summonerLevelLabelCornerRadius
         label.clipsToBounds = true
-        label.text = " 0 "
+        label.text = Design.summonerLevelLabelDefaultText
         
         return label
     }()
@@ -36,7 +36,7 @@ final class TopView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkGrey
         label.font = Design.summonerNameLabelFont
-        label.text = "OPGG"
+        label.text = Design.summonerNameLabelDefaultText
         
         return label
     }()
@@ -48,7 +48,7 @@ final class TopView: UIView {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = Design.refreshGameHistoryButtonFont
         button.setTitle(Design.refreshGameHistoryButtonTitle, for: .normal)
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = Design.refreshGameHistoryButtonCornerRadius
         button.clipsToBounds = true
         
         return button
@@ -77,7 +77,7 @@ final class TopView: UIView {
     func setupSummonerLevelLabelText(_ text: String?) {
         guard let unwrappedText = text else { return }
         
-        if unwrappedText.count == 1 {
+        if unwrappedText.count == Design.one {
             summonerLevelLabel.text = " \(unwrappedText) "
         } else {
             summonerLevelLabel.text = unwrappedText.decimalNumberFormatted
@@ -117,7 +117,9 @@ final class TopView: UIView {
     
     private func setupTopViewConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: 88)
+            heightAnchor.constraint(
+                equalToConstant: Design.topViewHeight
+            )
         ])
     }
     
@@ -125,16 +127,16 @@ final class TopView: UIView {
         NSLayoutConstraint.activate([
             iconImageView.leadingAnchor.constraint(
                 equalTo: leadingAnchor,
-                constant: 16
+                constant: Design.leadingAndTrailingSpacing
             ),
             iconImageView.topAnchor.constraint(
                 equalTo: topAnchor
             ),
-            iconImageView.widthAnchor.constraint(
-                equalToConstant: 88
+            iconImageView.bottomAnchor.constraint(
+                equalTo: bottomAnchor
             ),
             iconImageView.heightAnchor.constraint(
-                equalToConstant: 88
+                equalTo: iconImageView.widthAnchor
             )
         ])
     }
@@ -157,7 +159,7 @@ final class TopView: UIView {
             ),
             summonerNameLabel.leadingAnchor.constraint(
                 equalTo: iconImageView.trailingAnchor,
-                constant: 16
+                constant: Design.leadingAndTrailingSpacing
             )
         ])
     }
@@ -171,10 +173,10 @@ final class TopView: UIView {
                 equalTo: iconImageView.bottomAnchor
             ),
             refreshGameHistoryButton.widthAnchor.constraint(
-                equalToConstant: 97
+                equalToConstant: Design.refreshGameHistoryButtonWidth
             ),
             refreshGameHistoryButton.heightAnchor.constraint(
-                equalToConstant: 40
+                equalToConstant: Design.refreshGameHistoryButtonHeight
             )
         ])
     }
@@ -184,9 +186,18 @@ final class TopView: UIView {
 
 private enum Design {
     static let iconImage = UIImage(named: "defaultIcon")
+    static let summonerLevelPaddingLabel = PaddingLabel(top: 5, left: 8, bottom: 5, right: 8)
+    static let summonerLevelLabelDefaultText = " 0 "
     static let summonerLevelLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 12)
     static let summonerLevelLabelCornerRadius: CGFloat = 12
+    static let summonerNameLabelDefaultText = "OPGG"
     static let summonerNameLabelFont: UIFont = .fontWith(type: .SFProTextBold, size: 24)
     static let refreshGameHistoryButtonFont: UIFont = .fontWith(type: .SFProTextRegular, size: 14)
     static let refreshGameHistoryButtonTitle = "전적갱신"
+    static let refreshGameHistoryButtonCornerRadius: CGFloat = 20
+    static let one = 1
+    static let topViewHeight: CGFloat = 88
+    static let leadingAndTrailingSpacing: CGFloat = 16
+    static let refreshGameHistoryButtonWidth: CGFloat = 97
+    static let refreshGameHistoryButtonHeight: CGFloat = 40
 }

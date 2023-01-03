@@ -14,7 +14,7 @@ final class LeagueSummaryView: UIView {
     private let tierIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "unranked")
+        imageView.image = Design.tierIconImageViewDefaultImage
         
         return imageView
     }()
@@ -24,7 +24,6 @@ final class LeagueSummaryView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .softBlue
         label.font = Design.rankTypeLabelFont
-        label.text = "솔로랭크"
         
         return label
     }()
@@ -33,8 +32,8 @@ final class LeagueSummaryView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkGrey
-        label.font = Design.tierLableFont
-        label.text = "Unranked"
+        label.font = Design.tierLabelFont
+        label.text = Design.tierLabelDefaultText
         
         return label
     }()
@@ -44,7 +43,7 @@ final class LeagueSummaryView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkGrey
         label.font = Design.leaguePointLabelFont
-        label.text = "0 LP"
+        label.text = Design.leaguePointLabelDefaultText
         
         return label
     }()
@@ -54,7 +53,7 @@ final class LeagueSummaryView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .steelGrey
         label.font = Design.winRateLabelFont
-        label.text = "0승 0패 (0%)"
+        label.text = Design.winRateLabelDefaultText
         
         return label
     }()
@@ -147,15 +146,15 @@ final class LeagueSummaryView: UIView {
         NSLayoutConstraint.activate([
             tierIconImageView.topAnchor.constraint(
                 equalTo: topAnchor,
-                constant: 18
+                constant: Design.tierIconImageViewTopConstant
             ),
             tierIconImageView.bottomAnchor.constraint(
                 equalTo: bottomAnchor,
-                constant: -18
+                constant: Design.tierIconImageViewBottomConstant
             ),
             tierIconImageView.leadingAnchor.constraint(
                 equalTo: leadingAnchor,
-                constant: 12
+                constant: Design.tierIconImageViewLeadingConstant
             ),
             tierIconImageView.widthAnchor.constraint(
                 equalTo: tierIconImageView.heightAnchor
@@ -167,11 +166,11 @@ final class LeagueSummaryView: UIView {
         NSLayoutConstraint.activate([
             rankTypeLabel.topAnchor.constraint(
                 equalTo: tierIconImageView.topAnchor,
-                constant: -2
+                constant: Design.rankTypeLabelTopConstant
             ),
             rankTypeLabel.leadingAnchor.constraint(
                 equalTo: tierIconImageView.trailingAnchor,
-                constant: 8
+                constant: Design.rankTypeLabelLeadingConstant
             )
             
         ])
@@ -181,7 +180,7 @@ final class LeagueSummaryView: UIView {
         NSLayoutConstraint.activate([
             tierLabel.topAnchor.constraint(
                 equalTo: rankTypeLabel.bottomAnchor,
-                constant: 1
+                constant: Design.tierLabelTopConstant
             ),
             tierLabel.leadingAnchor.constraint(
                 equalTo: rankTypeLabel.leadingAnchor
@@ -193,7 +192,7 @@ final class LeagueSummaryView: UIView {
         NSLayoutConstraint.activate([
             leaguePointLabel.topAnchor.constraint(
                 equalTo: tierLabel.bottomAnchor,
-                constant: 2
+                constant: Design.leaguePointLabelTopConstant
             ),
             leaguePointLabel.leadingAnchor.constraint(
                 equalTo: rankTypeLabel.leadingAnchor
@@ -205,7 +204,7 @@ final class LeagueSummaryView: UIView {
         NSLayoutConstraint.activate([
             winRateLabel.topAnchor.constraint(
                 equalTo: leaguePointLabel.bottomAnchor,
-                constant: 2
+                constant: Design.winRateLabelTopConstant
             ),
             winRateLabel.leadingAnchor.constraint(
                 equalTo: rankTypeLabel.leadingAnchor
@@ -217,15 +216,15 @@ final class LeagueSummaryView: UIView {
         NSLayoutConstraint.activate([
             indicatorView.topAnchor.constraint(
                 equalTo: topAnchor,
-                constant: 30
+                constant: Design.indicatorViewTopConstant
             ),
             indicatorView.bottomAnchor.constraint(
                 equalTo: bottomAnchor,
-                constant: -30
+                constant: Design.indicatorViewBottomConstant
             ),
             indicatorView.trailingAnchor.constraint(
                 equalTo: trailingAnchor,
-                constant: -16
+                constant: Design.indicatorViewTrailingConstant
             ),
             indicatorView.centerYAnchor.constraint(
                 equalTo: tierIconImageView.centerYAnchor
@@ -242,10 +241,14 @@ final class LeagueSummaryView: UIView {
 }
 
 private enum Design {
+    static let tierIconImageViewDefaultImage = UIImage(named: "unranked")
     static let rankTypeLabelFont: UIFont = .fontWith(type: .appleSDGothicNeoRegular, size: 12)
-    static let tierLableFont: UIFont = .fontWith(type: .SFProTextBold, size: 18)
+    static let tierLabelFont: UIFont = .fontWith(type: .SFProTextBold, size: 18)
+    static let tierLabelDefaultText = "Unranked"
     static let leaguePointLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 12)
+    static let leaguePointLabelDefaultText = "0 LP"
     static let winRateLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 10)
+    static let winRateLabelDefaultText = "0승 0패 (0%)"
     static let cornerRadius: CGFloat = 4
     static let leagueSummaryViewHeight: CGFloat = 100
     static let leagueSummaryViewWidth: CGFloat = 272
@@ -254,4 +257,15 @@ private enum Design {
     static let layerY: CGFloat = 4
     static let layerBlur: CGFloat = 6
     static let layerSpread: CGFloat = 0
+    static let tierIconImageViewTopConstant: CGFloat = 18
+    static let tierIconImageViewBottomConstant: CGFloat = -18
+    static let tierIconImageViewLeadingConstant: CGFloat = 12
+    static let rankTypeLabelTopConstant: CGFloat = -2
+    static let rankTypeLabelLeadingConstant: CGFloat = 8
+    static let tierLabelTopConstant: CGFloat = 1
+    static let leaguePointLabelTopConstant: CGFloat = 2
+    static let winRateLabelTopConstant: CGFloat = 8
+    static let indicatorViewTopConstant: CGFloat = 30
+    static let indicatorViewBottomConstant: CGFloat = -30
+    static let indicatorViewTrailingConstant: CGFloat = 16
 }

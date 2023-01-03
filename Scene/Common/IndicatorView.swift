@@ -75,7 +75,7 @@ final class IndicatorView: UIView {
             ),
             indicatorImageView.heightAnchor.constraint(
                 equalTo: heightAnchor,
-                multiplier: 0.6
+                multiplier: Design.indicatorImageViewHeightMultiplier
             ),
             indicatorImageView.widthAnchor.constraint(
                 equalTo: indicatorImageView.heightAnchor
@@ -88,4 +88,5 @@ final class IndicatorView: UIView {
 
 private enum Design {
     static let indicatorImage = UIImage(named: "iconArrowRight")
+    static let indicatorImageViewHeightMultiplier: CGFloat = 0.6
 }
