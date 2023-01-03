@@ -18,8 +18,8 @@ final class TopView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .darkGrey
         label.textColor = .white
-        label.font = .fontWith(type: .SFProTextRegular, size: 12)
-        label.layer.cornerRadius = 12
+        label.font = Design.summonerLevelLabelFont
+        label.layer.cornerRadius = Design.summonerLevelLabelCornerRadius
         label.clipsToBounds = true
         label.text = "247"
         
@@ -30,7 +30,7 @@ final class TopView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkGrey
-        label.font = .fontWith(type: .SFProTextBold, size: 24)
+        label.font = Design.summonerNameLabelFont
         label.text = "OPGG"
         
         return label
@@ -41,8 +41,8 @@ final class TopView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .softBlue
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .fontWith(type: .SFProTextRegular, size: 14)
-        button.setTitle("전적갱신", for: .normal)
+        button.titleLabel?.font = Design.refreshGameHistoryButtonFont
+        button.setTitle(Design.refreshGameHistoryButtonTitle, for: .normal)
         button.layer.cornerRadius = 20
         button.clipsToBounds = true
         
@@ -174,4 +174,14 @@ final class TopView: UIView {
             )
         ])
     }
+}
+
+// MARK: - Namespace
+
+private enum Design {
+    static let summonerLevelLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 12)
+    static let summonerLevelLabelCornerRadius: CGFloat = 12
+    static let summonerNameLabelFont: UIFont = .fontWith(type: .SFProTextBold, size: 24)
+    static let refreshGameHistoryButtonFont: UIFont = .fontWith(type: .SFProTextRegular, size: 14)
+    static let refreshGameHistoryButtonTitle = "전적갱신"
 }
