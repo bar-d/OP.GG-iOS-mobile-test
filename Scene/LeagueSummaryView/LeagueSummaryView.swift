@@ -267,5 +267,5 @@ private enum Design {
     static let winRateLabelTopConstant: CGFloat = 8
     static let indicatorViewTopConstant: CGFloat = 30
     static let indicatorViewBottomConstant: CGFloat = -30
-    static let indicatorViewTrailingConstant: CGFloat = 16
+    static let indicatorViewTrailingConstant: CGFloat = -16
 }
