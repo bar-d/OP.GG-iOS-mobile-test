@@ -70,7 +70,8 @@ final class LeagueSummaryScrollView: UIScrollView {
                 equalTo: topAnchor
             ),
             horizontalStackView.bottomAnchor.constraint(
-                equalTo: bottomAnchor
+                equalTo: bottomAnchor,
+                constant: Design.horizontalStackViewBottomConstant
             ),
             horizontalStackView.leadingAnchor.constraint(
                 equalTo: leadingAnchor
@@ -106,4 +107,5 @@ private enum Design {
     static let horizontalStackViewSpacing: CGFloat = 8
     static let contentInsetTopAndBottom: CGFloat = 0
     static let contentInsetLeftAndRight: CGFloat = 16
+    static let horizontalStackViewBottomConstant: CGFloat = -16
 }

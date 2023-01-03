@@ -72,7 +72,7 @@ final class SummonerGameHistoryViewController: UIViewController {
                 equalTo: view.trailingAnchor
             ),
             leagueSummaryScrollView.heightAnchor.constraint(
-                equalToConstant: Design.leagueSummaryScrollViewHeight
+                equalToConstant: Design.leagueSummaryScrollViewHeightConstant
             )
         ])
     }
@@ -82,5 +82,5 @@ final class SummonerGameHistoryViewController: UIViewController {
 
 private enum Design {
     static let topViewAndSummaryScrollViewtopConstant: CGFloat = 24
-    static let leagueSummaryScrollViewHeight: CGFloat = 100
+    static let leagueSummaryScrollViewHeightConstant: CGFloat = 116
 }
