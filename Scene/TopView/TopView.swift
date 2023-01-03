@@ -11,7 +11,12 @@ final class TopView: UIView {
     
     // MARK: Properties
     
-    private let iconImageView = CircleImageView()
+    private let iconImageView: CircleImageView = {
+        let circleImageView = CircleImageView()
+        circleImageView.image = UIImage(named: "defaultIcon")
+        
+        return circleImageView
+    }()
     
     private let summonerLevelLabel: PaddingLabel = {
         let label = PaddingLabel(top: 5, left: 8, bottom: 5, right: 8)
@@ -21,7 +26,7 @@ final class TopView: UIView {
         label.font = Design.summonerLevelLabelFont
         label.layer.cornerRadius = Design.summonerLevelLabelCornerRadius
         label.clipsToBounds = true
-        label.text = "247"
+        label.text = " 0 "
         
         return label
     }()
@@ -55,7 +60,6 @@ final class TopView: UIView {
         super.init(frame: frame)
         
         commonInit()
-        setNeedsLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -76,7 +80,7 @@ final class TopView: UIView {
         if unwrappedText.count == 1 {
             summonerLevelLabel.text = " \(unwrappedText) "
         } else {
-            summonerLevelLabel.text = unwrappedText.numberFormatted
+            summonerLevelLabel.text = unwrappedText.decimalNumberFormatted
         }
     }
     
