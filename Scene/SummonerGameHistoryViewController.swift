@@ -15,4 +15,3 @@ final class SummonerGameHistoryViewController: UIViewController {
         super.viewDidLoad()
     }
 }
-
