@@ -11,9 +11,7 @@ final class SummonerGameHistoryViewController: UIViewController {
 
     // MARK: Properties
     
-    private let topView = TopView()
-    private let leagueSummaryScrollView = LeagueSummaryScrollView()
-    private let recentGameAnalysisView = RecentGameAnalysisView()
+    private let summonerGameHisoryTableView = SummonerGameHistoryTableView()
     
     // MARK: - View Life Cycle
     
@@ -29,6 +27,7 @@ final class SummonerGameHistoryViewController: UIViewController {
         setupBackgroundColor(.paleGrey)
         setupSubviews()
         setupConstraints()
+        setupTableView()
     }
     
     private func setupBackgroundColor(_ color: UIColor?) {
@@ -36,64 +35,82 @@ final class SummonerGameHistoryViewController: UIViewController {
     }
     
     private func setupSubviews() {
-        [topView, leagueSummaryScrollView, recentGameAnalysisView]
+        [summonerGameHisoryTableView]
             .forEach { view.addSubview($0) }
     }
     
     private func setupConstraints() {
-        setupTopViewConstraints()
-        setupLeagueSummaryScrollViewConstraints()
-        setupRecentGameAnalysisViewConstraints()
+        setupSummonerGameHisoryTableViewConstraints()
     }
     
-    private func setupTopViewConstraints() {
+    private func setupSummonerGameHisoryTableViewConstraints() {
         NSLayoutConstraint.activate([
-            topView.topAnchor.constraint(
-                equalTo: topLayoutGuide.bottomAnchor,
-                constant: Design.topViewAndSummaryScrollViewtopConstant
+            summonerGameHisoryTableView.topAnchor.constraint(
+                equalTo: view.topAnchor
             ),
-            topView.leadingAnchor.constraint(
+            summonerGameHisoryTableView.leadingAnchor.constraint(
                 equalTo: view.leadingAnchor
             ),
-            topView.trailingAnchor.constraint(
+            summonerGameHisoryTableView.trailingAnchor.constraint(
                 equalTo: view.trailingAnchor
+            ),
+            summonerGameHisoryTableView.bottomAnchor.constraint(
+                equalTo: view.bottomAnchor
             )
         ])
     }
     
-    private func setupLeagueSummaryScrollViewConstraints() {
-        NSLayoutConstraint.activate([
-            leagueSummaryScrollView.topAnchor.constraint(
-                equalTo: topView.bottomAnchor,
-                constant: Design.topViewAndSummaryScrollViewtopConstant
-            ),
-            leagueSummaryScrollView.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor
-            ),
-            leagueSummaryScrollView.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor
-            ),
-            leagueSummaryScrollView.heightAnchor.constraint(
-                equalToConstant: Design.leagueSummaryScrollViewHeightConstant
-            )
-        ])
+    private func setupTableView() {
+        summonerGameHisoryTableView.setupDelegate(self)
+        summonerGameHisoryTableView.setupDataSource(self)
+    }
+}
+
+extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        
+        return 1
     }
     
-    private func setupRecentGameAnalysisViewConstraints() {
-        NSLayoutConstraint.activate([
-            recentGameAnalysisView.topAnchor.constraint(
-                equalTo: leagueSummaryScrollView.bottomAnchor
-            ),
-            recentGameAnalysisView.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor
-            ),
-            recentGameAnalysisView.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor
-            ),
-            recentGameAnalysisView.heightAnchor.constraint(
-                equalToConstant: Design.recentGameAnalysisViewHeightConstant
-            )
-        ])
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let cell = summonerGameHisoryTableView.dequeueReusableCell(
+            withIdentifier: SummonerGameInformationCell.identifier
+        ) as? SummonerGameInformationCell else {
+            return UITableViewCell()
+        }
+        
+        return cell
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        
+        return 104
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForHeaderInSection section: Int
+    ) -> CGFloat {
+        
+        return 2
     }
 }
 
