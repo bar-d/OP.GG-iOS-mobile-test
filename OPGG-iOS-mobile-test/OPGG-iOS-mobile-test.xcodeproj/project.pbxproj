@@ -87,6 +87,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4040AAA2965C5C5008AA221 /* SummoonerGameHistroy */ = {
+			isa = PBXGroup;
+			children = (
+				C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */,
+				C4040AAB2965C614008AA221 /* SummonerGameHistoryTableView */,
+			);
+			path = SummoonerGameHistroy;
+			sourceTree = "<group>";
+		};
+		C4040AAB2965C614008AA221 /* SummonerGameHistoryTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C4D68E6B296559D5000298DF /* SummonerGameHistoryTableView.swift */,
+				C4040AAC2965C645008AA221 /* SummonerGameHistoryTableHeaderView */,
+				C48A124D2964B5740043466D /* SummonerGameInformationCell */,
+			);
+			path = SummonerGameHistoryTableView;
+			sourceTree = "<group>";
+		};
+		C4040AAC2965C645008AA221 /* SummonerGameHistoryTableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				C4D68E6D29658110000298DF /* SummonerGameHistoryTableHeaderView.swift */,
+				C48A121B296418280043466D /* TopView */,
+				C48A1234296440F80043466D /* LeagueSummaryView */,
+				C48A1242296489160043466D /* RecentGameAnalysisView */,
+			);
+			path = SummonerGameHistoryTableHeaderView;
+			sourceTree = "<group>";
+		};
 		C46A92C02963F2A500B412C5 = {
 			isa = PBXGroup;
 			children = (
@@ -106,9 +136,9 @@
 		C46A92CB2963F2A500B412C5 /* OPGG-iOS-mobile-test */ = {
 			isa = PBXGroup;
 			children = (
+				C46A92E22963FC4000B412C5 /* AppLifeCycle */,
 				C48A12502964B7530043466D /* Protocol */,
 				C48A121529640C8D0043466D /* Extension */,
-				C46A92E22963FC4000B412C5 /* AppLifeCycle */,
 				C46A92E12963FC3700B412C5 /* Scene */,
 				C46A92E02963F57700B412C5 /* Resource */,
 			);
@@ -130,11 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				C48A1218296415420043466D /* Common */,
-				C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */,
-				C48A121B296418280043466D /* TopView */,
-				C48A1234296440F80043466D /* LeagueSummaryView */,
-				C48A1242296489160043466D /* RecentGameAnalysisView */,
-				C48A124D2964B5740043466D /* SummonerGameInformationCell */,
+				C4040AAA2965C5C5008AA221 /* SummoonerGameHistroy */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -216,8 +242,6 @@
 				C48A1259296526A80043466D /* KDAStackView.swift */,
 				C48A12552964BF550043466D /* ItemStackView.swift */,
 				C48A125B29652E880043466D /* AdditionalInformationView.swift */,
-				C4D68E6B296559D5000298DF /* SummonerGameHistoryTableView.swift */,
-				C4D68E6D29658110000298DF /* SummonerGameHistoryTableHeaderView.swift */,
 			);
 			path = SummonerGameInformationCell;
 			sourceTree = "<group>";
