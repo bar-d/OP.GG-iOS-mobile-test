@@ -26,8 +26,8 @@ final class LeagueSummaryScrollView: UIScrollView {
     
     // MARK: - Initializers
     
-    init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         commonInit()
     }
