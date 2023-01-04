@@ -38,9 +38,13 @@
 		C48A125C29652E880043466D /* AdditionalInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A125B29652E880043466D /* AdditionalInformationView.swift */; };
 		C4D68E6C296559D5000298DF /* SummonerGameHistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D68E6B296559D5000298DF /* SummonerGameHistoryTableView.swift */; };
 		C4D68E6E29658110000298DF /* SummonerGameHistoryTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D68E6D29658110000298DF /* SummonerGameHistoryTableHeaderView.swift */; };
+		DB84FE41F573BFCFF773B739 /* Pods_OPGG_iOS_mobile_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8882213A82A2E5FCB30CC187 /* Pods_OPGG_iOS_mobile_test.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00F0CE30987868D3A0DD58B3 /* Pods-OPGG-iOS-mobile-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OPGG-iOS-mobile-test.release.xcconfig"; path = "Target Support Files/Pods-OPGG-iOS-mobile-test/Pods-OPGG-iOS-mobile-test.release.xcconfig"; sourceTree = "<group>"; };
+		47AFDA211BE954D3C8D7E9D3 /* Pods-OPGG-iOS-mobile-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OPGG-iOS-mobile-test.debug.xcconfig"; path = "Target Support Files/Pods-OPGG-iOS-mobile-test/Pods-OPGG-iOS-mobile-test.debug.xcconfig"; sourceTree = "<group>"; };
+		8882213A82A2E5FCB30CC187 /* Pods_OPGG_iOS_mobile_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OPGG_iOS_mobile_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46A92C92963F2A500B412C5 /* OPGG-iOS-mobile-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OPGG-iOS-mobile-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46A92CC2963F2A500B412C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerGameHistoryViewController.swift; sourceTree = "<group>"; };
@@ -81,12 +85,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB84FE41F573BFCFF773B739 /* Pods_OPGG_iOS_mobile_test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34BCE250ABD34768E0667BC0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				47AFDA211BE954D3C8D7E9D3 /* Pods-OPGG-iOS-mobile-test.debug.xcconfig */,
+				00F0CE30987868D3A0DD58B3 /* Pods-OPGG-iOS-mobile-test.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		82E2476CBAF8CAB077FC928C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8882213A82A2E5FCB30CC187 /* Pods_OPGG_iOS_mobile_test.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C4040AAA2965C5C5008AA221 /* SummoonerGameHistroy */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +145,8 @@
 			children = (
 				C46A92CB2963F2A500B412C5 /* OPGG-iOS-mobile-test */,
 				C46A92CA2963F2A500B412C5 /* Products */,
+				34BCE250ABD34768E0667BC0 /* Pods */,
+				82E2476CBAF8CAB077FC928C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -261,17 +286,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C46A92DD2963F2A700B412C5 /* Build configuration list for PBXNativeTarget "OPGG-iOS-mobile-test" */;
 			buildPhases = (
+				AF914A6BB41D655BF577AADB /* [CP] Check Pods Manifest.lock */,
 				C46A92C52963F2A500B412C5 /* Sources */,
 				C46A92C62963F2A500B412C5 /* Frameworks */,
 				C46A92C72963F2A500B412C5 /* Resources */,
+				07957B762F6177FEAC040080 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "OPGG-iOS-mobile-test";
-			packageProductDependencies = (
-			);
 			productName = "OPGG-iOS-mobile-test";
 			productReference = C46A92C92963F2A500B412C5 /* OPGG-iOS-mobile-test.app */;
 			productType = "com.apple.product-type.application";
@@ -300,8 +325,6 @@
 				Base,
 			);
 			mainGroup = C46A92C02963F2A500B412C5;
-			packageReferences = (
-			);
 			productRefGroup = C46A92CA2963F2A500B412C5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -324,6 +347,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07957B762F6177FEAC040080 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OPGG-iOS-mobile-test/Pods-OPGG-iOS-mobile-test-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OPGG-iOS-mobile-test/Pods-OPGG-iOS-mobile-test-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OPGG-iOS-mobile-test/Pods-OPGG-iOS-mobile-test-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF914A6BB41D655BF577AADB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OPGG-iOS-mobile-test-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C46A92C52963F2A500B412C5 /* Sources */ = {
@@ -490,6 +555,7 @@
 		};
 		C46A92DE2963F2A700B412C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47AFDA211BE954D3C8D7E9D3 /* Pods-OPGG-iOS-mobile-test.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -517,6 +583,7 @@
 		};
 		C46A92DF2963F2A700B412C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00F0CE30987868D3A0DD58B3 /* Pods-OPGG-iOS-mobile-test.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
