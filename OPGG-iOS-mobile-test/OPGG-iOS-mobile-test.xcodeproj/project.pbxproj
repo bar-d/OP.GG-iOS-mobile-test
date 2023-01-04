@@ -213,8 +213,8 @@
 		C46E4EB12965F98B009412D0 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C46E4EBA2966061E009412D0 /* Matches.swift */,
 				C46E4EB22965F9F8009412D0 /* Summoner.swift */,
+				C46E4EBA2966061E009412D0 /* Matches.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
