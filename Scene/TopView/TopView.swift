@@ -22,6 +22,7 @@ final class TopView: UIView {
         let label = Design.summonerLevelPaddingLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .darkGrey
+        label.alpha = Design.summonerLevelPaddingLabelAlpha
         label.textColor = .white
         label.font = Design.summonerLevelLabelFont
         label.layer.cornerRadius = Design.summonerLevelLabelCornerRadius
@@ -187,6 +188,7 @@ final class TopView: UIView {
 private enum Design {
     static let iconImage = UIImage(named: "defaultIcon")
     static let summonerLevelPaddingLabel = PaddingLabel(top: 5, left: 8, bottom: 5, right: 8)
+    static let summonerLevelPaddingLabelAlpha:CGFloat = 0.9
     static let summonerLevelLabelDefaultText = " 0 "
     static let summonerLevelLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 12)
     static let summonerLevelLabelCornerRadius: CGFloat = 12
