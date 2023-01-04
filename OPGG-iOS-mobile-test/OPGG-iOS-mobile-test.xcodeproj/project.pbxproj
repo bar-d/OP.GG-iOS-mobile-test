@@ -11,6 +11,8 @@
 		C46A92D12963F2A500B412C5 /* SummonerGameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */; };
 		C46A92D62963F2A700B412C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C46A92D52963F2A700B412C5 /* Assets.xcassets */; };
 		C46A92D92963F2A700B412C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C46A92D72963F2A700B412C5 /* LaunchScreen.storyboard */; };
+		C46E4EB32965F9F8009412D0 /* Summoner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E4EB22965F9F8009412D0 /* Summoner.swift */; };
+		C46E4EBB2966061E009412D0 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46E4EBA2966061E009412D0 /* Matches.swift */; };
 		C48A121729640C9E0043466D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A121629640C9E0043466D /* Color+Extension.swift */; };
 		C48A121A2964154B0043466D /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A12192964154B0043466D /* PaddingLabel.swift */; };
 		C48A121D296418330043466D /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A121C296418330043466D /* TopView.swift */; };
@@ -51,6 +53,8 @@
 		C46A92D52963F2A700B412C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C46A92D82963F2A700B412C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C46A92DA2963F2A700B412C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C46E4EB22965F9F8009412D0 /* Summoner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summoner.swift; sourceTree = "<group>"; };
+		C46E4EBA2966061E009412D0 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
 		C48A121629640C9E0043466D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		C48A12192964154B0043466D /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		C48A121C296418330043466D /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -98,7 +102,6 @@
 				47AFDA211BE954D3C8D7E9D3 /* Pods-OPGG-iOS-mobile-test.debug.xcconfig */,
 				00F0CE30987868D3A0DD58B3 /* Pods-OPGG-iOS-mobile-test.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -164,6 +167,7 @@
 				C46A92E22963FC4000B412C5 /* AppLifeCycle */,
 				C48A12502964B7530043466D /* Protocol */,
 				C48A121529640C8D0043466D /* Extension */,
+				C46E4EB02965F980009412D0 /* Domain */,
 				C46A92E12963FC3700B412C5 /* Scene */,
 				C46A92E02963F57700B412C5 /* Resource */,
 			);
@@ -196,6 +200,23 @@
 				C46A92CC2963F2A500B412C5 /* AppDelegate.swift */,
 			);
 			path = AppLifeCycle;
+			sourceTree = "<group>";
+		};
+		C46E4EB02965F980009412D0 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C46E4EB12965F98B009412D0 /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C46E4EB12965F98B009412D0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C46E4EBA2966061E009412D0 /* Matches.swift */,
+				C46E4EB22965F9F8009412D0 /* Summoner.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		C48A121529640C8D0043466D /* Extension */ = {
@@ -402,6 +423,7 @@
 				C48A12462964933A0043466D /* RecentTwentyGameAnalysisView.swift in Sources */,
 				C48A123D296466330043466D /* LeagueSummaryScrollView.swift in Sources */,
 				C48A123F2964737C0043466D /* RankType.swift in Sources */,
+				C46E4EB32965F9F8009412D0 /* Summoner.swift in Sources */,
 				C48A12522964B7630043466D /* ReuseIdentifiable.swift in Sources */,
 				C48A122C29642D380043466D /* CircleImageView.swift in Sources */,
 				C48A123929644D2C0043466D /* IndicatorView.swift in Sources */,
@@ -416,6 +438,7 @@
 				C48A12562964BF550043466D /* ItemStackView.swift in Sources */,
 				C48A12362964411C0043466D /* LeagueSummaryView.swift in Sources */,
 				C48A125A296526A80043466D /* KDAStackView.swift in Sources */,
+				C46E4EBB2966061E009412D0 /* Matches.swift in Sources */,
 				C48A121729640C9E0043466D /* Color+Extension.swift in Sources */,
 				C4D68E6C296559D5000298DF /* SummonerGameHistoryTableView.swift in Sources */,
 				C48A123B296464A80043466D /* CALayer+Extension.swift in Sources */,
