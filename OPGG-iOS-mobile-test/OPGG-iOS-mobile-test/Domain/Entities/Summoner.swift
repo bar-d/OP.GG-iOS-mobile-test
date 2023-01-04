@@ -11,6 +11,7 @@ struct Summoner {
     let name: String
     let level: Int
     let profileImageURL: URL
+    let leagues: [League]
 }
 
 struct League {
