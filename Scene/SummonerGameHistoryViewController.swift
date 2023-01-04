@@ -72,7 +72,7 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
         numberOfRowsInSection section: Int
     ) -> Int {
         
-        return 1
+        return Design.tableViewNumberOfRowsInSection
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -102,7 +102,7 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
         heightForRowAt indexPath: IndexPath
     ) -> CGFloat {
         
-        return 104
+        return Design.tableViewHeightForRow
     }
     
     func tableView(
@@ -110,7 +110,7 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
         heightForHeaderInSection section: Int
     ) -> CGFloat {
         
-        return 2
+        return Design.tableViewHeightForHeader
     }
 }
 
@@ -120,4 +120,7 @@ private enum Design {
     static let topViewAndSummaryScrollViewtopConstant: CGFloat = 24
     static let leagueSummaryScrollViewHeightConstant: CGFloat = 116
     static let recentGameAnalysisViewHeightConstant: CGFloat = 90
+    static let tableViewNumberOfRowsInSection = 1
+    static let tableViewHeightForRow: CGFloat = 104
+    static let tableViewHeightForHeader: CGFloat = 2
 }
