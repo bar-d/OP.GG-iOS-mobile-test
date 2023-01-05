@@ -74,6 +74,7 @@ extension Matches.Game.Stats {
         let death: Int
         let assist: Int
         let contributionForKillRate: String
+        let largestMultiKillString: String
         let opScoreBadge: String
     }
 }
