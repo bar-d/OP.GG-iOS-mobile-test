@@ -35,7 +35,7 @@ extension SummonerResponseDTO.SummonerDTO {
         let tierRank: TierRankDTO
     }
     
-    func toDomain() -> Summoner {
+    func toDomain() -> Summoner? {
         return .init(
             name: name,
             level: level,

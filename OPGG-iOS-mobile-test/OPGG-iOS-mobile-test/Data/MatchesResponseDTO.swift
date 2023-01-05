@@ -86,7 +86,7 @@ extension MatchesResponseDTO.GameDTO {
         let general: GeneralDTO
     }
     
-    func toDomain() -> Matches.Game {
+    func toDomain() -> Matches.Game? {
         return .init(
             champion: champion.toDomain(),
             spells: spells.map { $0.toDomain() },
