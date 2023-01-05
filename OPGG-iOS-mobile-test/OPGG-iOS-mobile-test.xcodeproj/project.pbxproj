@@ -181,6 +181,15 @@
 			path = SummonerGameHistoryTableHeaderView;
 			sourceTree = "<group>";
 		};
+		C454AF2B2966E0BD00391F73 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C46E4ED9296674F7009412D0 /* Common */,
+				C46E4EE629669EB1009412D0 /* OPGGAPI */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		C46A92C02963F2A500B412C5 = {
 			isa = PBXGroup;
 			children = (
@@ -283,7 +292,7 @@
 		C46E4ED8296674E4009412D0 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				C46E4ED9296674F7009412D0 /* Common */,
+				C454AF2B2966E0BD00391F73 /* Network */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -297,12 +306,11 @@
 				C46E4EDA296693A1009412D0 /* URLHost.swift */,
 				C46E4EDC2966949D009412D0 /* URLPath.swift */,
 				C46E4EDE2966960B009412D0 /* HTTPMethod.swift */,
-				C46E4EE629669EB1009412D0 /* API */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		C46E4EE629669EB1009412D0 /* API */ = {
+		C46E4EE629669EB1009412D0 /* OPGGAPI */ = {
 			isa = PBXGroup;
 			children = (
 				C46E4EE729669EBC009412D0 /* OPGGAPIService.swift */,
@@ -310,7 +318,7 @@
 				C46E4EEB2966A7B0009412D0 /* OPGGSummonerAPIRequest.swift */,
 				C454AF1D2966BC9200391F73 /* OPGGMatchesAPIRequest.swift */,
 			);
-			path = API;
+			path = OPGGAPI;
 			sourceTree = "<group>";
 		};
 		C46E4EED2966A87D009412D0 /* Repository */ = {
