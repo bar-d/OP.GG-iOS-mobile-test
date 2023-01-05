@@ -14,60 +14,66 @@ struct Matches {
     let summary: Summary
 }
 
-struct Game {
-    let champion: Champion
-    let spells: [Spell]
-    let items: [Item]
-    let createDate: Int
-    let gameLength: Int
-    let gameType: String
-    let stats: Stats
-    let peak: [URL]
-    let isWin: Bool
+extension Matches {
+    struct Game {
+        let champion: Champion
+        let spells: [Spell]
+        let items: [Item]
+        let createDate: Int
+        let gameLength: Int
+        let gameType: String
+        let stats: Stats
+        let peak: [URL]
+        let isWin: Bool
+    }
+    
+    struct UsedChampionInformation {
+        let imageURL: URL
+        let games: Int
+        let wins: Int
+        let losses: Int
+    }
+    
+    struct Position {
+        let games: Int
+        let wins: Int
+        let losses: Int
+        let position: String
+    }
+    
+    struct Summary {
+        let wins: Int
+        let losses: Int
+        let kills: Int
+        let deaths: Int
+        let assists: Int
+    }
 }
 
-struct Champion {
-    let iamgeURL: URL
+extension Matches.Game {
+    struct Champion {
+        let iamgeURL: URL
+    }
+    
+    struct Spell {
+        let imageURL: URL
+    }
+    
+    struct Item {
+        let imageURL: URL
+    }
+    
+    struct Stats {
+        let general: General
+    }
 }
 
-struct Spell {
-    let imageURL: URL
-}
-
-struct Item {
-    let imageURL: URL
-}
-
-struct Stats {
-    let general: General
-}
-
-struct General {
-    let kill: Int
-    let death: Int
-    let assist: Int
-    let contributionForKillRate: String
-    let opScoreBadge: String
-}
-
-struct UsedChampionInformation {
-    let imageURL: URL
-    let games: Int
-    let wins: Int
-    let losses: Int
-}
-
-struct Position {
-    let games: Int
-    let wins: Int
-    let losses: Int
-    let position: String
-}
-
-struct Summary {
-    let wins: Int
-    let losses: Int
-    let kills: Int
-    let deaths: Int
-    let assists: Int
+extension Matches.Game.Stats {
+    struct General {
+        let kill: Int
+        let death: Int
+        let assist: Int
+        let contributionForKillRate: String
+        let opScoreBadge: String
+    }
 }
