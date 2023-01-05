@@ -24,7 +24,7 @@ final class PositionView: UIView {
     private let positionImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .coolGrey
+        imageView.image = UIImage(named: "iconLolAll")
         
         return imageView
     }()
