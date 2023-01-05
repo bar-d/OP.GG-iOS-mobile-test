@@ -134,6 +134,7 @@ extension MatchesResponseDTO.GameDTO.StatsDTO {
         let death: Int
         let assist: Int
         let contributionForKillRate: String
+        let largestMultiKillString: String
         let opScoreBadge: String
     }
     
@@ -149,6 +150,7 @@ extension MatchesResponseDTO.GameDTO.StatsDTO.GeneralDTO {
             death: death,
             assist: assist,
             contributionForKillRate: contributionForKillRate,
+            largestMultiKillString: largestMultiKillString,
             opScoreBadge: opScoreBadge
         )
     }
