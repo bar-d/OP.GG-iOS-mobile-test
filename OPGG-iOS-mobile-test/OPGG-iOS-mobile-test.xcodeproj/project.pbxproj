@@ -12,6 +12,7 @@
 		C454AF222966BECE00391F73 /* DefaultMatchesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF212966BECE00391F73 /* DefaultMatchesRepository.swift */; };
 		C454AF242966BF2E00391F73 /* MatchesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF232966BF2E00391F73 /* MatchesRepository.swift */; };
 		C454AF262966C4AA00391F73 /* MatchesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF252966C4AA00391F73 /* MatchesUseCase.swift */; };
+		C454AF2E2967497800391F73 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF2D2967497800391F73 /* ViewModel.swift */; };
 		C46A92CD2963F2A500B412C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A92CC2963F2A500B412C5 /* AppDelegate.swift */; };
 		C46A92D12963F2A500B412C5 /* SummonerGameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */; };
 		C46A92D62963F2A700B412C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C46A92D52963F2A700B412C5 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		C454AF212966BECE00391F73 /* DefaultMatchesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMatchesRepository.swift; sourceTree = "<group>"; };
 		C454AF232966BF2E00391F73 /* MatchesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesRepository.swift; sourceTree = "<group>"; };
 		C454AF252966C4AA00391F73 /* MatchesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesUseCase.swift; sourceTree = "<group>"; };
+		C454AF2D2967497800391F73 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C46A92C92963F2A500B412C5 /* OPGG-iOS-mobile-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OPGG-iOS-mobile-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46A92CC2963F2A500B412C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerGameHistoryViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,14 @@
 				C46E4EE629669EB1009412D0 /* OPGGAPI */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		C454AF2C2967496600391F73 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C454AF2D2967497800391F73 /* ViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C46A92C02963F2A500B412C5 = {
@@ -371,6 +381,7 @@
 		C48A1218296415420043466D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C454AF2C2967496600391F73 /* ViewModel */,
 				C48A12192964154B0043466D /* PaddingLabel.swift */,
 				C48A123829644D2C0043466D /* IndicatorView.swift */,
 				C48A122B29642D380043466D /* CircleImageView.swift */,
@@ -559,6 +570,7 @@
 				C48A122629641F110043466D /* UIFont+Extension.swift in Sources */,
 				C46E4ED429666718009412D0 /* SummonerResponseDTO.swift in Sources */,
 				C46E4EEC2966A7B0009412D0 /* OPGGSummonerAPIRequest.swift in Sources */,
+				C454AF2E2967497800391F73 /* ViewModel.swift in Sources */,
 				C48A121A2964154B0043466D /* PaddingLabel.swift in Sources */,
 				C454AF242966BF2E00391F73 /* MatchesRepository.swift in Sources */,
 				C454AF202966BEB800391F73 /* DTOError.swift in Sources */,
