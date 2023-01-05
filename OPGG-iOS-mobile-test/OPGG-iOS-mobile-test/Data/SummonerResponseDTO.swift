@@ -60,7 +60,7 @@ extension SummonerResponseDTO.SummonerDTO.LeagueDTO {
         }
     }
     
-    func toDomain() -> League {
+    func toDomain() -> Summoner.League {
         return .init(
             hasResults: hasResults,
             wins: wins,
@@ -71,7 +71,7 @@ extension SummonerResponseDTO.SummonerDTO.LeagueDTO {
 }
 
 extension SummonerResponseDTO.SummonerDTO.LeagueDTO.TierRankDTO {
-    func toDomain() -> TierRank {
+    func toDomain() -> Summoner.League.TierRank {
         return .init(
             name: name,
             tier: tier,

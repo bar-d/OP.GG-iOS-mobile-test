@@ -14,16 +14,20 @@ struct Summoner {
     let leagues: [League]
 }
 
-struct League {
-    let hasResults: Bool
-    let wins: Int
-    let losses: Int
-    let tierRank: TierRank
+extension Summoner {
+    struct League {
+        let hasResults: Bool
+        let wins: Int
+        let losses: Int
+        let tierRank: TierRank
+    }
 }
 
-struct TierRank {
-    let name: String
-    let tier: String
-    let imageURL: URL
-    let leaguePoints: Int
+extension Summoner.League {
+    struct TierRank {
+        let name: String
+        let tier: String
+        let imageURL: URL
+        let leaguePoints: Int
+    } 
 }
