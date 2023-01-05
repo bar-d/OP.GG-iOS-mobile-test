@@ -7,4 +7,5 @@ target 'OPGG-iOS-mobile-test' do
 
   # Pods for OPGG-iOS-mobile-test
   pod 'Alamofire'
+  pod 'Kingfisher', '~> 6.3.1'
 end
