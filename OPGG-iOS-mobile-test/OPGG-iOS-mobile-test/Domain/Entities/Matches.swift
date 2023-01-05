@@ -11,7 +11,7 @@ struct Matches {
     let games: [Game]
     let champions: [UsedChampionInformation]
     let positions: [Position]
-    let summary: [Summary]
+    let summary: Summary
 }
 
 struct Game {
