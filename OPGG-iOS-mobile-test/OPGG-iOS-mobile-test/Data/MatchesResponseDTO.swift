@@ -55,6 +55,15 @@ extension MatchesResponseDTO {
         let deaths: Int
         let assists: Int
     }
+    
+    func toDomain() -> Matches? {
+        return .init(
+            games: games.map { $0.toDomain() },
+            champions: champions.map { $0.toDomain() },
+            positions: positions.map { $0.toDomain() },
+            summary: summary.toDomain()
+        )
+    }
 }
 
 extension MatchesResponseDTO.GameDTO {
@@ -86,7 +95,7 @@ extension MatchesResponseDTO.GameDTO {
         let general: GeneralDTO
     }
     
-    func toDomain() -> Matches.Game? {
+    func toDomain() -> Matches.Game {
         return .init(
             champion: champion.toDomain(),
             spells: spells.map { $0.toDomain() },
@@ -141,6 +150,40 @@ extension MatchesResponseDTO.GameDTO.StatsDTO.GeneralDTO {
             assist: assist,
             contributionForKillRate: contributionForKillRate,
             opScoreBadge: opScoreBadge
+        )
+    }
+}
+
+extension MatchesResponseDTO.UsedChampionInformationDTO {
+    func toDomain() -> Matches.UsedChampionInformation {
+        return .init(
+            imageURL: imageURL,
+            games: games,
+            wins: wins,
+            losses: losses
+        )
+    }
+}
+
+extension MatchesResponseDTO.PositionDTO {
+    func toDomain() -> Matches.Position {
+        return .init(
+            games: games,
+            wins: wins,
+            losses: losses,
+            position: position
+        )
+    }
+}
+
+extension MatchesResponseDTO.SummaryDTO {
+    func toDomain() -> Matches.Summary {
+        return .init(
+            wins: wins,
+            losses: losses,
+            kills: kills,
+            deaths: deaths,
+            assists: assists
         )
     }
 }
