@@ -24,7 +24,7 @@ final class PositionView: UIView {
     private let positionImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "iconLolAll")
+        imageView.image = Design.positionImageViewDefaultImage
         
         return imageView
     }()
@@ -132,6 +132,7 @@ final class PositionView: UIView {
 private enum Design {
     static let positionTitleLabelFont: UIFont = .fontWith(type: .appleSDGothicNeoRegular, size: 10)
     static let positionTitleLabelDefaultText = "포지션"
+    static let positionImageViewDefaultImage = UIImage(named: "iconLolAll")
     static let positionRateLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 10)
     static let positionRateLabelDefaultText = "0%"
     static let positionViewWidthConstant: CGFloat = 30
