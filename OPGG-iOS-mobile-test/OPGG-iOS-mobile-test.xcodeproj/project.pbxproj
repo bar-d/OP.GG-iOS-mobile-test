@@ -285,9 +285,6 @@
 			children = (
 				C46E4EED2966A87D009412D0 /* Repository */,
 				C46E4ED52966672C009412D0 /* DataMapping */,
-				C46E4ED329666718009412D0 /* SummonerResponseDTO.swift */,
-				C46E4ED62966680E009412D0 /* MatchesResponseDTO.swift */,
-				C454AF1F2966BEB800391F73 /* DTOError.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -295,6 +292,9 @@
 		C46E4ED52966672C009412D0 /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
+				C46E4ED329666718009412D0 /* SummonerResponseDTO.swift */,
+				C46E4ED62966680E009412D0 /* MatchesResponseDTO.swift */,
+				C454AF1F2966BEB800391F73 /* DTOError.swift */,
 			);
 			path = DataMapping;
 			sourceTree = "<group>";
