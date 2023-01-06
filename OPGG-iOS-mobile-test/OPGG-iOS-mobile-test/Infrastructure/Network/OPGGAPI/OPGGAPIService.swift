@@ -7,48 +7,34 @@
 
 import Alamofire
 import Foundation
+import RxSwift
 
 struct OPGGAPIService: APIService {
-    func excute<T>(
-        _ request: T,
-        completion: @escaping (Result<T.APIResponse, APIError>) -> Void
-    ) where T : APIRequest {
-        guard let request = request.urlRequest else {
-            return
-        }
-        
-        callHandler(completion, from: request)
-    }
-    
-    private func callHandler<T>(
-        _ completion: @escaping (Result<T, APIError>) -> Void,
-        from request: URLRequest
-    ) where T: Decodable {
-        AF.request(request).responseDecodable { (response: DataResponse<T, AFError>) in
-            if let error = response.error {
-                completion(.failure(.unknownError(error)))
+    func request<T>(_ request: T) -> Observable<T.APIResponse> where T : APIRequest {
+        return Observable.create { observer in
+            guard let urlRequest = request.urlRequest else { return }
+            let request = AF.request(urlRequest).responseData { response in
+                if let error = response.error {
+                    return observer.onError(error)
+                }
+                
+                if let responseCode = response.error?.responseCode {
+                    let apiError = APIError.abnormalStatusCode(responseCode)
+                    observer.onError(apiError)
+                }
+                
+                if response.result.isSuccess {
+                    let data = parse(response.data)
+                    observer.onNext(data)
+                    return observer.onCompleted()
+                } else {
+                    return observer.onError(APIError.unknownError(response.error))
+                }
             }
             
-            if let responseCode = response.error?.responseCode {
-                let apiError = APIError.abnormalStatusCode(responseCode)
-                completion(.failure(apiError))
+            return Disposables.create {
+                request.cancel()
             }
-            
-            completion(checkIntegrity(of: response.data))
-        }
-    }
-    
-    private func checkIntegrity<T>(
-        of data: Data?
-    ) -> Result<T, APIError> where T: Decodable {
-        guard let verifiedData = data else {
-            return .failure(.emptyData)
-        }
-        
-        if let parsedData: T = parse(verifiedData) {
-            return .success(parsedData)
-        }  else {
-            return .failure(.failedToParse)
         }
     }
 }

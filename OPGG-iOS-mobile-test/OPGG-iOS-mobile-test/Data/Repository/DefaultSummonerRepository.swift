@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 struct DefaultSummonerRepository: SummonerRepository {
     
@@ -19,25 +20,23 @@ struct DefaultSummonerRepository: SummonerRepository {
 }
 
 extension DefaultSummonerRepository {
-    func fetchSummonerInformation(
-        id: String,
-        completion: @escaping (Result<Summoner, Error>) -> Void
-    ) {
+    func fetchSummonerMatches(createDate: Int?) -> Observable<Matches> {
+        let matchesRequest = OPGGMatchesAPIRequest(createDate: createDate)
+        
+        return opggAPIService.request(matchesRequest).map {
+            guard let matches = $0.toDomain() else { return }
+            
+            return matches
+        }
+    }
+    
+    func fetchSummonerInformation(id: String) -> Observable<Summoner> {
         let summonerRequest = OPGGSummonerAPIRequest(summonerID: id)
         
-        opggAPIService.excute(summonerRequest) { result in
-            switch result {
-            case .success(let response):
-                guard let summoner = response.summoner.toDomain() else {
-                    completion(.failure(DTOError.invalidTransformation))     
-                    return
-                }
-                
-                completion(.success(summoner))
-            case .failure(let error):
-                completion(.failure(error))
-            }
+        return opggAPIService.request(summonerRequest).map {
+            guard let summoner = $0.summoner.toDomain() else { return }
             
+            return summoner
         }
     }
 }

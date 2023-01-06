@@ -6,12 +6,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol APIService {
-    func excute<T: APIRequest>(
-        _ request: T,
-        completion: @escaping (Result<T.APIResponse, APIError>) -> Void
-    )
+    func request<T: APIRequest>(_ request: T) -> Observable<T.APIResponse>
 }
 
 extension APIService {

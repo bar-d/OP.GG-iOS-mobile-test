@@ -5,9 +5,8 @@
 //  Created by bard on 2023/01/05.
 //
 
+import RxSwift
+
 protocol MatchesRepository {
-    func fetchSummonerMatches(
-        createDate: Int?,
-        completion: @escaping (Result<Matches, Error>) -> Void
-    )
+    func fetchSummonerMatches(createDate: Int?) -> Observable<Matches>
 }
