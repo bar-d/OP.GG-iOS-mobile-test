@@ -25,6 +25,7 @@ struct OPGGAPIService: APIService {
                         )
                         
                         observer.onNext(data)
+                        observer.onCompleted()
                     } catch {
                         observer.onError(APIError.failedToParse)
                     }
