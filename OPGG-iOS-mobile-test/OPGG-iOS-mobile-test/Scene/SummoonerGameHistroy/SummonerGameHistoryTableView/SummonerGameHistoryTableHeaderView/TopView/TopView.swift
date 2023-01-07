@@ -5,6 +5,9 @@
 //  Created by bard on 2023/01/03.
 //
 
+import Kingfisher
+import RxCocoa
+import RxSwift
 import UIKit
 
 final class TopView: UIView {
@@ -70,6 +73,12 @@ final class TopView: UIView {
     }
     
     // MARK: - Methods
+    
+    func setupContent(with summoner: Summoner) {
+        iconImageView.kf.setImage(with: summoner.profileImageURL)
+        summonerNameLabel.text = summoner.name
+        summonerLevelLabel.text = String(summoner.level)
+    }
     
     func setupIconImage(_ image: UIImage?) {
         iconImageView.image = image
