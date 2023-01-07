@@ -17,7 +17,6 @@ final class AdditionalInformationView: UIView {
         label.textColor = .coolGrey
         label.textAlignment = .right
         label.font = Design.gameTypeLabelFont
-        label.text = "솔랭"
         return label
     }()
     
@@ -27,7 +26,6 @@ final class AdditionalInformationView: UIView {
         label.textColor = .coolGrey
         label.textAlignment = .right
         label.font = Design.playedTimeLabelFont
-        label.text = "2분 전"
         return label
     }()
     
@@ -45,7 +43,8 @@ final class AdditionalInformationView: UIView {
         label.layer.borderColor = UIColor.darkishPink.cgColor
         label.layer.borderWidth = Design.killingSpreeLabelBorderWidth
         label.layer.masksToBounds = true
-        label.text = "쿼드라 킬"
+        label.isHidden = true
+        
         return label
     }()
     
@@ -64,6 +63,16 @@ final class AdditionalInformationView: UIView {
     }
     
     // MARK: - Methods
+    
+    func setupContent(with game: Matches.Game) {
+        gameTypeLabel.text = game.gameType
+        playedTimeLabel.text = game.createDate.timePassedFromNow
+        killingSpreeLabel.text = KillingSpreeType.killingSpree(
+            type: game.stats.general.largestMultiKillString
+        ).value
+        killingSpreeLabel.isHidden = game.stats.general.largestMultiKillString == ""
+        ? true : false
+    }
     
     private func commonInit() {
         setupConstraintsAutomatic(false)

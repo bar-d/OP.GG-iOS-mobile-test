@@ -29,9 +29,7 @@ final class SummonerGameInformationCell: UITableViewCell {
         label.layer.borderWidth = Design.bestPlayerBadgBorderWidth
         label.layer.borderColor = UIColor.white.cgColor
         label.layer.masksToBounds = true
-        
-        label.text = "MVP"
-        label.backgroundColor = .orangeYellow
+        label.isHidden = true
         
         return label
     }()
@@ -56,6 +54,22 @@ final class SummonerGameInformationCell: UITableViewCell {
     }
     
     // MARK: - Methods
+    
+    func setupContent(with game: Matches.Game) {
+        setupSummonerGameInformationCell(with: game)
+        gameResultView.setupContentWith(game: game)
+        spellAndRuneStackView.setupContent(with: game)
+        kdaStackView.setupContent(with: game)
+        itemStackView.setupContent(with: game)
+        additionalInformationView.setupContent(with: game)
+    }
+    
+    func setupSummonerGameInformationCell(with game: Matches.Game) {
+        championImageView.kf.setImage(with: game.champion.iamgeURL)
+        bestPlayerBadge.text = game.stats.general.opScoreBadge
+        bestPlayerBadge.backgroundColor = game.isWin ? .orangeYellow : .periwinkle
+        bestPlayerBadge.isHidden = bestPlayerBadge.text == "" ? true : false
+    }
     
     private func commonInit() {
         setupBackgroundColor(.white)
@@ -90,7 +104,8 @@ final class SummonerGameInformationCell: UITableViewCell {
             ),
             gameResultView.leadingAnchor.constraint(
                 equalTo: leadingAnchor
-            )
+            ),
+            heightAnchor.constraint(equalToConstant: 104)
         ])
     }
     
