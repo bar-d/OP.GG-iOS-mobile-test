@@ -45,8 +45,8 @@ final class MostWinRateView: UIView {
     
     private let firstMostChampionImageView = CircleImageView()
     
-    private let firstMostChampionWinRateLabel: UILabel = {
-        let label = UILabel()
+    private let firstMostChampionWinRateLabel: PercentLabel = {
+        let label = PercentLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = Design.firstMostChampionWinRateLabelFont
         label.textColor = .darkGrey
@@ -68,8 +68,8 @@ final class MostWinRateView: UIView {
     
     private let secondMostChampionImageView = CircleImageView()
     
-    private let secondMostChampionWinRateLabel: UILabel = {
-        let label = UILabel()
+    private let secondMostChampionWinRateLabel: PercentLabel = {
+        let label = PercentLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = Design.secondMostChampionWinRateLabelFont
         label.textColor = .darkGrey
@@ -112,15 +112,13 @@ final class MostWinRateView: UIView {
         )
         
         if sortedChampion.count == 1 {
-            secondMostChampionImageView.isHidden = true
-            secondMostChampionWinRateLabel.isHidden = true
-        }
-        
-        if sortedChampion.isEmpty {
-            mostWinRates
+            secondChampionVerticalStackView.isHidden = true
+        } else if sortedChampion.isEmpty {
+            [firstChampionVerticalStackView, secondChampionVerticalStackView]
                 .forEach { $0.isHidden = true }
-            mostChampionImageViews
-                .forEach { $0.isHidden = true }
+        } else {
+            [firstChampionVerticalStackView, secondChampionVerticalStackView]
+                .forEach { $0.isHidden = false }
         }
         
         for i in 0..<sortedChampion.count {
@@ -129,7 +127,7 @@ final class MostWinRateView: UIView {
             } else {
                 if sortedChampion[i].imageURL.absoluteString.contains("https:") == false {
                     let mostChampion = sortedChampion[i]
-                    var urlAbsouluteString = mostChampion.imageURL.absoluteString
+                    let urlAbsouluteString = mostChampion.imageURL.absoluteString
                     let replacedURL = urlAbsouluteString
                         .components(separatedBy: "/")
                         .dropFirst()
@@ -142,8 +140,7 @@ final class MostWinRateView: UIView {
                         with: url,
                         options: [.retryStrategy(retryStrategy)]
                     )
-                    mostWinRates[i].text =
-                    "\(Int.winRate(wins: mostChampion.wins, games: mostChampion.games))%"
+                    mostWinRates[i].setupPercentText(with: mostChampion)
                 } else {
                     let mostChampion = sortedChampion[i]
                     mostChampionImageViews[i].kf.indicatorType = .activity
@@ -151,8 +148,8 @@ final class MostWinRateView: UIView {
                         with: sortedChampion[i].imageURL,
                         options: [.retryStrategy(retryStrategy)]
                     )
-                    mostWinRates[i].text =
-                    "\(Int.winRate(wins: mostChampion.wins, games: mostChampion.games))%"
+                    
+                    mostWinRates[i].setupPercentText(with: mostChampion)
                 }
             }
         }
