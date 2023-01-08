@@ -81,17 +81,7 @@ final class TopView: UIView {
     func setupContent(with summoner: Summoner) {
         iconImageView.kf.setImage(with: summoner.profileImageURL)
         summonerNameLabel.text = summoner.name
-        summonerLevelLabel.text = String(summoner.level)
-    }
-    
-    func setupSummonerLevelLabelText(_ text: String?) {
-        guard let unwrappedText = text else { return }
-        
-        if unwrappedText.count == Design.one {
-            summonerLevelLabel.text = " \(unwrappedText) "
-        } else {
-            summonerLevelLabel.text = unwrappedText.decimalNumberFormatted
-        }
+        setupSummonerLevelLabelText(String(summoner.level))
     }
     
     private func commonInit() {
@@ -181,6 +171,16 @@ final class TopView: UIView {
                 equalToConstant: Design.refreshGameHistoryButtonHeight
             )
         ])
+    }
+    
+    private func setupSummonerLevelLabelText(_ text: String?) {
+        guard let unwrappedText = text else { return }
+        
+        if unwrappedText.count == Design.one {
+            summonerLevelLabel.text = " \(unwrappedText) "
+        } else {
+            summonerLevelLabel.text = unwrappedText.decimalNumberFormatted
+        }
     }
 }
 
