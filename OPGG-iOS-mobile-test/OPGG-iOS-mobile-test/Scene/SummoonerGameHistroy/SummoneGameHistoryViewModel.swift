@@ -32,7 +32,7 @@ struct SummoneGameHistoryViewModel: ViewModel {
         let loadSummonerInformation = Observable.merge(
             input.viewDidLoad,
             input.refreshButtonDidTap
-        ).flatMap { aaa in
+        ).flatMap { _ in
 
             return Observable.combineLatest(
                 summonerUseCase.fetchSummonerInformation(),
