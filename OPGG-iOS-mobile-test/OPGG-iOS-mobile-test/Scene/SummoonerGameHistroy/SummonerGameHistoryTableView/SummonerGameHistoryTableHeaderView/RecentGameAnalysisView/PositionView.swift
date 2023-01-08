@@ -5,6 +5,7 @@
 //  Created by bard on 2023/01/04.
 //
 
+import Kingfisher
 import UIKit
 
 final class PositionView: UIView {
@@ -55,6 +56,22 @@ final class PositionView: UIView {
     
     // MARK: - Methods
     
+    func setupContent(with matches: Matches) {
+        let sortedPositions = matches.positions.sorted {
+            let firstPosition = Double($0.wins) / Double($0.games)
+            let secondPosition = Double($1.wins) / Double($1.games)
+            
+            return  firstPosition > secondPosition
+        }
+        guard let bestPosition = sortedPositions.first else { return }
+        
+        positionImageView.image = UIImage(
+            named:"iconLol\(bestPosition.position.firstLetterUppercased)"
+        )
+        
+        positionRateLabel.text =
+        "\(Int.winRate(wins: bestPosition.wins, games: bestPosition.games))%"
+    }
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()

@@ -37,6 +37,14 @@ final class SummonerGameHistoryTableView: UITableView {
         self.dataSource = dataSource
     }
     
+    func setupHeaderView(with summoner: Summoner) {
+        summonerGameHistoryTableHeaderView.setupContent(with: summoner)
+    }
+    
+    func setupHeaderView(with matches: Matches) {
+        summonerGameHistoryTableHeaderView.setupContent(with: matches)
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupBackgroundColor(.paleGrey2)
