@@ -80,7 +80,6 @@ final class TopView: UIView {
     
     func setupContent(with summoner: Summoner) {
         iconImageView.kf.setImage(with: summoner.profileImageURL)
-        summonerNameLabel.text = summoner.name
         setupSummonerLevelLabelText(String(summoner.level))
     }
     

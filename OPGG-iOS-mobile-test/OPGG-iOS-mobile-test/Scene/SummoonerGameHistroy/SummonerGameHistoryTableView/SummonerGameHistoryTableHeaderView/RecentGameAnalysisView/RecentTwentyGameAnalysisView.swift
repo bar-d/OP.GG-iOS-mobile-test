@@ -67,12 +67,7 @@ final class RecentTwentyGameAnalysisView: UIView {
     // MARK: - Methods
     
     func setupContent(with summary: Matches.Summary) {
-        let kills = Double(summary.kills)
-        let deaths = Double(summary.deaths)
-        let assists = Double(summary.assists)
         let totalGameCount = summary.wins + summary.losses
-        let totalKDA = ((kills + assists) / deaths).withDecimal(decimalPoint: 2)
-        let winRate = Int.winRate(wins: summary.wins, losses: summary.losses)
         
         recentTwentyGameAnalysisLabel.text = "최근 \(totalGameCount)게임 분석"
         winLoseCountLabel.text = "\(summary.wins)승 \(summary.losses)패"
