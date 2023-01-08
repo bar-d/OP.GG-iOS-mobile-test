@@ -5,7 +5,7 @@
 //  Created by bard on 2023/01/05.
 //
 
-import Foundation
+import RxSwift
 
 struct MatchesUseCase {
     
@@ -26,17 +26,8 @@ struct MatchesUseCase {
     
     // MARK: - Methods
     
-    func fetchSummonerMatches(
-        createDate: Int? = nil,
-        completion: @escaping (Result<Matches, Error>) -> Void
-    ) {
-        repository.fetchSummonerMatches(createDate: createDate) { result in
-            switch result {
-            case .success(let matches):
-                completion(.success(matches))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func fetchSummonerMatches(createDate: Int? = nil) -> Observable<Matches> {
+        
+        return repository.fetchSummonerMatches(createDate: createDate).map { $0 }
     }
 }

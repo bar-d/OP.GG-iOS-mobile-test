@@ -29,6 +29,19 @@ final class SummonerGameHistoryTableHeaderView: UIView {
     
     // MARK: - Methods
     
+    func getRefreshGameHistoryButton() -> UIButton {
+        return topView.getRefreshGameHistoryButton()
+    }
+    
+    func setupContent(with summoner: Summoner) {
+        topView.setupContent(with: summoner)
+        leagueSummaryScrollView.setupContent(with: summoner.leagues)
+    }
+    
+    func setupContent(with matches: Matches) {
+        recentGameAnalysisView.setupContent(with: matches)
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()

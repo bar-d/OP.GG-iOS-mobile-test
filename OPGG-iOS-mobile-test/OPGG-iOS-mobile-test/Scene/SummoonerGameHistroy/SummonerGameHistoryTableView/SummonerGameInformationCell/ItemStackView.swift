@@ -5,6 +5,7 @@
 //  Created by bard on 2023/01/04.
 //
 
+import Kingfisher
 import UIKit
 
 final class ItemStackView: UIStackView {
@@ -88,6 +89,17 @@ final class ItemStackView: UIStackView {
     }
     
     // MARK: - Methods
+    
+    func setupContent(with game: Matches.Game) {
+        let items = [firstItemImageView, secondItemImageView, thirdItemImageView,
+                     fourthItemImageView, fifthItemImageView, sixthItemImageView]
+        
+        for i in 0..<game.items.count - 1 {
+            items[i].kf.setImage(with: game.items[i].imageURL)
+        }
+        
+        accessoryItemImageView.kf.setImage(with: game.items.last?.imageURL)
+    }
     
     private func commonInit() {
         setupConstraintsAutomatic(false)

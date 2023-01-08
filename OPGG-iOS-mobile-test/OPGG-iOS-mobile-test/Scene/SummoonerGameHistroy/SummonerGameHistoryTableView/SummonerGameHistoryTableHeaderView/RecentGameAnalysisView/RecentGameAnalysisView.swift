@@ -31,6 +31,12 @@ final class RecentGameAnalysisView: UIView {
     
     // MARK: - Methods
     
+    func setupContent(with matches: Matches) {
+        recentTwentyGameAnalysisView.setupContent(with: matches.summary)
+        mostWinRateView.setupContent(with: matches)
+        positionView.setupContent(with: matches)
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupBackgroundColor(.white)

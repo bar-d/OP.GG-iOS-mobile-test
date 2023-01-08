@@ -40,6 +40,15 @@ final class LeagueSummaryScrollView: UIScrollView {
     
     // MARK: - Methods
     
+    func setupContent(with leagues: [Summoner.League]) {
+        if leagues.isEmpty || leagues.count > 2 {
+            return
+        }
+        
+        soloRankSummaryView.setupContent(with: leagues[0])
+        flexRankSummaryView.setupContent(with: leagues[1])
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()

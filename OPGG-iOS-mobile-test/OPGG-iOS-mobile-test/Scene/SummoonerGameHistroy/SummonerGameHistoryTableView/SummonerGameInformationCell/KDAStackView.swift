@@ -20,7 +20,7 @@ final class KDAStackView: UIStackView {
         return label
     }()
     
-    private let kdaPercentLabel: UILabel = {
+    private let killContributionRateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .gunmetal
@@ -46,6 +46,16 @@ final class KDAStackView: UIStackView {
     
     // MARK: - Methods
     
+    func setupContent(with game: Matches.Game) {
+        let kills = game.stats.general.kill
+        let deaths = game.stats.general.death
+        let assists = game.stats.general.assist
+        let killRate = game.stats.general.contributionForKillRate
+        
+        kdaLabel.text = "\(kills) / \(deaths) / \(assists)"
+        killContributionRateLabel.text = "킬관여 \(killRate)"
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
@@ -58,7 +68,7 @@ final class KDAStackView: UIStackView {
     }
     
     private func setupSubviews() {
-        [kdaLabel, kdaPercentLabel]
+        [kdaLabel, killContributionRateLabel]
             .forEach { addArrangedSubview($0) }
     }
     

@@ -5,6 +5,7 @@
 //  Created by bard on 2023/01/03.
 //
 
+import Kingfisher
 import UIKit
 
 final class LeagueSummaryView: UIView {
@@ -76,6 +77,18 @@ final class LeagueSummaryView: UIView {
     }
     
     // MARK: - Methods
+    // 확인해볼 것
+    func setupContent(with league: Summoner.League) {
+        guard league.hasResults == true else { return }
+        let winRate = Int.winRate(wins: league.wins, losses: league.losses)
+        
+        tierIconImageView.kf.setImage(with: league.tierRank.imageURL)
+        tierLabel.text = league.tierRank.tier
+        rankTypeLabel.text = league.tierRank.name
+        leaguePointLabel.text = "\(league.tierRank.leaguePoints) LP"
+        winRateLabel.text =
+        "\(league.wins)승 \(league.losses)패 (\(winRate)%)"
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()

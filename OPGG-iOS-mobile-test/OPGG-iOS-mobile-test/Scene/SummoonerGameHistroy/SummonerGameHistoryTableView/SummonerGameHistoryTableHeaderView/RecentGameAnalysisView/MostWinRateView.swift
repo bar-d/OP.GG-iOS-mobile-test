@@ -5,6 +5,7 @@
 //  Created by bard on 2023/01/04.
 //
 
+import Kingfisher
 import UIKit
 
 final class MostWinRateView: UIView {
@@ -92,6 +93,70 @@ final class MostWinRateView: UIView {
     }
     
     // MARK: - Methods
+    
+    func setupContent(with match: Matches) {
+        let mostChampionImageViews = [
+            secondMostChampionImageView, firstMostChampionImageView
+        ]
+        let mostWinRates = [secondMostChampionWinRateLabel, firstMostChampionWinRateLabel]
+        let sortedChampion = match.champions.sorted {
+            let firstChampion = Int.winRate(wins: $0.wins, games: $0.games)
+            let secondChampion = Int.winRate(wins: $1.wins, games: $1.games)
+            
+            return firstChampion > secondChampion
+        }
+        
+        let retryStrategy = DelayRetryStrategy(
+            maxRetryCount: 2,
+            retryInterval: .seconds(1)
+        )
+        
+        if sortedChampion.count == 1 {
+            secondMostChampionImageView.isHidden = true
+            secondMostChampionWinRateLabel.isHidden = true
+        }
+        
+        if sortedChampion.isEmpty {
+            mostWinRates
+                .forEach { $0.isHidden = true }
+            mostChampionImageViews
+                .forEach { $0.isHidden = true }
+        }
+        
+        for i in 0..<sortedChampion.count {
+            if i >= 2 {
+                return
+            } else {
+                if sortedChampion[i].imageURL.absoluteString.contains("https:") == false {
+                    let mostChampion = sortedChampion[i]
+                    var urlAbsouluteString = mostChampion.imageURL.absoluteString
+                    let replacedURL = urlAbsouluteString
+                        .components(separatedBy: "/")
+                        .dropFirst()
+                        .joined(separator: "/")
+                    
+                    guard let url = URL(string: "https:/\(replacedURL)") else { return }
+                    
+                    mostChampionImageViews[i].kf.indicatorType = .activity
+                    mostChampionImageViews[i].kf.setImage(
+                        with: url,
+                        options: [.retryStrategy(retryStrategy)]
+                    )
+                    mostWinRates[i].text =
+                    "\(Int.winRate(wins: mostChampion.wins, games: mostChampion.games))%"
+                } else {
+                    let mostChampion = sortedChampion[i]
+                    mostChampionImageViews[i].kf.indicatorType = .activity
+                    mostChampionImageViews[i].kf.setImage(
+                        with: sortedChampion[i].imageURL,
+                        options: [.retryStrategy(retryStrategy)]
+                    )
+                    mostWinRates[i].text =
+                    "\(Int.winRate(wins: mostChampion.wins, games: mostChampion.games))%"
+                }
+            }
+        }
+    }
     
     private func commonInit() {
         setupConstraintsAutomatic(false)

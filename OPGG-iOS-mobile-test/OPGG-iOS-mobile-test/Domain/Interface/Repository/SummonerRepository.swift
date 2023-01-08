@@ -5,9 +5,8 @@
 //  Created by bard on 2023/01/05.
 //
 
+import RxSwift
+
 protocol SummonerRepository {
-    func fetchSummonerInformation(
-        id: String,
-        completion: @escaping (Result<Summoner, Error>) -> Void
-    )
+    func fetchSummonerInformation(id: String) -> Observable<Summoner>
 }

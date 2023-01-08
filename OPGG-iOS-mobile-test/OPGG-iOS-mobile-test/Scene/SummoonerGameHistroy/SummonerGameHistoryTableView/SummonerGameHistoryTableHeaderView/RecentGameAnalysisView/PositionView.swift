@@ -5,6 +5,7 @@
 //  Created by bard on 2023/01/04.
 //
 
+import Kingfisher
 import UIKit
 
 final class PositionView: UIView {
@@ -24,7 +25,7 @@ final class PositionView: UIView {
     private let positionImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .coolGrey
+        imageView.image = Design.positionImageViewDefaultImage
         
         return imageView
     }()
@@ -55,6 +56,22 @@ final class PositionView: UIView {
     
     // MARK: - Methods
     
+    func setupContent(with matches: Matches) {
+        let sortedPositions = matches.positions.sorted {
+            let firstPosition = Double($0.wins) / Double($0.games)
+            let secondPosition = Double($1.wins) / Double($1.games)
+            
+            return  firstPosition > secondPosition
+        }
+        guard let bestPosition = sortedPositions.first else { return }
+        
+        positionImageView.image = UIImage(
+            named:"iconLol\(bestPosition.position.firstLetterUppercased)"
+        )
+        
+        positionRateLabel.text =
+        "\(Int.winRate(wins: bestPosition.wins, games: bestPosition.games))%"
+    }
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
@@ -132,6 +149,7 @@ final class PositionView: UIView {
 private enum Design {
     static let positionTitleLabelFont: UIFont = .fontWith(type: .appleSDGothicNeoRegular, size: 10)
     static let positionTitleLabelDefaultText = "포지션"
+    static let positionImageViewDefaultImage = UIImage(named: "iconLolAll")
     static let positionRateLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 10)
     static let positionRateLabelDefaultText = "0%"
     static let positionViewWidthConstant: CGFloat = 30

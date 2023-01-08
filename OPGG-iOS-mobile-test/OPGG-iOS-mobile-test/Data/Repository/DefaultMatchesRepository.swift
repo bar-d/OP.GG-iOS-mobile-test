@@ -5,7 +5,7 @@
 //  Created by bard on 2023/01/05.
 //
 
-import Foundation
+import RxSwift
 
 struct DefaultMatchesRepository: MatchesRepository {
     
@@ -16,29 +16,14 @@ struct DefaultMatchesRepository: MatchesRepository {
     init(opggAPIService: OPGGAPIService = .init()) {
         self.opggAPIService = opggAPIService
     }
-    
-    
 }
 
 extension DefaultMatchesRepository {
-    func fetchSummonerMatches(
-        createDate: Int?,
-        completion: @escaping (Result<Matches, Error>) -> Void
-    ) {
+    func fetchSummonerMatches(createDate: Int?) -> Observable<Matches> {
         let matchesRequest = OPGGMatchesAPIRequest(createDate: createDate)
         
-        opggAPIService.excute(matchesRequest) { result in
-            switch result {
-            case .success(let response):
-                guard let matches = response.toDomain() else {
-                    completion(.failure(DTOError.invalidTransformation))
-                    return
-                }
-                
-                completion(.success(matches))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+        return opggAPIService
+            .request(matchesRequest)
+            .compactMap { $0.toDomain() }
     }
 }

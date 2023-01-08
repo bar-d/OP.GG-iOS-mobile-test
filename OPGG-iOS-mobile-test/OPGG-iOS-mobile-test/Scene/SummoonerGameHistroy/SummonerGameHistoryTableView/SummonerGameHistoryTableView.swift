@@ -16,7 +16,7 @@ final class SummonerGameHistoryTableView: UITableView {
     // MARK: Initializers
     
     override init(frame: CGRect, style: UITableView.Style) {
-        super.init(frame: frame, style: .grouped)
+        super.init(frame: frame, style: style)
         
         commonInit()
     }
@@ -29,12 +29,24 @@ final class SummonerGameHistoryTableView: UITableView {
     
     // MARK: - Mehtods
     
+    func getRefreshGameHistoryButton() -> UIButton {
+        return summonerGameHistoryTableHeaderView.getRefreshGameHistoryButton()
+    }
+    
     func setupDelegate(_ delegate: UITableViewDelegate) {
         self.delegate = delegate
     }
     
     func setupDataSource(_ dataSource: UITableViewDataSource) {
         self.dataSource = dataSource
+    }
+    
+    func setupHeaderView(with summoner: Summoner) {
+        summonerGameHistoryTableHeaderView.setupContent(with: summoner)
+    }
+    
+    func setupHeaderView(with matches: Matches) {
+        summonerGameHistoryTableHeaderView.setupContent(with: matches)
     }
     
     private func commonInit() {
