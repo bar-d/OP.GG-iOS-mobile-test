@@ -39,6 +39,14 @@ final class SummonerGameInformationCell: UITableViewCell {
     private let itemStackView = ItemStackView()
     private let additionalInformationView = AdditionalInformationView()
     
+    private let separatorView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .paleGrey2
+        
+        return view
+    }()
+    
     // MARK: - Initializers
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -83,7 +91,7 @@ final class SummonerGameInformationCell: UITableViewCell {
     
     private func setupSubviews() {
         [gameResultView, championImageView, bestPlayerBadge, spellAndRuneStackView,
-         kdaStackView, itemStackView, additionalInformationView]
+         kdaStackView, itemStackView, additionalInformationView, separatorView]
             .forEach { addSubview($0) }
     }
     
@@ -95,6 +103,7 @@ final class SummonerGameInformationCell: UITableViewCell {
         setupKDAStackViewConstraints()
         setupItemStackViewConstraints()
         setupAdditionalInformationViewConstraints()
+        setupSeparatorViewConstraints()
     }
     
     private func setupGameResultViewConstraints() {
@@ -189,6 +198,20 @@ final class SummonerGameInformationCell: UITableViewCell {
                 equalTo: trailingAnchor
             ),
             additionalInformationView.bottomAnchor.constraint(
+                equalTo: separatorView.topAnchor
+            )
+        ])
+    }
+    
+    private func setupSeparatorViewConstraints() {
+        NSLayoutConstraint.activate([
+            separatorView.widthAnchor.constraint(
+                equalTo: widthAnchor
+            ),
+            separatorView.heightAnchor.constraint(
+                equalToConstant: Design.separatorViewHeightConstant
+            ),
+            separatorView.bottomAnchor.constraint(
                 equalTo: bottomAnchor
             )
         ])
@@ -210,4 +233,5 @@ private enum Design {
     static let kdaStackViewLeadingConstant: CGFloat = 8
     static let itemStackViewTopConstant: CGFloat = 8
     static let itemStackViewLeadingConstant: CGFloat = 16
+    static let separatorViewHeightConstant: CGFloat = 4
 }

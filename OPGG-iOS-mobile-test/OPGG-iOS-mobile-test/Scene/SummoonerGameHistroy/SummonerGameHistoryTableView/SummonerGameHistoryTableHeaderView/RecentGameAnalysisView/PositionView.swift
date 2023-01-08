@@ -30,8 +30,8 @@ final class PositionView: UIView {
         return imageView
     }()
     
-    private let positionRateLabel: UILabel = {
-        let label = UILabel()
+    private let positionRateLabel: PercentLabel = {
+        let label = PercentLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = Design.positionRateLabelFont
         label.textColor = .darkGrey
@@ -68,10 +68,9 @@ final class PositionView: UIView {
         positionImageView.image = UIImage(
             named:"iconLol\(bestPosition.position.firstLetterUppercased)"
         )
-        
-        positionRateLabel.text =
-        "\(Int.winRate(wins: bestPosition.wins, games: bestPosition.games))%"
+        positionRateLabel.setupPercentText(with: bestPosition)
     }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
         setupSubviews()
