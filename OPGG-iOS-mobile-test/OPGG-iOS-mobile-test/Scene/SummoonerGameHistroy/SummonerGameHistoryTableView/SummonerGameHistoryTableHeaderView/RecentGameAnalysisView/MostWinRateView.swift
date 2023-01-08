@@ -115,7 +115,6 @@ final class MostWinRateView: UIView {
             secondMostChampionImageView.isHidden = true
             secondMostChampionWinRateLabel.isHidden = true
         }
-        print(sortedChampion)
         
         if sortedChampion.isEmpty {
             mostWinRates
