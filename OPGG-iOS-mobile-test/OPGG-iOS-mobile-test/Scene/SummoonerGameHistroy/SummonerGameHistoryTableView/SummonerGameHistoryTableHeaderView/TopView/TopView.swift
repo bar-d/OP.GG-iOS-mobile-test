@@ -6,8 +6,6 @@
 //
 
 import Kingfisher
-import RxCocoa
-import RxSwift
 import UIKit
 
 final class TopView: UIView {
@@ -73,6 +71,10 @@ final class TopView: UIView {
     }
     
     // MARK: - Methods
+    
+    func getRefreshGameHistoryButton() -> UIButton {
+        return refreshGameHistoryButton
+    }
     
     func setupContent(with summoner: Summoner) {
         iconImageView.kf.setImage(with: summoner.profileImageURL)

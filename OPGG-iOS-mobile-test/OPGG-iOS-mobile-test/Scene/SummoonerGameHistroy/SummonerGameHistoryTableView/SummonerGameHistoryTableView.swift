@@ -29,6 +29,11 @@ final class SummonerGameHistoryTableView: UITableView {
     
     // MARK: - Mehtods
     
+    func getRefreshGameHistoryButton() -> UIButton {
+        return summonerGameHistoryTableHeaderView.getRefreshGameHistoryButton()
+    }
+
+    
     func setupDelegate(_ delegate: UITableViewDelegate) {
         self.delegate = delegate
     }
