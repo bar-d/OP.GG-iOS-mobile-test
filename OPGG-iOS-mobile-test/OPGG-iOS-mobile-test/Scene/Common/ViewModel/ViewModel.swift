@@ -13,5 +13,5 @@ protocol ViewModel {
     
     var disposeBag: DisposeBag { get set }
     
-    func transfrom(input: Input) -> Output
+    func transfrom(_ input: Input) -> Output
 }
