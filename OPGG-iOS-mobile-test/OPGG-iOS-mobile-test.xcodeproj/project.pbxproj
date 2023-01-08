@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C406854A296B20F200211BD4 /* KDALabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4068549296B20F200211BD4 /* KDALabel.swift */; };
+		C406854C296B20FC00211BD4 /* KDAPercentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406854B296B20FC00211BD4 /* KDAPercentLabel.swift */; };
+		C406854E296B210700211BD4 /* PercentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406854D296B210700211BD4 /* PercentLabel.swift */; };
 		C454AF1E2966BC9200391F73 /* OPGGMatchesAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF1D2966BC9200391F73 /* OPGGMatchesAPIRequest.swift */; };
 		C454AF202966BEB800391F73 /* DTOError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF1F2966BEB800391F73 /* DTOError.swift */; };
 		C454AF222966BECE00391F73 /* DefaultMatchesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF212966BECE00391F73 /* DefaultMatchesRepository.swift */; };
@@ -71,6 +74,9 @@
 		00F0CE30987868D3A0DD58B3 /* Pods-OPGG-iOS-mobile-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OPGG-iOS-mobile-test.release.xcconfig"; path = "Target Support Files/Pods-OPGG-iOS-mobile-test/Pods-OPGG-iOS-mobile-test.release.xcconfig"; sourceTree = "<group>"; };
 		47AFDA211BE954D3C8D7E9D3 /* Pods-OPGG-iOS-mobile-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OPGG-iOS-mobile-test.debug.xcconfig"; path = "Target Support Files/Pods-OPGG-iOS-mobile-test/Pods-OPGG-iOS-mobile-test.debug.xcconfig"; sourceTree = "<group>"; };
 		8882213A82A2E5FCB30CC187 /* Pods_OPGG_iOS_mobile_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OPGG_iOS_mobile_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4068549296B20F200211BD4 /* KDALabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDALabel.swift; sourceTree = "<group>"; };
+		C406854B296B20FC00211BD4 /* KDAPercentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDAPercentLabel.swift; sourceTree = "<group>"; };
+		C406854D296B210700211BD4 /* PercentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentLabel.swift; sourceTree = "<group>"; };
 		C454AF1D2966BC9200391F73 /* OPGGMatchesAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPGGMatchesAPIRequest.swift; sourceTree = "<group>"; };
 		C454AF1F2966BEB800391F73 /* DTOError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOError.swift; sourceTree = "<group>"; };
 		C454AF212966BECE00391F73 /* DefaultMatchesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMatchesRepository.swift; sourceTree = "<group>"; };
@@ -397,6 +403,9 @@
 				C48A12192964154B0043466D /* PaddingLabel.swift */,
 				C48A123829644D2C0043466D /* IndicatorView.swift */,
 				C48A122B29642D380043466D /* CircleImageView.swift */,
+				C4068549296B20F200211BD4 /* KDALabel.swift */,
+				C406854B296B20FC00211BD4 /* KDAPercentLabel.swift */,
+				C406854D296B210700211BD4 /* PercentLabel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -590,6 +599,7 @@
 				C48A122629641F110043466D /* UIFont+Extension.swift in Sources */,
 				C46E4ED429666718009412D0 /* SummonerResponseDTO.swift in Sources */,
 				C46E4EEC2966A7B0009412D0 /* OPGGSummonerAPIRequest.swift in Sources */,
+				C406854C296B20FC00211BD4 /* KDAPercentLabel.swift in Sources */,
 				C454AF2E2967497800391F73 /* ViewModel.swift in Sources */,
 				C48A121A2964154B0043466D /* PaddingLabel.swift in Sources */,
 				C454AF242966BF2E00391F73 /* MatchesRepository.swift in Sources */,
@@ -625,9 +635,11 @@
 				C48A12362964411C0043466D /* LeagueSummaryView.swift in Sources */,
 				C48A125A296526A80043466D /* KDAStackView.swift in Sources */,
 				C4EE04B529691B9000D74A10 /* Double+Extension.swift in Sources */,
+				C406854A296B20F200211BD4 /* KDALabel.swift in Sources */,
 				C46E4EBB2966061E009412D0 /* Matches.swift in Sources */,
 				C46E4EDB296693A1009412D0 /* URLHost.swift in Sources */,
 				C48A121729640C9E0043466D /* Color+Extension.swift in Sources */,
+				C406854E296B210700211BD4 /* PercentLabel.swift in Sources */,
 				C4591AA22969CBCD00B9475B /* SummoneGameHistoryViewModel.swift in Sources */,
 				C4D68E6C296559D5000298DF /* SummonerGameHistoryTableView.swift in Sources */,
 				C48A123B296464A80043466D /* CALayer+Extension.swift in Sources */,
