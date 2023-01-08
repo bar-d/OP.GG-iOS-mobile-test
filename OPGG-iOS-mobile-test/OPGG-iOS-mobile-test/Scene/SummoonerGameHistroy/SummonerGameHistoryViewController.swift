@@ -5,6 +5,8 @@
 //  Created by bard on 2023/01/03.
 //
 
+import RxCocoa
+import RxSwift
 import UIKit
 
 final class SummonerGameHistoryViewController: UIViewController {
@@ -61,58 +63,58 @@ final class SummonerGameHistoryViewController: UIViewController {
     }
     
     private func setupTableView() {
-        summonerGameHisoryTableView.setupDelegate(self)
-        summonerGameHisoryTableView.setupDataSource(self)
+        //        summonerGameHisoryTableView.setupDelegate(self)
+        //        summonerGameHisoryTableView.setupDataSource(self)
     }
 }
 
-extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(
-        _ tableView: UITableView,
-        numberOfRowsInSection section: Int
-    ) -> Int {
-        
-        return Design.tableViewNumberOfRowsInSection
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        guard let cell = summonerGameHisoryTableView.dequeueReusableCell(
-            withIdentifier: SummonerGameInformationCell.identifier
-        ) as? SummonerGameInformationCell else {
-            return UITableViewCell()
-        }
-        
-        return cell
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        heightForRowAt indexPath: IndexPath
-    ) -> CGFloat {
-        
-        return Design.tableViewHeightForRow
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        heightForHeaderInSection section: Int
-    ) -> CGFloat {
-        
-        return Design.tableViewHeightForHeader
-    }
-}
+//extension SummonerGameHistoryViewController: UITableViewDelegate {
+//    func tableView(
+//        _ tableView: UITableView,
+//        numberOfRowsInSection section: Int
+//    ) -> Int {
+//
+//        return Design.tableViewNumberOfRowsInSection
+//    }
+//
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//
+//        return 10
+//    }
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
+//
+//    func tableView(
+//        _ tableView: UITableView,
+//        cellForRowAt indexPath: IndexPath
+//    ) -> UITableViewCell {
+//        guard let cell = summonerGameHisoryTableView.dequeueReusableCell(
+//            withIdentifier: SummonerGameInformationCell.identifier
+//        ) as? SummonerGameInformationCell else {
+//            return UITableViewCell()
+//        }
+//
+//        return cell
+//    }
+//
+//    func tableView(
+//        _ tableView: UITableView,
+//        heightForRowAt indexPath: IndexPath
+//    ) -> CGFloat {
+//
+//        return Design.tableViewHeightForRow
+//    }
+//
+//    func tableView(
+//        _ tableView: UITableView,
+//        heightForHeaderInSection section: Int
+//    ) -> CGFloat {
+//
+//        return Design.tableViewHeightForHeader
+//    }
+//}
 
 // MARK: - Namespace
 

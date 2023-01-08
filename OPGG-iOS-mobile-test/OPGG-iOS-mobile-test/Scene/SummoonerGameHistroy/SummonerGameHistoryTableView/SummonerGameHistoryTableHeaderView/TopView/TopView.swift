@@ -74,14 +74,14 @@ final class TopView: UIView {
     
     // MARK: - Methods
     
+    func getRefreshGameHistoryButton() -> UIButton {
+        return refreshGameHistoryButton
+    }
+    
     func setupContent(with summoner: Summoner) {
         iconImageView.kf.setImage(with: summoner.profileImageURL)
         summonerNameLabel.text = summoner.name
         summonerLevelLabel.text = String(summoner.level)
-    }
-    
-    func setupIconImage(_ image: UIImage?) {
-        iconImageView.image = image
     }
     
     func setupSummonerLevelLabelText(_ text: String?) {
@@ -92,14 +92,6 @@ final class TopView: UIView {
         } else {
             summonerLevelLabel.text = unwrappedText.decimalNumberFormatted
         }
-    }
-    
-    func addRefreshGameHistoryButtonTarget(
-        target: Any?,
-        action: Selector,
-        for event: UIControl.Event
-    ) {
-        refreshGameHistoryButton.addTarget(target, action: action, for: event)
     }
     
     private func commonInit() {
