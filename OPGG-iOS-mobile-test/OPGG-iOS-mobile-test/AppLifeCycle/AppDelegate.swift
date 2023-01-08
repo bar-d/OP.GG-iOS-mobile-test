@@ -22,9 +22,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             UIApplication.LaunchOptionsKey: Any
         ]?
     ) -> Bool {
-
+        let viewModel = SummoneGameHistoryViewModel()
+        let summonerGameHistoryViewController = SummonerGameHistoryViewController(
+            viewModel: viewModel
+        )
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = SummonerGameHistoryViewController()
+        window?.rootViewController = summonerGameHistoryViewController
         window?.makeKeyAndVisible()
         
         return true

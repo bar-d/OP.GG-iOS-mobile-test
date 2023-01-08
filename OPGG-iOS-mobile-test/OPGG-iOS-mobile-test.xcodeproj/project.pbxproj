@@ -14,6 +14,7 @@
 		C454AF262966C4AA00391F73 /* MatchesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF252966C4AA00391F73 /* MatchesUseCase.swift */; };
 		C454AF2E2967497800391F73 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF2D2967497800391F73 /* ViewModel.swift */; };
 		C4591AA02969C87700B9475B /* KillingSpreeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4591A9F2969C87700B9475B /* KillingSpreeType.swift */; };
+		C4591AA22969CBCD00B9475B /* SummoneGameHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4591AA12969CBCD00B9475B /* SummoneGameHistoryViewModel.swift */; };
 		C46A92CD2963F2A500B412C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A92CC2963F2A500B412C5 /* AppDelegate.swift */; };
 		C46A92D12963F2A500B412C5 /* SummonerGameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */; };
 		C46A92D62963F2A700B412C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C46A92D52963F2A700B412C5 /* Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		C454AF252966C4AA00391F73 /* MatchesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesUseCase.swift; sourceTree = "<group>"; };
 		C454AF2D2967497800391F73 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		C4591A9F2969C87700B9475B /* KillingSpreeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillingSpreeType.swift; sourceTree = "<group>"; };
+		C4591AA12969CBCD00B9475B /* SummoneGameHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummoneGameHistoryViewModel.swift; sourceTree = "<group>"; };
 		C46A92C92963F2A500B412C5 /* OPGG-iOS-mobile-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OPGG-iOS-mobile-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46A92CC2963F2A500B412C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerGameHistoryViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				C4EE04B32968A9DE00D74A10 /* ViewModel */,
 				C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */,
+				C4591AA12969CBCD00B9475B /* SummoneGameHistoryViewModel.swift */,
 				C4040AAB2965C614008AA221 /* SummonerGameHistoryTableView */,
 			);
 			path = SummoonerGameHistroy;
@@ -625,6 +628,7 @@
 				C46E4EBB2966061E009412D0 /* Matches.swift in Sources */,
 				C46E4EDB296693A1009412D0 /* URLHost.swift in Sources */,
 				C48A121729640C9E0043466D /* Color+Extension.swift in Sources */,
+				C4591AA22969CBCD00B9475B /* SummoneGameHistoryViewModel.swift in Sources */,
 				C4D68E6C296559D5000298DF /* SummonerGameHistoryTableView.swift in Sources */,
 				C48A123B296464A80043466D /* CALayer+Extension.swift in Sources */,
 				C4D68E6E29658110000298DF /* SummonerGameHistoryTableHeaderView.swift in Sources */,

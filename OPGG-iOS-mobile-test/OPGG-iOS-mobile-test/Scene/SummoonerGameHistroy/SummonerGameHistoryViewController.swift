@@ -10,10 +10,25 @@ import RxSwift
 import UIKit
 
 final class SummonerGameHistoryViewController: UIViewController {
-
+    
     // MARK: Properties
     
     private let summonerGameHisoryTableView = SummonerGameHistoryTableView()
+    private let disposBag = DisposeBag()
+    let viewModel: SummoneGameHistoryViewModel
+    
+    // MARK: - Initializers
+    
+    init(viewModel: SummoneGameHistoryViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = SummoneGameHistoryViewModel()
+        super.init(coder: coder)
+    }
     
     // MARK: - View Life Cycle
     
@@ -30,6 +45,42 @@ final class SummonerGameHistoryViewController: UIViewController {
         setupSubviews()
         setupConstraints()
         setupTableView()
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        let refreshButton = summonerGameHisoryTableView.getRefreshGameHistoryButton()
+        let refreshButtonDidTap = refreshButton.rx.tap.asObservable()
+        
+        let output = viewModel.transfrom(.init(
+            viewDidLoad: Observable.just(()),
+            refreshButtonDidTap: refreshButtonDidTap,
+            scrollDidEnd: summonerGameHisoryTableView.rx.prefetchRows.asObservable())
+        )
+        
+        output.loadSummonerInformation.map { $0.1.games }
+            .observe(on: MainScheduler.instance)
+            .bind(
+                to: summonerGameHisoryTableView.rx.items(
+                    cellIdentifier: SummonerGameInformationCell.identifier,
+                    cellType: SummonerGameInformationCell.self
+                )
+            ) { (index, element, cell) in
+                cell.setupContent(with: element)
+                
+            }.disposed(by: disposBag)
+        
+        output.loadSummonerInformation.map { $0.0 }
+            .observe(on: MainScheduler.instance)
+            .bind(onNext: { summoner in
+                self.summonerGameHisoryTableView.setupHeaderView(with: summoner)
+            }).disposed(by: disposBag)
+        
+        output.loadSummonerInformation.map { $0.1 }
+            .observe(on: MainScheduler.instance)
+            .bind(onNext: { matches in
+                self.summonerGameHisoryTableView.setupHeaderView(with: matches)
+            }).disposed(by: disposBag)
     }
     
     private func setupBackgroundColor(_ color: UIColor?) {
@@ -63,66 +114,13 @@ final class SummonerGameHistoryViewController: UIViewController {
     }
     
     private func setupTableView() {
-        //        summonerGameHisoryTableView.setupDelegate(self)
-        //        summonerGameHisoryTableView.setupDataSource(self)
+        summonerGameHisoryTableView.rx.itemSelected.bind(
+            onNext: { [weak self] indexPath in
+                self?.summonerGameHisoryTableView.deselectRow(
+                    at: indexPath,
+                    animated: false
+                )
+            }
+        ).disposed(by: disposBag)
     }
-}
-
-//extension SummonerGameHistoryViewController: UITableViewDelegate {
-//    func tableView(
-//        _ tableView: UITableView,
-//        numberOfRowsInSection section: Int
-//    ) -> Int {
-//
-//        return Design.tableViewNumberOfRowsInSection
-//    }
-//
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//
-//        return 10
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
-//
-//    func tableView(
-//        _ tableView: UITableView,
-//        cellForRowAt indexPath: IndexPath
-//    ) -> UITableViewCell {
-//        guard let cell = summonerGameHisoryTableView.dequeueReusableCell(
-//            withIdentifier: SummonerGameInformationCell.identifier
-//        ) as? SummonerGameInformationCell else {
-//            return UITableViewCell()
-//        }
-//
-//        return cell
-//    }
-//
-//    func tableView(
-//        _ tableView: UITableView,
-//        heightForRowAt indexPath: IndexPath
-//    ) -> CGFloat {
-//
-//        return Design.tableViewHeightForRow
-//    }
-//
-//    func tableView(
-//        _ tableView: UITableView,
-//        heightForHeaderInSection section: Int
-//    ) -> CGFloat {
-//
-//        return Design.tableViewHeightForHeader
-//    }
-//}
-
-// MARK: - Namespace
-
-private enum Design {
-    static let topViewAndSummaryScrollViewtopConstant: CGFloat = 24
-    static let leagueSummaryScrollViewHeightConstant: CGFloat = 116
-    static let recentGameAnalysisViewHeightConstant: CGFloat = 90
-    static let tableViewNumberOfRowsInSection = 1
-    static let tableViewHeightForRow: CGFloat = 104
-    static let tableViewHeightForHeader: CGFloat = 2
 }
