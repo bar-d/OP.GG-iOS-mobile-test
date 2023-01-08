@@ -13,6 +13,9 @@
 		C454AF242966BF2E00391F73 /* MatchesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF232966BF2E00391F73 /* MatchesRepository.swift */; };
 		C454AF262966C4AA00391F73 /* MatchesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF252966C4AA00391F73 /* MatchesUseCase.swift */; };
 		C454AF2E2967497800391F73 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF2D2967497800391F73 /* ViewModel.swift */; };
+		C4669F3D296B5D5900347847 /* KillingSpreeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4669F3C296B5D5900347847 /* KillingSpreeType.swift */; };
+		C4669F3F296B5DC800347847 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4669F3E296B5DC800347847 /* Int+Extension.swift */; };
+		C4669F41296B5DFC00347847 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4669F40296B5DFC00347847 /* Double+Extension.swift */; };
 		C46A92CD2963F2A500B412C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A92CC2963F2A500B412C5 /* AppDelegate.swift */; };
 		C46A92D12963F2A500B412C5 /* SummonerGameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */; };
 		C46A92D62963F2A700B412C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C46A92D52963F2A700B412C5 /* Assets.xcassets */; };
@@ -73,6 +76,9 @@
 		C454AF232966BF2E00391F73 /* MatchesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesRepository.swift; sourceTree = "<group>"; };
 		C454AF252966C4AA00391F73 /* MatchesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesUseCase.swift; sourceTree = "<group>"; };
 		C454AF2D2967497800391F73 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		C4669F3C296B5D5900347847 /* KillingSpreeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillingSpreeType.swift; sourceTree = "<group>"; };
+		C4669F3E296B5DC800347847 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		C4669F40296B5DFC00347847 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		C46A92C92963F2A500B412C5 /* OPGG-iOS-mobile-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OPGG-iOS-mobile-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46A92CC2963F2A500B412C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerGameHistoryViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +162,7 @@
 		C4040AAA2965C5C5008AA221 /* SummoonerGameHistroy */ = {
 			isa = PBXGroup;
 			children = (
+				C4669F3B296B5CA500347847 /* ViewModel */,
 				C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */,
 				C4040AAB2965C614008AA221 /* SummonerGameHistoryTableView */,
 			);
@@ -196,6 +203,13 @@
 			isa = PBXGroup;
 			children = (
 				C454AF2D2967497800391F73 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C4669F3B296B5CA500347847 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -374,6 +388,8 @@
 				C48A122F296436A10043466D /* String+Extension.swift */,
 				C48A123A296464A80043466D /* CALayer+Extension.swift */,
 				C48A1240296483220043466D /* CGRect+Extension.swift */,
+				C4669F3E296B5DC800347847 /* Int+Extension.swift */,
+				C4669F40296B5DFC00347847 /* Double+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -436,6 +452,7 @@
 				C48A1259296526A80043466D /* KDAStackView.swift */,
 				C48A12552964BF550043466D /* ItemStackView.swift */,
 				C48A125B29652E880043466D /* AdditionalInformationView.swift */,
+				C4669F3C296B5D5900347847 /* KillingSpreeType.swift */,
 			);
 			path = SummonerGameInformationCell;
 			sourceTree = "<group>";
@@ -567,6 +584,8 @@
 				C48A12582964C1A70043466D /* SpellAndRuneStackView.swift in Sources */,
 				C48A1230296436A10043466D /* String+Extension.swift in Sources */,
 				C46E4ED72966680E009412D0 /* MatchesResponseDTO.swift in Sources */,
+				C4669F3F296B5DC800347847 /* Int+Extension.swift in Sources */,
+				C4669F41296B5DFC00347847 /* Double+Extension.swift in Sources */,
 				C48A122629641F110043466D /* UIFont+Extension.swift in Sources */,
 				C46E4ED429666718009412D0 /* SummonerResponseDTO.swift in Sources */,
 				C46E4EEC2966A7B0009412D0 /* OPGGSummonerAPIRequest.swift in Sources */,
@@ -586,6 +605,7 @@
 				C46E4EB32965F9F8009412D0 /* Summoner.swift in Sources */,
 				C48A12522964B7630043466D /* ReuseIdentifiable.swift in Sources */,
 				C48A122C29642D380043466D /* CircleImageView.swift in Sources */,
+				C4669F3D296B5D5900347847 /* KillingSpreeType.swift in Sources */,
 				C46E4EDF2966960B009412D0 /* HTTPMethod.swift in Sources */,
 				C48A123929644D2C0043466D /* IndicatorView.swift in Sources */,
 				C46E4EEA2966A6BC009412D0 /* OPGGAPIRequest.swift in Sources */,

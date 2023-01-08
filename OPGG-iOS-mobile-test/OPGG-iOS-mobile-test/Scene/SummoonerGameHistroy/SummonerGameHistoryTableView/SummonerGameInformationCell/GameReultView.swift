@@ -14,9 +14,9 @@ final class GameReultView: UIView {
     private let gameResultLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "승"
         label.font = Design.gameResultLabelFont
         label.textColor = .white
+        label.text = "무"
         
         return label
     }()
@@ -45,7 +45,6 @@ final class GameReultView: UIView {
         super.init(frame: frame)
         
         commonInit()
-        backgroundColor = .darkishPink
     }
     
     required init?(coder: NSCoder) {
@@ -56,14 +55,25 @@ final class GameReultView: UIView {
     
     // MARK: - Methods
     
+    func setupContentWith(game: Matches.Game) {
+        gameResultLabel.text = game.isWin ? "승" : "패"
+        gameDurationLabel.text = game.gameLength.convertToGameLength
+        setupBackgroundColor(game.isWin ? .softBlue : .darkishPink)
+    }
+    
     private func commonInit() {
         setupConstraintsAutomatic(false)
+        setupBackgroundColor(.charcoalGrey)
         setupSubviews()
         setupConstraints()
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
         translatesAutoresizingMaskIntoConstraints = bool
+    }
+    
+    private func setupBackgroundColor(_ color: UIColor?) {
+        backgroundColor = color
     }
     
     private func setupSubviews() {

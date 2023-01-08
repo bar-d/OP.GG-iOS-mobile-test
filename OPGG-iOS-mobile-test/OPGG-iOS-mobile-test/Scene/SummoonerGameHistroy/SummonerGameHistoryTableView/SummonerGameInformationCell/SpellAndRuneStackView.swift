@@ -5,6 +5,7 @@
 //  Created by bard on 2023/01/04.
 //
 
+import Kingfisher
 import UIKit
 
 final class SpellAndRuneStackView: UIStackView {
@@ -79,6 +80,19 @@ final class SpellAndRuneStackView: UIStackView {
     }
     
     // MARK: - Methods
+    
+    func setupContent(with game: Matches.Game) {
+        let spells = [firstSpellImageView, secondSpellImageView]
+        let runes = [mainRuneImageView, supportRuneImageView]
+
+        for i in 0..<game.spells.count {
+            spells[i].kf.setImage(with: game.spells[i].imageURL)
+        }
+        
+        for i in 0..<game.peak.count {
+            runes[i].kf.setImage(with: game.peak[i])
+        }
+    }
     
     private func commonInit() {
         setupConstraintsAutomatic(false)
