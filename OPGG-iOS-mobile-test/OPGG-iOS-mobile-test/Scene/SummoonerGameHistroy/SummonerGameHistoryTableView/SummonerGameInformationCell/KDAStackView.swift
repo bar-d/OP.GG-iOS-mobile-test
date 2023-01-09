@@ -16,7 +16,7 @@ final class KDAStackView: UIStackView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkGrey
         label.font = Design.kdaLabelFont
-        label.text = "0 / 0 / 0"
+        label.text = Design.kdaLabelDefaultText
         return label
     }()
     
@@ -25,7 +25,7 @@ final class KDAStackView: UIStackView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .gunmetal
         label.font = Design.kdaPercentLabelFont
-        label.text = "킬관여 0%"
+        label.text = Design.killContributionRateLabelText
         
         return label
     }()
@@ -85,7 +85,9 @@ final class KDAStackView: UIStackView {
 // MARK: - Namespace
 
 private enum Design {
+    static let kdaLabelDefaultText = "0 / 0 / 0"
     static let kdaLabelFont: UIFont = .fontWith(type: .SFProTextBold, size: 16)
+    static let killContributionRateLabelText = "킬관여 0%"
     static let kdaPercentLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 12)
     static let stackViewSpacing: CGFloat = 2
 }

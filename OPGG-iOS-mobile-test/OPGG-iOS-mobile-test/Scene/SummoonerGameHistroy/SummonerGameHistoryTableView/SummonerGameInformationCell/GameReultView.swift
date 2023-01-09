@@ -16,7 +16,7 @@ final class GameReultView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = Design.gameResultLabelFont
         label.textColor = .white
-        label.text = "무"
+        label.text = Design.gameResultLabelDefaultText
         
         return label
     }()
@@ -32,7 +32,7 @@ final class GameReultView: UIView {
     private let gameDurationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "0:00"
+        label.text = Design.gameResultLabelDefaultText
         label.font = Design.gameDurationLabelFont
         label.textColor = .white
         
@@ -56,7 +56,7 @@ final class GameReultView: UIView {
     // MARK: - Methods
     
     func setupContentWith(game: Matches.Game) {
-        gameResultLabel.text = game.isWin ? "승" : "패"
+        gameResultLabel.text = game.isWin ? Design.win : Design.loss
         gameDurationLabel.text = game.gameLength.convertToGameLength
         setupBackgroundColor(game.isWin ? .softBlue : .darkishPink)
     }
@@ -146,7 +146,11 @@ final class GameReultView: UIView {
 
 private enum Design {
     static let gameResultLabelFont: UIFont = .fontWith(type: .appleSDGothicNeoBold, size: 16)
+    static let gameResultLabelDefaultText = "무"
+    static let gameDurationLabelDefaultText = "0:00"
     static let gameDurationLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 12)
+    static let win = "승"
+    static let loss = "패"
     static let gameReultViewWidthConstant: CGFloat = 40
     static let gameReultViewHeightConstant: CGFloat = 104
     static let gameResultLabelTopConstant: CGFloat = 29

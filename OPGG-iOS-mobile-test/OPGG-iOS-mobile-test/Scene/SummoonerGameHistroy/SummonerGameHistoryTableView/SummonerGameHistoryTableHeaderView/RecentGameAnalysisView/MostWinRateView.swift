@@ -114,7 +114,21 @@ final class MostWinRateView: UIView {
         let mostChampionImageViews = [
             secondMostChampionImageView, firstMostChampionImageView
         ]
-        
+        for i in 0..<sortedChampion.count {
+            if i >= 2 {
+                return
+            } else {
+                let mostChampion = sortedChampion[i]
+                print(sortedChampion[i].imageURL)
+                mostChampionImageViews[i].kf.indicatorType = .activity
+                mostChampionImageViews[i].kf.setImage(
+                    with: sortedChampion[i].imageURL,
+                    options: [.retryStrategy(retryStrategy)]
+                )
+                
+                mostWinRates[i].setupPercentText(with: mostChampion)
+            }
+        }
     }
     
     private func checkIsHidden(with champions: [Matches.UsedChampionInformation]) {

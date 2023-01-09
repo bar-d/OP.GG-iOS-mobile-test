@@ -1,11 +1,11 @@
 //
-//  RankType.swift
+//  GameType.swift
 //  OPGG-iOS-mobile-test
 //
 //  Created by bard on 2023/01/03.
 //
 
-enum RankType {
+enum GameType {
     case solo
     case flex
     

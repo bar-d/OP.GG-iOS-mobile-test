@@ -63,7 +63,7 @@ final class LeagueSummaryView: UIView {
     
     // MARK: - Initializers
     
-    init(with type: RankType) {
+    init(with type: GameType) {
         super.init(frame: .zero)
         
         setupRankTypeLabel(with: type)
@@ -77,14 +77,14 @@ final class LeagueSummaryView: UIView {
     }
     
     // MARK: - Methods
-    // 확인해볼 것
+    
     func setupContent(with league: Summoner.League) {
         guard league.hasResults == true else { return }
         let winRate = Int.winRate(wins: league.wins, losses: league.losses)
         
         tierIconImageView.kf.setImage(with: league.tierRank.imageURL)
+        rankTypeLabel.text = Rank.type(of: league.tierRank.name).value
         tierLabel.text = league.tierRank.tier
-        rankTypeLabel.text = league.tierRank.name
         leaguePointLabel.text = "\(league.tierRank.leaguePoints) LP"
         winRateLabel.text =
         "\(league.wins)승 \(league.losses)패 (\(winRate)%)"
@@ -248,7 +248,7 @@ final class LeagueSummaryView: UIView {
         ])
     }
     
-    private func setupRankTypeLabel(with type: RankType) {
+    private func setupRankTypeLabel(with type: GameType) {
         rankTypeLabel.text = type.name
     }
 }
