@@ -11,6 +11,10 @@ final class SummonerGameHistoryViewController: UIViewController {
 
     // MARK: Properties
     
+    private var games: [Matches.Game] = []
+    private var createdDate: Int?
+    private var currentPage = 1
+    private let viewModel = SummonerGameHistoryViewModel()
     private let summonerGameHisoryTableView = SummonerGameHistoryTableView()
     
     // MARK: - View Life Cycle
@@ -28,6 +32,9 @@ final class SummonerGameHistoryViewController: UIViewController {
         setupSubviews()
         setupConstraints()
         setupTableView()
+        setupRefreshGameHistoryButton()
+        fetchMatchInformation()
+        fetchSummonerInformation()
     }
     
     private func setupBackgroundColor(_ color: UIColor?) {
@@ -64,6 +71,51 @@ final class SummonerGameHistoryViewController: UIViewController {
         summonerGameHisoryTableView.setupDelegate(self)
         summonerGameHisoryTableView.setupDataSource(self)
     }
+    
+    private func fetchSummonerInformation() {
+        viewModel.fetchSummonerAllInformation { [weak self] result in
+            switch result {
+            case .success(let summoner):
+                DispatchQueue.main.async {
+                    self?.summonerGameHisoryTableView.setupHeaderView(with: summoner)
+                }
+            case .failure(let error):
+                return
+            }
+        }
+    }
+    
+    private func fetchMatchInformation() {
+        viewModel.fetchSummonerMatches { [weak self] result in
+            switch result {
+            case .success(let matches):
+                print(matches.positions)
+                self?.games.append(contentsOf: matches.games)
+                self?.currentPage = 1
+                self?.summonerGameHisoryTableView.setupHeaderView(with: matches)
+                DispatchQueue.main.async {
+                    self?.summonerGameHisoryTableView.reloadData()
+                }
+            case .failure(let failure):
+                return
+            }
+        }
+    }
+    
+    private func setupRefreshGameHistoryButton() {
+        let button = summonerGameHisoryTableView.getRefreshGameHistoryButton()
+        button.addTarget(
+            self,
+            action: #selector(refreshGameHistoryButtonDidTap),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func refreshGameHistoryButtonDidTap() {
+        games.removeAll()
+        fetchSummonerInformation()
+        fetchMatchInformation()
+    }
 }
 
 extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -72,12 +124,7 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
         numberOfRowsInSection section: Int
     ) -> Int {
         
-        return Design.tableViewNumberOfRowsInSection
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 10
+        return games.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -94,6 +141,25 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
             return UITableViewCell()
         }
         
+        cell.setupContent(with: games[indexPath.row])
+        
+        if (indexPath.row + 1) == games.count {
+            viewModel.fetchSummonerMatches(
+                createDate: games.last?.createDate
+            ) { [weak self] result in
+                switch result {
+                case .success(let matches):
+                    DispatchQueue.main.async { [weak self] in
+                        self?.games.append(contentsOf: matches.games)
+                        self?.createdDate = matches.games.last?.createDate
+                        self?.currentPage += 1
+                        self?.summonerGameHisoryTableView.reloadData()
+                    }
+                case .failure(let error):
+                    return
+                }
+            }
+        }
         return cell
     }
     
@@ -103,14 +169,6 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
     ) -> CGFloat {
         
         return Design.tableViewHeightForRow
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        heightForHeaderInSection section: Int
-    ) -> CGFloat {
-        
-        return Design.tableViewHeightForHeader
     }
 }
 
