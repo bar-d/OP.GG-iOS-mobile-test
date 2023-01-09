@@ -89,7 +89,6 @@ final class SummonerGameHistoryViewController: UIViewController {
         viewModel.fetchSummonerMatches { [weak self] result in
             switch result {
             case .success(let matches):
-                print(matches.positions)
                 self?.games.append(contentsOf: matches.games)
                 self?.currentPage = 1
                 self?.summonerGameHisoryTableView.setupHeaderView(with: matches)
