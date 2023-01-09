@@ -275,7 +275,7 @@ private enum Design {
     static let rankTypeLabelLeadingConstant: CGFloat = 8
     static let tierLabelTopConstant: CGFloat = 1
     static let leaguePointLabelTopConstant: CGFloat = 2
-    static let winRateLabelTopConstant: CGFloat = 8
+    static let winRateLabelTopConstant: CGFloat = 2
     static let indicatorViewTopConstant: CGFloat = 30
     static let indicatorViewBottomConstant: CGFloat = -30
     static let indicatorViewTrailingConstant: CGFloat = -16
