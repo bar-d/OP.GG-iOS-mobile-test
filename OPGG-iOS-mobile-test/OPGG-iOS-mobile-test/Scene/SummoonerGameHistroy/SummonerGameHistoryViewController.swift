@@ -80,7 +80,12 @@ final class SummonerGameHistoryViewController: UIViewController {
                     self?.summonerGameHisoryTableView.setupHeaderView(with: summoner)
                 }
             case .failure(let error):
-                return
+                let alertController = UIAlertController(
+                    title:Design.summonerAlertTitle,
+                    message: error.localizedDescription,
+                    preferredStyle: .alert
+                )
+                self?.present(alertController, animated: true)
             }
         }
     }
@@ -95,8 +100,13 @@ final class SummonerGameHistoryViewController: UIViewController {
                 DispatchQueue.main.async {
                     self?.summonerGameHisoryTableView.reloadData()
                 }
-            case .failure(let failure):
-                return
+            case .failure(let error):
+                let alertController = UIAlertController(
+                    title:Design.matchesAlertTitle,
+                    message: error.localizedDescription,
+                    preferredStyle: .alert
+                )
+                self?.present(alertController, animated: true)
             }
         }
     }
@@ -155,7 +165,12 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
                         self?.summonerGameHisoryTableView.reloadData()
                     }
                 case .failure(let error):
-                    return
+                    let alertController = UIAlertController(
+                        title:Design.matchesAlertTitle,
+                        message: error.localizedDescription,
+                        preferredStyle: .alert
+                    )
+                    self?.present(alertController, animated: true)
                 }
             }
         }
@@ -180,4 +195,6 @@ private enum Design {
     static let tableViewNumberOfRowsInSection = 1
     static let tableViewHeightForRow: CGFloat = 104
     static let tableViewHeightForHeader: CGFloat = 2
+    static let summonerAlertTitle = "소환사 정보를 가져오는데 실패하였습니다"
+    static let matchesAlertTitle = "소환사 게임 정보를 가져오는데 실패하였습니다"
 }

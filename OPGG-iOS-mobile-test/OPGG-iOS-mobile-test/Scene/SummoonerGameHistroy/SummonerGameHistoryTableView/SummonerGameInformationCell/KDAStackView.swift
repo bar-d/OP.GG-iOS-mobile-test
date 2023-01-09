@@ -47,9 +47,6 @@ final class KDAStackView: UIStackView {
     // MARK: - Methods
     
     func setupContent(with game: Matches.Game) {
-        let kills = game.stats.general.kill
-        let deaths = game.stats.general.death
-        let assists = game.stats.general.assist
         let killRate = game.stats.general.contributionForKillRate
         
         kdaLabel.setupKDA(with: game)
