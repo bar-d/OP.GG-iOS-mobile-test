@@ -87,7 +87,7 @@
 		C4669F3C296B5D5900347847 /* KillingSpreeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillingSpreeType.swift; sourceTree = "<group>"; };
 		C4669F3E296B5DC800347847 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		C4669F40296B5DFC00347847 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
-		C4669F44296BB36800347847 /* SummonerGameHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SummonerGameHistoryViewModel.swift; path = "OPGG-iOS-mobile-test/Scene/SummoonerGameHistroy/ViewModel/SummonerGameHistoryViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		C4669F44296BB36800347847 /* SummonerGameHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SummonerGameHistoryViewModel.swift; path = "OPGG-iOS-mobile-test/Scene/SummonerGameHistroy/ViewModel/SummonerGameHistoryViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		C4669F46296BB4B000347847 /* KDALabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDALabel.swift; sourceTree = "<group>"; };
 		C4669F48296BB4CC00347847 /* PercentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentLabel.swift; sourceTree = "<group>"; };
 		C4669F4A296BB4DB00347847 /* KDAPercentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDAPercentLabel.swift; sourceTree = "<group>"; };
@@ -175,14 +175,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C4040AAA2965C5C5008AA221 /* SummoonerGameHistroy */ = {
+		C4040AAA2965C5C5008AA221 /* SummonerGameHistroy */ = {
 			isa = PBXGroup;
 			children = (
 				C4669F3B296B5CA500347847 /* ViewModel */,
 				C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */,
 				C4040AAB2965C614008AA221 /* SummonerGameHistoryTableView */,
 			);
-			path = SummoonerGameHistroy;
+			path = SummonerGameHistroy;
 			sourceTree = "<group>";
 		};
 		C4040AAB2965C614008AA221 /* SummonerGameHistoryTableView */ = {
@@ -279,7 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				C48A1218296415420043466D /* Common */,
-				C4040AAA2965C5C5008AA221 /* SummoonerGameHistroy */,
+				C4040AAA2965C5C5008AA221 /* SummonerGameHistroy */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
