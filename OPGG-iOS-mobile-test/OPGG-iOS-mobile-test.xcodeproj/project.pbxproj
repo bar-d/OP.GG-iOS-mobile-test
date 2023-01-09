@@ -22,6 +22,8 @@
 		C4669F4B296BB4DB00347847 /* KDAPercentLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4669F4A296BB4DB00347847 /* KDAPercentLabel.swift */; };
 		C4669F51296BC8C900347847 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4669F50296BC8C900347847 /* Rank.swift */; };
 		C4669F55296C2C0F00347847 /* LeagueSummaryWinRateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4669F54296C2C0F00347847 /* LeagueSummaryWinRateLabel.swift */; };
+		C4669F57296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4669F56296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift */; };
+		C4669F59296C38A700347847 /* PlayedTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4669F58296C38A700347847 /* PlayedTimeLabel.swift */; };
 		C46A92CD2963F2A500B412C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A92CC2963F2A500B412C5 /* AppDelegate.swift */; };
 		C46A92D12963F2A500B412C5 /* SummonerGameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */; };
 		C46A92D62963F2A700B412C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C46A92D52963F2A700B412C5 /* Assets.xcassets */; };
@@ -91,6 +93,8 @@
 		C4669F4A296BB4DB00347847 /* KDAPercentLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KDAPercentLabel.swift; sourceTree = "<group>"; };
 		C4669F50296BC8C900347847 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		C4669F54296C2C0F00347847 /* LeagueSummaryWinRateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueSummaryWinRateLabel.swift; sourceTree = "<group>"; };
+		C4669F56296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTwentyGameAnalysisLabel.swift; sourceTree = "<group>"; };
+		C4669F58296C38A700347847 /* PlayedTimeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayedTimeLabel.swift; sourceTree = "<group>"; };
 		C46A92C92963F2A500B412C5 /* OPGG-iOS-mobile-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OPGG-iOS-mobile-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C46A92CC2963F2A500B412C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerGameHistoryViewController.swift; sourceTree = "<group>"; };
@@ -412,6 +416,8 @@
 			children = (
 				C454AF2C2967496600391F73 /* ViewModel */,
 				C48A12192964154B0043466D /* PaddingLabel.swift */,
+				C4669F58296C38A700347847 /* PlayedTimeLabel.swift */,
+				C4669F56296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift */,
 				C48A123829644D2C0043466D /* IndicatorView.swift */,
 				C48A122B29642D380043466D /* CircleImageView.swift */,
 				C4669F46296BB4B000347847 /* KDALabel.swift */,
@@ -609,6 +615,7 @@
 				C48A122629641F110043466D /* UIFont+Extension.swift in Sources */,
 				C46E4ED429666718009412D0 /* SummonerResponseDTO.swift in Sources */,
 				C46E4EEC2966A7B0009412D0 /* OPGGSummonerAPIRequest.swift in Sources */,
+				C4669F59296C38A700347847 /* PlayedTimeLabel.swift in Sources */,
 				C454AF2E2967497800391F73 /* ViewModel.swift in Sources */,
 				C48A121A2964154B0043466D /* PaddingLabel.swift in Sources */,
 				C454AF242966BF2E00391F73 /* MatchesRepository.swift in Sources */,
@@ -652,6 +659,7 @@
 				C4D68E6C296559D5000298DF /* SummonerGameHistoryTableView.swift in Sources */,
 				C48A123B296464A80043466D /* CALayer+Extension.swift in Sources */,
 				C4D68E6E29658110000298DF /* SummonerGameHistoryTableHeaderView.swift in Sources */,
+				C4669F57296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift in Sources */,
 				C454AF1E2966BC9200391F73 /* OPGGMatchesAPIRequest.swift in Sources */,
 				C46A92CD2963F2A500B412C5 /* AppDelegate.swift in Sources */,
 				C46E4EE329669703009412D0 /* APIService.swift in Sources */,

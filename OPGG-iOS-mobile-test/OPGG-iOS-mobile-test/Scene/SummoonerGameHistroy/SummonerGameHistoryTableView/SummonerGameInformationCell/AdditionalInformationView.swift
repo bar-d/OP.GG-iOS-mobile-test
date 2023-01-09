@@ -17,15 +17,17 @@ final class AdditionalInformationView: UIView {
         label.textColor = .coolGrey
         label.textAlignment = .right
         label.font = Design.gameTypeLabelFont
+        
         return label
     }()
     
-    private let playedTimeLabel: UILabel = {
-        let label = UILabel()
+    private let playedTimeLabel: PlayedTimeLabel = {
+        let label = PlayedTimeLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coolGrey
         label.textAlignment = .right
         label.font = Design.playedTimeLabelFont
+        
         return label
     }()
     
@@ -71,7 +73,7 @@ final class AdditionalInformationView: UIView {
     
     func setupContent(with game: Matches.Game) {
         gameTypeLabel.text = game.gameType
-        playedTimeLabel.text = game.createDate.timePassedFromNow
+        playedTimeLabel.setupText(with: game.createDate)
         killingSpreeLabel.text = KillingSpreeType.killingSpree(
             type: game.stats.general.largestMultiKillString
         ).value

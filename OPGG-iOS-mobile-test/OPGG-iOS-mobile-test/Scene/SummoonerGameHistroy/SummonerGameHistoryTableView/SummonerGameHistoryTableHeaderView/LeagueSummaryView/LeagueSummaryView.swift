@@ -85,7 +85,7 @@ final class LeagueSummaryView: UIView {
         rankTypeLabel.text = Rank.type(of: league.tierRank.name).value
         tierLabel.text = league.tierRank.tier
         leaguePointLabel.text = "\(league.tierRank.leaguePoints) LP"
-        winRateLabel.leagueSummaryWinRate(wins: league.wins, losses: league.losses)
+        winRateLabel.setupText(wins: league.wins, losses: league.losses)
     }
     
     override func layoutSubviews() {

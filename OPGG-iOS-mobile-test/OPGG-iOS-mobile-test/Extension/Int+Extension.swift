@@ -28,30 +28,30 @@ extension Int {
         
         if let month = dateComponents.month {
             if month > 0 {
-                return "\(month)달 전"
+                return "\(month)달"
             }
         }
         
         if let day = dateComponents.day {
             if day > 0 {
-                return "\(day)일 전"
+                return "\(day)일"
             }
         }
         
         if let hour = dateComponents.hour {
             if hour > 0 {
-                return "\(hour)시간 전"
+                return "\(hour)시간"
             }
         }
         
         if let minute = dateComponents.minute {
             if minute > 0 {
-                return "\(minute)분 전"
+                return "\(minute)분"
             }
         }
         
         if let second = dateComponents.second {
-            return "\(second)초 전"
+            return "\(second)초"
         }
         
         return ""

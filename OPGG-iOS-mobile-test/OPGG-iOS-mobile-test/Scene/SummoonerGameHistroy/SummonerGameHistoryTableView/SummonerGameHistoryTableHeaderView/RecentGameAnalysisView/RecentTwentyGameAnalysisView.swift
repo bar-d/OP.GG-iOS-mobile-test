@@ -11,8 +11,8 @@ final class RecentTwentyGameAnalysisView: UIView {
     
     // MARK: Properties
     
-    private let recentTwentyGameAnalysisLabel: UILabel = {
-        let label = UILabel()
+    private let recentTwentyGameAnalysisLabel: RecentTwentyGameAnalysisLabel = {
+        let label = RecentTwentyGameAnalysisLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coolGrey
         label.font = .fontWith(type: .SFProTextRegular, size: 10)
@@ -69,7 +69,7 @@ final class RecentTwentyGameAnalysisView: UIView {
     func setupContent(with summary: Matches.Summary) {
         let totalGameCount = summary.wins + summary.losses
         
-        recentTwentyGameAnalysisLabel.text = "최근 \(totalGameCount)게임 분석"
+        recentTwentyGameAnalysisLabel.setupText(gameCount: totalGameCount)
         winLoseCountLabel.text = "\(summary.wins)승 \(summary.losses)패"
         kdaLabel.setupKDAAverage(with: summary)
         kdaPercentLabel.setupKDAPercentAverage(with: summary)

@@ -8,7 +8,10 @@
 import UIKit
 
 final class LeagueSummaryWinRateLabel: UILabel {
-    func leagueSummaryWinRate(wins: Int, losses: Int) {
+    
+    // MARK: - Methods
+    
+    func setupText(wins: Int, losses: Int) {
         let winRate = Int.winRate(wins: wins, losses: losses)
         let numberAttribute: [NSAttributedString.Key: Any] = [
             .font: UIFont.fontWith(type: .SFProTextRegular, size: 10)
