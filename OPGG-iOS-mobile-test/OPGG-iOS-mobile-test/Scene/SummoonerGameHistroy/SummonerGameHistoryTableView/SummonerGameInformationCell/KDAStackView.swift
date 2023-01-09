@@ -11,8 +11,8 @@ final class KDAStackView: UIStackView {
     
     // MARK: Properties
     
-    private let kdaLabel: UILabel = {
-        let label = UILabel()
+    private let kdaLabel: KDALabel = {
+        let label = KDALabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .darkGrey
         label.font = Design.kdaLabelFont
@@ -52,7 +52,7 @@ final class KDAStackView: UIStackView {
         let assists = game.stats.general.assist
         let killRate = game.stats.general.contributionForKillRate
         
-        kdaLabel.text = "\(kills) / \(deaths) / \(assists)"
+        kdaLabel.setupKDA(with: game)
         killContributionRateLabel.text = "킬관여 \(killRate)"
     }
     
