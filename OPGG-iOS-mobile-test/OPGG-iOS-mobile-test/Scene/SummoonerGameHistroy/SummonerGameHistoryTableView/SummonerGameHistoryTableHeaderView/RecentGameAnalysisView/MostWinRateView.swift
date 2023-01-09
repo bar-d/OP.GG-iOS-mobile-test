@@ -95,9 +95,7 @@ final class MostWinRateView: UIView {
     // MARK: - Methods
     
     func setupContent(with match: Matches) {
-        let mostChampionImageViews = [
-            secondMostChampionImageView, firstMostChampionImageView
-        ]
+       
         let mostWinRates = [secondMostChampionWinRateLabel, firstMostChampionWinRateLabel]
         let sortedChampion = match.champions.sorted {
             let firstChampion = Int.winRate(wins: $0.wins, games: $0.games)
@@ -111,47 +109,23 @@ final class MostWinRateView: UIView {
             retryInterval: .seconds(1)
         )
         
-        if sortedChampion.count == 1 {
+       checkIsHidden(with: sortedChampion)
+        
+        let mostChampionImageViews = [
+            secondMostChampionImageView, firstMostChampionImageView
+        ]
+        
+    }
+    
+    private func checkIsHidden(with champions: [Matches.UsedChampionInformation]) {
+        if champions.count == 1 {
             secondChampionVerticalStackView.isHidden = true
-        } else if sortedChampion.isEmpty {
+        } else if champions.isEmpty {
             [firstChampionVerticalStackView, secondChampionVerticalStackView]
                 .forEach { $0.isHidden = true }
         } else {
             [firstChampionVerticalStackView, secondChampionVerticalStackView]
                 .forEach { $0.isHidden = false }
-        }
-        
-        for i in 0..<sortedChampion.count {
-            if i >= 2 {
-                return
-            } else {
-                if sortedChampion[i].imageURL.absoluteString.contains("https:") == false {
-                    let mostChampion = sortedChampion[i]
-                    let urlAbsouluteString = mostChampion.imageURL.absoluteString
-                    let replacedURL = urlAbsouluteString
-                        .components(separatedBy: "/")
-                        .dropFirst()
-                        .joined(separator: "/")
-                    
-                    guard let url = URL(string: "https:/\(replacedURL)") else { return }
-                    
-                    mostChampionImageViews[i].kf.indicatorType = .activity
-                    mostChampionImageViews[i].kf.setImage(
-                        with: url,
-                        options: [.retryStrategy(retryStrategy)]
-                    )
-                    mostWinRates[i].setupPercentText(with: mostChampion)
-                } else {
-                    let mostChampion = sortedChampion[i]
-                    mostChampionImageViews[i].kf.indicatorType = .activity
-                    mostChampionImageViews[i].kf.setImage(
-                        with: sortedChampion[i].imageURL,
-                        options: [.retryStrategy(retryStrategy)]
-                    )
-                    
-                    mostWinRates[i].setupPercentText(with: mostChampion)
-                }
-            }
         }
     }
     
