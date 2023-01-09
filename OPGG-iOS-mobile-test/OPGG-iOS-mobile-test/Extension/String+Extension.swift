@@ -32,9 +32,9 @@ extension String {
         let deaths = Double(summary.deaths)
         let assists = Double(summary.assists)
         let totalGameCount = Double(summary.wins + summary.losses)
-        let totalKills = (kills / totalGameCount).withDecimal(decimalPoint: 1)
-        let totalDeaths = (deaths / totalGameCount).withDecimal(decimalPoint: 1)
-        let totalAssists = (assists / totalGameCount).withDecimal(decimalPoint: 1)
+        let totalKills = (kills / totalGameCount).withDecimal(decimalPoint: 2)
+        let totalDeaths = (deaths / totalGameCount).withDecimal(decimalPoint: 2)
+        let totalAssists = (assists / totalGameCount).withDecimal(decimalPoint: 2)
         
         return "\(totalKills) / \(totalDeaths) / \(totalAssists)"
     }

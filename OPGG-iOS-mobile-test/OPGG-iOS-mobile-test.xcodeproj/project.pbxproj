@@ -175,14 +175,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C4040AAA2965C5C5008AA221 /* SummoonerGameHistroy */ = {
+		C4040AAA2965C5C5008AA221 /* SummonerGameHistroy */ = {
 			isa = PBXGroup;
 			children = (
 				C4669F3B296B5CA500347847 /* ViewModel */,
 				C46A92D02963F2A500B412C5 /* SummonerGameHistoryViewController.swift */,
 				C4040AAB2965C614008AA221 /* SummonerGameHistoryTableView */,
 			);
-			path = SummoonerGameHistroy;
+			path = SummonerGameHistroy;
 			sourceTree = "<group>";
 		};
 		C4040AAB2965C614008AA221 /* SummonerGameHistoryTableView */ = {
@@ -229,6 +229,20 @@
 				C4669F44296BB36800347847 /* SummonerGameHistoryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C4669F5C296C62DF00347847 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				C48A12192964154B0043466D /* PaddingLabel.swift */,
+				C4669F58296C38A700347847 /* PlayedTimeLabel.swift */,
+				C4669F56296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift */,
+				C4669F46296BB4B000347847 /* KDALabel.swift */,
+				C4669F48296BB4CC00347847 /* PercentLabel.swift */,
+				C4669F4A296BB4DB00347847 /* KDAPercentLabel.swift */,
+				C4669F54296C2C0F00347847 /* LeagueSummaryWinRateLabel.swift */,
+			);
+			path = Label;
 			sourceTree = "<group>";
 		};
 		C46A92C02963F2A500B412C5 = {
@@ -279,7 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				C48A1218296415420043466D /* Common */,
-				C4040AAA2965C5C5008AA221 /* SummoonerGameHistroy */,
+				C4040AAA2965C5C5008AA221 /* SummonerGameHistroy */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -414,16 +428,10 @@
 		C48A1218296415420043466D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C4669F5C296C62DF00347847 /* Label */,
 				C454AF2C2967496600391F73 /* ViewModel */,
-				C48A12192964154B0043466D /* PaddingLabel.swift */,
-				C4669F58296C38A700347847 /* PlayedTimeLabel.swift */,
-				C4669F56296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift */,
 				C48A123829644D2C0043466D /* IndicatorView.swift */,
 				C48A122B29642D380043466D /* CircleImageView.swift */,
-				C4669F46296BB4B000347847 /* KDALabel.swift */,
-				C4669F48296BB4CC00347847 /* PercentLabel.swift */,
-				C4669F4A296BB4DB00347847 /* KDAPercentLabel.swift */,
-				C4669F54296C2C0F00347847 /* LeagueSummaryWinRateLabel.swift */,
 				C4669F50296BC8C900347847 /* Rank.swift */,
 				C48A123E2964737C0043466D /* GameType.swift */,
 				C4669F3C296B5D5900347847 /* KillingSpreeType.swift */,
