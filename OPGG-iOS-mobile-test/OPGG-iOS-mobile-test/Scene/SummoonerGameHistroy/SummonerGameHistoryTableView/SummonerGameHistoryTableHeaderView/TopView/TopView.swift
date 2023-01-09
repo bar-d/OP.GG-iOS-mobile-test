@@ -171,6 +171,9 @@ final class TopView: UIView {
             summonerNameLabel.leadingAnchor.constraint(
                 equalTo: iconImageView.trailingAnchor,
                 constant: Design.leadingAndTrailingSpacing
+            ),
+            summonerNameLabel.heightAnchor.constraint(
+                equalToConstant: Design.summonerNameLabelHeightConstant
             )
         ])
     }
@@ -202,6 +205,7 @@ private enum Design {
     static let summonerLevelLabelDefaultText = " 0 "
     static let summonerLevelLabelFont: UIFont = .fontWith(type: .SFProTextRegular, size: 12)
     static let summonerLevelLabelCornerRadius: CGFloat = 12
+    static let summonerNameLabelHeightConstant: CGFloat = 29
     static let summonerNameLabelDefaultText = "OPGG"
     static let summonerNameLabelFont: UIFont = .fontWith(type: .SFProTextBold, size: 24)
     static let refreshGameHistoryButtonFont: UIFont = .fontWith(type: .SFProTextRegular, size: 14)
