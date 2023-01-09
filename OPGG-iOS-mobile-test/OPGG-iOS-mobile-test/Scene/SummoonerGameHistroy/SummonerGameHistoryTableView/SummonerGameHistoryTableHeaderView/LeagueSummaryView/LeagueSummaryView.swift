@@ -49,8 +49,8 @@ final class LeagueSummaryView: UIView {
         return label
     }()
     
-    private let winRateLabel: UILabel = {
-        let label = UILabel()
+    private let winRateLabel: LeagueSummaryWinRateLabel = {
+        let label = LeagueSummaryWinRateLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .steelGrey
         label.font = Design.winRateLabelFont
@@ -80,14 +80,12 @@ final class LeagueSummaryView: UIView {
     
     func setupContent(with league: Summoner.League) {
         guard league.hasResults == true else { return }
-        let winRate = Int.winRate(wins: league.wins, losses: league.losses)
         
         tierIconImageView.kf.setImage(with: league.tierRank.imageURL)
         rankTypeLabel.text = Rank.type(of: league.tierRank.name).value
         tierLabel.text = league.tierRank.tier
         leaguePointLabel.text = "\(league.tierRank.leaguePoints) LP"
-        winRateLabel.text =
-        "\(league.wins)승 \(league.losses)패 (\(winRate)%)"
+        winRateLabel.leagueSummaryWinRate(wins: league.wins, losses: league.losses)
     }
     
     override func layoutSubviews() {
