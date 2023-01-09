@@ -215,6 +215,9 @@ final class SummonerGameInformationCell: UITableViewCell {
             ),
             separatorView.bottomAnchor.constraint(
                 equalTo: bottomAnchor
+            ),
+            separatorView.centerXAnchor.constraint(
+                equalTo: centerXAnchor
             )
         ])
     }
