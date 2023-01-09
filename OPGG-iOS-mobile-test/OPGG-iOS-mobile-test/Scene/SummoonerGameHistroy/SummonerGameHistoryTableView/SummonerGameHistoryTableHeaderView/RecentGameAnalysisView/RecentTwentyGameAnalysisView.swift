@@ -31,18 +31,18 @@ final class RecentTwentyGameAnalysisView: UIView {
         return label
     }()
     
-    private let KDALabel: UILabel = {
-        let label = UILabel()
+    private let kdaLabel: KDALabel = {
+        let label = KDALabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .coolGrey
+        label.textColor = .charcoalGrey
         label.font = .fontWith(type: .SFProTextBold, size: 14)
         label.text = Design.KDALabelDefaultText
         
         return label
     }()
     
-    private let KDAPercentLabel: UILabel = {
-        let label = UILabel()
+    private let kdaPercentLabel: KDAPercentLabel = {
+        let label = KDAPercentLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = Design.KDAPercentLabelDefaulText
         label.font = .fontWith(type: .SFProTextRegular, size: 10)
@@ -67,17 +67,12 @@ final class RecentTwentyGameAnalysisView: UIView {
     // MARK: - Methods
     
     func setupContent(with summary: Matches.Summary) {
-        let kills = Double(summary.kills)
-        let deaths = Double(summary.deaths)
-        let assists = Double(summary.assists)
         let totalGameCount = summary.wins + summary.losses
-        let totalKDA = ((kills + assists) / deaths).withDecimal(decimalPoint: 2)
-        let winRate = Int.winRate(wins: summary.wins, losses: summary.losses)
         
         recentTwentyGameAnalysisLabel.text = "최근 \(totalGameCount)게임 분석"
         winLoseCountLabel.text = "\(summary.wins)승 \(summary.losses)패"
-        KDALabel.text = String.kdaAverage(with: summary)
-        KDAPercentLabel.text = "\(totalKDA):1 (\(winRate)%)"
+        kdaLabel.setupKDAAverage(with: summary)
+        kdaPercentLabel.setupKDAPercentAverage(with: summary)
     }
     
     private func commonInit() {
@@ -91,7 +86,7 @@ final class RecentTwentyGameAnalysisView: UIView {
     }
     
     private func setupSubviews() {
-        [recentTwentyGameAnalysisLabel, winLoseCountLabel, KDALabel, KDAPercentLabel]
+        [recentTwentyGameAnalysisLabel, winLoseCountLabel, kdaLabel, kdaPercentLabel]
             .forEach { addSubview($0) }
     }
     
@@ -136,11 +131,11 @@ final class RecentTwentyGameAnalysisView: UIView {
     
     private func setupKDALabelConconstraints() {
         NSLayoutConstraint.activate([
-            KDALabel.topAnchor.constraint(
+            kdaLabel.topAnchor.constraint(
                 equalTo: winLoseCountLabel.bottomAnchor,
                 constant: Design.KDALabelTopConstant
             ),
-            KDALabel.leadingAnchor.constraint(
+            kdaLabel.leadingAnchor.constraint(
                 equalTo: leadingAnchor
             )
         ])
@@ -148,10 +143,10 @@ final class RecentTwentyGameAnalysisView: UIView {
     
     private func setupKDAPercentLabelConstraints() {
         NSLayoutConstraint.activate([
-            KDAPercentLabel.bottomAnchor.constraint(
+            kdaPercentLabel.bottomAnchor.constraint(
                 equalTo: bottomAnchor
             ),
-            KDAPercentLabel.leadingAnchor.constraint(
+            kdaPercentLabel.leadingAnchor.constraint(
                 equalTo: leadingAnchor
             )
         ])
