@@ -63,6 +63,15 @@ final class SummonerGameInformationCell: UITableViewCell {
     
     // MARK: - Methods
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        gameResultView.prepareForReuse()
+        spellAndRuneStackView.prepareForReuse()
+        kdaStackView.prepareForReuse()
+        itemStackView.prepareForReuse()
+        additionalInformationView.prepareForReuse()
+    }
+    
     func setupContent(with game: Matches.Game) {
         setupSummonerGameInformationCell(with: game)
         gameResultView.setupContentWith(game: game)
@@ -70,13 +79,6 @@ final class SummonerGameInformationCell: UITableViewCell {
         kdaStackView.setupContent(with: game)
         itemStackView.setupContent(with: game)
         additionalInformationView.setupContent(with: game)
-    }
-    
-    func setupSummonerGameInformationCell(with game: Matches.Game) {
-        championImageView.kf.setImage(with: game.champion.iamgeURL)
-        bestPlayerBadge.text = game.stats.general.opScoreBadge
-        bestPlayerBadge.backgroundColor = game.isWin ? .orangeYellow : .periwinkle
-        bestPlayerBadge.isHidden = bestPlayerBadge.text == "" ? true : false
     }
     
     private func commonInit() {
@@ -215,6 +217,20 @@ final class SummonerGameInformationCell: UITableViewCell {
                 equalTo: bottomAnchor
             )
         ])
+    }
+    
+    private func setupSummonerGameInformationCell() {
+        championImageView.image = nil
+        bestPlayerBadge.text = nil
+        bestPlayerBadge.backgroundColor = nil
+        bestPlayerBadge.isHidden = true
+    }
+    
+    private func setupSummonerGameInformationCell(with game: Matches.Game) {
+        championImageView.kf.setImage(with: game.champion.iamgeURL)
+        bestPlayerBadge.text = game.stats.general.opScoreBadge
+        bestPlayerBadge.backgroundColor = game.isWin ? .orangeYellow : .periwinkle
+        bestPlayerBadge.isHidden = bestPlayerBadge.text == "" ? true : false
     }
 }
 

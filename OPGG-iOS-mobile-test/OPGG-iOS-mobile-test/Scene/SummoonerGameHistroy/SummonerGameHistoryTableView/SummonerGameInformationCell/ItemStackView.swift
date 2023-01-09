@@ -89,6 +89,11 @@ final class ItemStackView: UIStackView {
     }
     
     // MARK: - Methods
+    func prepareForReuse() {
+        [firstItemImageView, secondItemImageView, thirdItemImageView,
+         fourthItemImageView, fifthItemImageView, sixthItemImageView]
+            .forEach { $0.image = nil }
+    }
     
     func setupContent(with game: Matches.Game) {
         let items = [firstItemImageView, secondItemImageView, thirdItemImageView,

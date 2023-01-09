@@ -81,6 +81,12 @@ final class SpellAndRuneStackView: UIStackView {
     
     // MARK: - Methods
     
+    func prepareForReuse() {
+        [firstSpellImageView, secondSpellImageView, mainRuneImageView,
+         supportRuneImageView]
+            .forEach { $0.image = nil }
+    }
+    
     func setupContent(with game: Matches.Game) {
         let spells = [firstSpellImageView, secondSpellImageView]
         let runes = [mainRuneImageView, supportRuneImageView]

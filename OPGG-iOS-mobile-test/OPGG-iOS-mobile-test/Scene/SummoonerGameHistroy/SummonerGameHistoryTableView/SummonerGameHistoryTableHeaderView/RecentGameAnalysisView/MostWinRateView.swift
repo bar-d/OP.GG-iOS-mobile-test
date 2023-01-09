@@ -111,15 +111,14 @@ final class MostWinRateView: UIView {
         
        checkIsHidden(with: sortedChampion)
         
-        let mostChampionImageViews = [
-            secondMostChampionImageView, firstMostChampionImageView
-        ]
+        let mostChampionImageViews = [secondMostChampionImageView,
+                                      firstMostChampionImageView]
         for i in 0..<sortedChampion.count {
             if i >= 2 {
                 return
             } else {
                 let mostChampion = sortedChampion[i]
-                print(sortedChampion[i].imageURL)
+                
                 mostChampionImageViews[i].kf.indicatorType = .activity
                 mostChampionImageViews[i].kf.setImage(
                     with: sortedChampion[i].imageURL,

@@ -55,6 +55,11 @@ final class GameReultView: UIView {
     
     // MARK: - Methods
     
+    func prepareForReuse() {
+        [gameResultLabel, gameDurationLabel]
+            .forEach { $0.text = nil }
+    }
+    
     func setupContentWith(game: Matches.Game) {
         gameResultLabel.text = game.isWin ? Design.win : Design.loss
         gameDurationLabel.text = game.gameLength.convertToGameLength

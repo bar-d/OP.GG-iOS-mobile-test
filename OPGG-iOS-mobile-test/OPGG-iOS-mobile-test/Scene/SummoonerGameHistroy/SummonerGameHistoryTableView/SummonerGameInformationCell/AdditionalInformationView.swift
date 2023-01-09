@@ -64,6 +64,11 @@ final class AdditionalInformationView: UIView {
     
     // MARK: - Methods
     
+    func prepareForReuse() {
+        [gameTypeLabel, playedTimeLabel, killingSpreeLabel]
+            .forEach { $0.text = nil }
+    }
+    
     func setupContent(with game: Matches.Game) {
         gameTypeLabel.text = game.gameType
         playedTimeLabel.text = game.createDate.timePassedFromNow

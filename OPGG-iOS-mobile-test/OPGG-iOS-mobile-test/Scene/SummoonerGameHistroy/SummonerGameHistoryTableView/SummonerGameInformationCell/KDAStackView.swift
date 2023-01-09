@@ -46,6 +46,11 @@ final class KDAStackView: UIStackView {
     
     // MARK: - Methods
     
+    func prepareForReuse() {
+        [kdaLabel, killContributionRateLabel]
+            .forEach { $0.text = nil }
+    }
+    
     func setupContent(with game: Matches.Game) {
         let killRate = game.stats.general.contributionForKillRate
         
