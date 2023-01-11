@@ -12,10 +12,16 @@ final class SummonerGameHistoryViewController: UIViewController {
     // MARK: Properties
     
     private var games: [Matches.Game] = []
-    private var createdDate: Int?
     private var currentPage = 1
-    private let viewModel = SummonerGameHistoryViewModel()
     private let summonerGameHisoryTableView = SummonerGameHistoryTableView()
+    
+    private lazy var viewModel = SummonerGameHistoryViewModel(
+        output: .init(
+            fetchSummoner: setupHeaderViewWithSummoner(_:),
+            fetchMatches: setupHeaderViewWithMatches(_:),
+            fetchGames: setupCellWithGames(_:)
+        )
+    )
     
     // MARK: - View Life Cycle
     
@@ -28,13 +34,12 @@ final class SummonerGameHistoryViewController: UIViewController {
     // MARK: - Methods
     
     private func commonInit() {
+        viewModel.input.appDidStart()
         setupBackgroundColor(.paleGrey)
         setupSubviews()
         setupConstraints()
         setupTableView()
         setupRefreshGameHistoryButton()
-        fetchMatchInformation()
-        fetchSummonerInformation()
     }
     
     private func setupBackgroundColor(_ color: UIColor?) {
@@ -72,42 +77,24 @@ final class SummonerGameHistoryViewController: UIViewController {
         summonerGameHisoryTableView.setupDataSource(self)
     }
     
-    private func fetchSummonerInformation() {
-        viewModel.fetchSummonerAllInformation { [weak self] result in
-            switch result {
-            case .success(let summoner):
-                DispatchQueue.main.async {
-                    self?.summonerGameHisoryTableView.setupHeaderView(with: summoner)
-                }
-            case .failure(let error):
-                let alertController = UIAlertController(
-                    title:Design.summonerAlertTitle,
-                    message: error.localizedDescription,
-                    preferredStyle: .alert
-                )
-                self?.present(alertController, animated: true)
-            }
+    private func setupHeaderViewWithSummoner(_ summoner: Summoner) {
+        DispatchQueue.main.async { [weak self] in
+            self?.summonerGameHisoryTableView.setupHeaderView(with: summoner)
         }
     }
     
-    private func fetchMatchInformation() {
-        viewModel.fetchSummonerMatches { [weak self] result in
-            switch result {
-            case .success(let matches):
-                self?.games.append(contentsOf: matches.games)
-                self?.currentPage = 1
-                self?.summonerGameHisoryTableView.setupHeaderView(with: matches)
-                DispatchQueue.main.async {
-                    self?.summonerGameHisoryTableView.reloadData()
-                }
-            case .failure(let error):
-                let alertController = UIAlertController(
-                    title:Design.matchesAlertTitle,
-                    message: error.localizedDescription,
-                    preferredStyle: .alert
-                )
-                self?.present(alertController, animated: true)
-            }
+    private func setupHeaderViewWithMatches(_ matches: Matches) {
+        DispatchQueue.main.async { [weak self] in
+            self?.games = matches.games
+            self?.summonerGameHisoryTableView.setupHeaderView(with: matches)
+            self?.summonerGameHisoryTableView.reloadData()
+        }
+    }
+    
+    private func setupCellWithGames(_ games: [Matches.Game]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.games.append(contentsOf: games)
+            self?.summonerGameHisoryTableView.reloadData()
         }
     }
     
@@ -121,9 +108,7 @@ final class SummonerGameHistoryViewController: UIViewController {
     }
     
     @objc private func refreshGameHistoryButtonDidTap() {
-        games.removeAll()
-        fetchSummonerInformation()
-        fetchMatchInformation()
+        viewModel.input.refreshButtonDidTap()
     }
 }
 
@@ -149,31 +134,14 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
         ) as? SummonerGameInformationCell else {
             return UITableViewCell()
         }
+
+        if (indexPath.row + 1) == games.count {
+            viewModel.input.updateGames()
+            self.currentPage += 1
+        }
         
         cell.setupContent(with: games[indexPath.row])
         
-        if (indexPath.row + 1) == games.count {
-            viewModel.fetchSummonerMatches(
-                createDate: games.last?.createDate
-            ) { [weak self] result in
-                switch result {
-                case .success(let matches):
-                    DispatchQueue.main.async { [weak self] in
-                        self?.games.append(contentsOf: matches.games)
-                        self?.createdDate = matches.games.last?.createDate
-                        self?.currentPage += 1
-                        self?.summonerGameHisoryTableView.reloadData()
-                    }
-                case .failure(let error):
-                    let alertController = UIAlertController(
-                        title:Design.matchesAlertTitle,
-                        message: error.localizedDescription,
-                        preferredStyle: .alert
-                    )
-                    self?.present(alertController, animated: true)
-                }
-            }
-        }
         return cell
     }
     
