@@ -95,8 +95,6 @@ final class MostWinRateView: UIView {
     // MARK: - Methods
     
     func setupContent(with match: Matches) {
-       
-        let mostWinRates = [secondMostChampionWinRateLabel, firstMostChampionWinRateLabel]
         let sortedChampion = match.champions.sorted {
             let firstChampion = Int.winRate(wins: $0.wins, games: $0.games)
             let secondChampion = Int.winRate(wins: $1.wins, games: $1.games)
@@ -104,19 +102,26 @@ final class MostWinRateView: UIView {
             return firstChampion > secondChampion
         }
         
-       checkIsHidden(with: sortedChampion)
-        
+        checkIsHidden(with: sortedChampion)
+        setupMostChampionImage(with: sortedChampion)
+    }
+    
+    private func setupMostChampionImage(
+        with champions: [Matches .UsedChampionInformation]
+    ) {
+        let mostWinRates = [secondMostChampionWinRateLabel, firstMostChampionWinRateLabel]
         let mostChampionImageViews = [secondMostChampionImageView,
                                       firstMostChampionImageView]
-        for i in 0..<sortedChampion.count {
+        
+        for i in 0..<champions.count {
             if i >= 2 {
                 return
             } else {
-                let mostChampion = sortedChampion[i]
+                let mostChampion = champions[i]
                 
                 mostChampionImageViews[i].kf.indicatorType = .activity
                 mostChampionImageViews[i].kf.setImage(
-                    with: sortedChampion[i].imageURL.customURL
+                    with: champions[i].imageURL.customURL
                 )
                 
                 mostWinRates[i].setupPercentText(with: mostChampion)
