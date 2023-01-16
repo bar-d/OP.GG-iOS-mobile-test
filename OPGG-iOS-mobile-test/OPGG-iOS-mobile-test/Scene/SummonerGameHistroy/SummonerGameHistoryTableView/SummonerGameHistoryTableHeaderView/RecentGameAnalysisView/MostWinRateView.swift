@@ -104,11 +104,6 @@ final class MostWinRateView: UIView {
             return firstChampion > secondChampion
         }
         
-        let retryStrategy = DelayRetryStrategy(
-            maxRetryCount: 2,
-            retryInterval: .seconds(1)
-        )
-        
        checkIsHidden(with: sortedChampion)
         
         let mostChampionImageViews = [secondMostChampionImageView,
@@ -121,8 +116,7 @@ final class MostWinRateView: UIView {
                 
                 mostChampionImageViews[i].kf.indicatorType = .activity
                 mostChampionImageViews[i].kf.setImage(
-                    with: sortedChampion[i].imageURL,
-                    options: [.retryStrategy(retryStrategy)]
+                    with: sortedChampion[i].imageURL.customURL
                 )
                 
                 mostWinRates[i].setupPercentText(with: mostChampion)
