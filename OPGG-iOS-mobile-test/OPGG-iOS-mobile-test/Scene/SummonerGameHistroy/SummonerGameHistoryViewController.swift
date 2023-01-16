@@ -12,7 +12,6 @@ final class SummonerGameHistoryViewController: UIViewController {
     // MARK: Properties
     
     private var games: [Matches.Game] = []
-    private var currentPage = 1
     private let summonerGameHisoryTableView = SummonerGameHistoryTableView()
     
     private lazy var viewModel = SummonerGameHistoryViewModel(
@@ -134,10 +133,12 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
         ) as? SummonerGameInformationCell else {
             return UITableViewCell()
         }
+        
+        var currentPage = 1
 
         if (indexPath.row + 1) == games.count {
             viewModel.input.updateGames()
-            self.currentPage += 1
+            currentPage += 1
         }
         
         cell.setupContent(with: games[indexPath.row])

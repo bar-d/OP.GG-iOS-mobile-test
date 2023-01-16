@@ -80,6 +80,6 @@ extension SummonerGameHistoryViewModel {
     struct Output {
         let fetchSummoner: (Summoner) -> Void
         let fetchMatches: (Matches) -> Void
-        let fetchGames: ([Matches.Game]) -> ()
+        let fetchGames: ([Matches.Game]) -> Void
     }
 }
