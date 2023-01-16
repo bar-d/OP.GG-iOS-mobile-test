@@ -417,16 +417,10 @@
 		C48A1218296415420043466D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C4FB1BA829754B3000EC3EBA /* CustomLabel */,
 				C454AF2C2967496600391F73 /* ViewModel */,
-				C48A12192964154B0043466D /* PaddingLabel.swift */,
-				C4669F58296C38A700347847 /* PlayedTimeLabel.swift */,
-				C4669F56296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift */,
 				C48A123829644D2C0043466D /* IndicatorView.swift */,
 				C48A122B29642D380043466D /* CircleImageView.swift */,
-				C4669F46296BB4B000347847 /* KDALabel.swift */,
-				C4669F48296BB4CC00347847 /* PercentLabel.swift */,
-				C4669F4A296BB4DB00347847 /* KDAPercentLabel.swift */,
-				C4669F54296C2C0F00347847 /* LeagueSummaryWinRateLabel.swift */,
 				C4669F50296BC8C900347847 /* Rank.swift */,
 				C48A123E2964737C0043466D /* GameType.swift */,
 				C4669F3C296B5D5900347847 /* KillingSpreeType.swift */,
@@ -490,6 +484,20 @@
 				C48A12512964B7630043466D /* ReuseIdentifiable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C4FB1BA829754B3000EC3EBA /* CustomLabel */ = {
+			isa = PBXGroup;
+			children = (
+				C48A12192964154B0043466D /* PaddingLabel.swift */,
+				C4669F58296C38A700347847 /* PlayedTimeLabel.swift */,
+				C4669F56296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift */,
+				C4669F46296BB4B000347847 /* KDALabel.swift */,
+				C4669F48296BB4CC00347847 /* PercentLabel.swift */,
+				C4669F4A296BB4DB00347847 /* KDAPercentLabel.swift */,
+				C4669F54296C2C0F00347847 /* LeagueSummaryWinRateLabel.swift */,
+			);
+			path = CustomLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
