@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 final class SummonerGameHistoryViewModel: ViewModel {
     
@@ -38,7 +37,7 @@ final class SummonerGameHistoryViewModel: ViewModel {
             case .success(let summoner):
                 self?.output.fetchSummoner(summoner)
             case .failure(let error):
-                return
+                print(error)
             }
         }
         
@@ -49,7 +48,7 @@ final class SummonerGameHistoryViewModel: ViewModel {
                 self?.games.append(contentsOf: matches.games)
                 self?.output.fetchMatches(matches)
             case .failure(let error):
-                return
+                print(error)
             }
         }
     }
@@ -64,7 +63,7 @@ final class SummonerGameHistoryViewModel: ViewModel {
                 self?.games.append(contentsOf: matches.games)
                 self?.output.fetchGames(matches.games)
             case .failure(let error):
-                return
+                print(error)
             }
         }
     }

@@ -11,7 +11,12 @@ final class SummonerGameHistoryViewController: UIViewController {
 
     // MARK: Properties
     
-    private var games: [Matches.Game] = []
+    private var games: [Matches.Game] = [] {
+        didSet {
+            summonerGameHisoryTableView.reloadData()
+        }
+    }
+    
     private let summonerGameHisoryTableView = SummonerGameHistoryTableView()
     
     private lazy var viewModel = SummonerGameHistoryViewModel(
@@ -86,14 +91,12 @@ final class SummonerGameHistoryViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.games = matches.games
             self?.summonerGameHisoryTableView.setupHeaderView(with: matches)
-            self?.summonerGameHisoryTableView.reloadData()
         }
     }
     
     private func setupCellWithGames(_ games: [Matches.Game]) {
         DispatchQueue.main.async { [weak self] in
             self?.games.append(contentsOf: games)
-            self?.summonerGameHisoryTableView.reloadData()
         }
     }
     
