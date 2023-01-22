@@ -94,52 +94,16 @@ final class MostWinRateView: UIView {
     
     // MARK: - Methods
     
-    func setupContent(with match: Matches) {
-       
-        let mostWinRates = [secondMostChampionWinRateLabel, firstMostChampionWinRateLabel]
-        let sortedChampion = match.champions.sorted {
+    func setupContent(with matches: Matches) {
+        let sortedChampion = matches.champions.sorted {
             let firstChampion = Int.winRate(wins: $0.wins, games: $0.games)
             let secondChampion = Int.winRate(wins: $1.wins, games: $1.games)
             
             return firstChampion > secondChampion
         }
         
-        let retryStrategy = DelayRetryStrategy(
-            maxRetryCount: 2,
-            retryInterval: .seconds(1)
-        )
-        
-       checkIsHidden(with: sortedChampion)
-        
-        let mostChampionImageViews = [secondMostChampionImageView,
-                                      firstMostChampionImageView]
-        for i in 0..<sortedChampion.count {
-            if i >= 2 {
-                return
-            } else {
-                let mostChampion = sortedChampion[i]
-                
-                mostChampionImageViews[i].kf.indicatorType = .activity
-                mostChampionImageViews[i].kf.setImage(
-                    with: sortedChampion[i].imageURL,
-                    options: [.retryStrategy(retryStrategy)]
-                )
-                
-                mostWinRates[i].setupPercentText(with: mostChampion)
-            }
-        }
-    }
-    
-    private func checkIsHidden(with champions: [Matches.UsedChampionInformation]) {
-        if champions.count == 1 {
-            secondChampionVerticalStackView.isHidden = true
-        } else if champions.isEmpty {
-            [firstChampionVerticalStackView, secondChampionVerticalStackView]
-                .forEach { $0.isHidden = true }
-        } else {
-            [firstChampionVerticalStackView, secondChampionVerticalStackView]
-                .forEach { $0.isHidden = false }
-        }
+        checkChampionsCount(with: sortedChampion)
+        setupMostChampionImage(with: sortedChampion)
     }
     
     private func commonInit() {
@@ -210,6 +174,41 @@ final class MostWinRateView: UIView {
                 equalToConstant: Design.championImageViewWidthAndHeightConstant
             )
         ])
+    }
+    
+    private func setupMostChampionImage(
+        with champions: [Matches .UsedChampionInformation]
+    ) {
+        let mostWinRates = [secondMostChampionWinRateLabel, firstMostChampionWinRateLabel]
+        let mostChampionImageViews = [secondMostChampionImageView,
+                                      firstMostChampionImageView]
+        
+        for i in 0..<champions.count {
+            if i >= 2 {
+                return
+            } else {
+                let mostChampion = champions[i]
+                
+                mostChampionImageViews[i].kf.indicatorType = .activity
+                mostChampionImageViews[i].kf.setImage(
+                    with: champions[i].imageURL.customURL
+                )
+                
+                mostWinRates[i].setupPercentText(with: mostChampion)
+            }
+        }
+    }
+    
+    private func checkChampionsCount(with champions: [Matches.UsedChampionInformation]) {
+        if champions.count == 1 {
+            secondChampionVerticalStackView.isHidden = true
+        } else if champions.isEmpty {
+            [firstChampionVerticalStackView, secondChampionVerticalStackView]
+                .forEach { $0.isHidden = true }
+        } else {
+            [firstChampionVerticalStackView, secondChampionVerticalStackView]
+                .forEach { $0.isHidden = false }
+        }
     }
 }
 

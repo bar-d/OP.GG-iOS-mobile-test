@@ -28,7 +28,7 @@ final class RecentTwentyGameAnalysisLabel: UILabel {
             attributes: numberAttribute
         )
         let analysisText = NSMutableAttributedString(
-            string: "패 ",
+            string: "게임 분석",
             attributes: stringAttribue
         )
         

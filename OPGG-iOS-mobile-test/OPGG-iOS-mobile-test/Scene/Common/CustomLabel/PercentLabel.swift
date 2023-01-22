@@ -59,4 +59,3 @@ final class PercentLabel: UILabel {
         attributedText = percentText
     }
 }
-

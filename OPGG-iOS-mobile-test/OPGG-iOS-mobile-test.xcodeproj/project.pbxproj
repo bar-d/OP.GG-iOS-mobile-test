@@ -71,6 +71,7 @@
 		C48A125C29652E880043466D /* AdditionalInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48A125B29652E880043466D /* AdditionalInformationView.swift */; };
 		C4D68E6C296559D5000298DF /* SummonerGameHistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D68E6B296559D5000298DF /* SummonerGameHistoryTableView.swift */; };
 		C4D68E6E29658110000298DF /* SummonerGameHistoryTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D68E6D29658110000298DF /* SummonerGameHistoryTableHeaderView.swift */; };
+		C4FB1BA52975319400EC3EBA /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FB1BA42975319400EC3EBA /* URL+Extension.swift */; };
 		DB84FE41F573BFCFF773B739 /* Pods_OPGG_iOS_mobile_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8882213A82A2E5FCB30CC187 /* Pods_OPGG_iOS_mobile_test.framework */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +145,7 @@
 		C48A125B29652E880043466D /* AdditionalInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInformationView.swift; sourceTree = "<group>"; };
 		C4D68E6B296559D5000298DF /* SummonerGameHistoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerGameHistoryTableView.swift; sourceTree = "<group>"; };
 		C4D68E6D29658110000298DF /* SummonerGameHistoryTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerGameHistoryTableHeaderView.swift; sourceTree = "<group>"; };
+		C4FB1BA42975319400EC3EBA /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,6 +409,7 @@
 				C48A1240296483220043466D /* CGRect+Extension.swift */,
 				C4669F3E296B5DC800347847 /* Int+Extension.swift */,
 				C4669F40296B5DFC00347847 /* Double+Extension.swift */,
+				C4FB1BA42975319400EC3EBA /* URL+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -414,16 +417,10 @@
 		C48A1218296415420043466D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C4FB1BA829754B3000EC3EBA /* CustomLabel */,
 				C454AF2C2967496600391F73 /* ViewModel */,
-				C48A12192964154B0043466D /* PaddingLabel.swift */,
-				C4669F58296C38A700347847 /* PlayedTimeLabel.swift */,
-				C4669F56296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift */,
 				C48A123829644D2C0043466D /* IndicatorView.swift */,
 				C48A122B29642D380043466D /* CircleImageView.swift */,
-				C4669F46296BB4B000347847 /* KDALabel.swift */,
-				C4669F48296BB4CC00347847 /* PercentLabel.swift */,
-				C4669F4A296BB4DB00347847 /* KDAPercentLabel.swift */,
-				C4669F54296C2C0F00347847 /* LeagueSummaryWinRateLabel.swift */,
 				C4669F50296BC8C900347847 /* Rank.swift */,
 				C48A123E2964737C0043466D /* GameType.swift */,
 				C4669F3C296B5D5900347847 /* KillingSpreeType.swift */,
@@ -487,6 +484,20 @@
 				C48A12512964B7630043466D /* ReuseIdentifiable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C4FB1BA829754B3000EC3EBA /* CustomLabel */ = {
+			isa = PBXGroup;
+			children = (
+				C48A12192964154B0043466D /* PaddingLabel.swift */,
+				C4669F58296C38A700347847 /* PlayedTimeLabel.swift */,
+				C4669F56296C36CF00347847 /* RecentTwentyGameAnalysisLabel.swift */,
+				C4669F46296BB4B000347847 /* KDALabel.swift */,
+				C4669F48296BB4CC00347847 /* PercentLabel.swift */,
+				C4669F4A296BB4DB00347847 /* KDAPercentLabel.swift */,
+				C4669F54296C2C0F00347847 /* LeagueSummaryWinRateLabel.swift */,
+			);
+			path = CustomLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -631,6 +642,7 @@
 				C46E4EF62966AC90009412D0 /* SummonerUseCase.swift in Sources */,
 				C46E4EE5296697DC009412D0 /* APIError.swift in Sources */,
 				C46E4EB32965F9F8009412D0 /* Summoner.swift in Sources */,
+				C4FB1BA52975319400EC3EBA /* URL+Extension.swift in Sources */,
 				C48A12522964B7630043466D /* ReuseIdentifiable.swift in Sources */,
 				C48A122C29642D380043466D /* CircleImageView.swift in Sources */,
 				C4669F3D296B5D5900347847 /* KillingSpreeType.swift in Sources */,

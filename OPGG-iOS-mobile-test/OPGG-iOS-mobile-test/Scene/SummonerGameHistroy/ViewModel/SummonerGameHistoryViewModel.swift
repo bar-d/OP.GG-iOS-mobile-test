@@ -7,41 +7,78 @@
 
 import Foundation
 
-struct SummonerGameHistoryViewModel {
+final class SummonerGameHistoryViewModel: ViewModel {
     
     // MARK: Properties
     
+    private var games: [Matches.Game] = []
+    private var createDate: Int?
     private let summonerUseCase = SummonerUseCase()
     private let matchesUseCase = MatchesUseCase()
     
+    private let output: Output
+    lazy var input = Input(
+        refreshButtonDidTap: fetchSummonerAllInformation,
+        appDidStart: fetchSummonerAllInformation,
+        updateGames: fetchSummonerMatches
+    )
+    
+    // MARK: - Initializers
+    
+    init(output: Output) {
+        self.output = output
+    }
+    
     // MARK: - Methods
     
-    func fetchSummonerAllInformation(
-        completion: @escaping (Result<Summoner, Error>) -> Void
-    ) {
-        summonerUseCase.fetchSummonerInformation { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let summoner):
-                    completion(.success(summoner))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+    private func fetchSummonerAllInformation() {
+        summonerUseCase.fetchSummonerInformation { [weak self] result in
+            switch result {
+            case .success(let summoner):
+                self?.output.fetchSummoner(summoner)
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        matchesUseCase.fetchSummonerMatches { [weak self] result in
+            switch result {
+            case .success(let matches):
+                self?.createDate = matches.games.last?.createDate
+                self?.games.append(contentsOf: matches.games)
+                self?.output.fetchMatches(matches)
+            case .failure(let error):
+                print(error)
             }
         }
     }
     
-    func fetchSummonerMatches(
-        createDate: Int? = nil,
-        completion: @escaping (Result<Matches, Error>) -> Void
-    ) {
-        matchesUseCase.fetchSummonerMatches(createDate: createDate) { result in
+    private func fetchSummonerMatches() {
+        matchesUseCase.fetchSummonerMatches(
+            createDate: self.createDate
+        ) { [weak self] result in
             switch result {
             case .success(let matches):
-                completion(.success(matches))
+                self?.createDate = matches.games.last?.createDate
+                self?.games.append(contentsOf: matches.games)
+                self?.output.fetchGames(matches.games)
             case .failure(let error):
-                completion(.failure(error))
+                print(error)
             }
         }
+    }
+}
+
+extension SummonerGameHistoryViewModel {
+    struct Input {
+        let refreshButtonDidTap: () -> Void
+        let appDidStart: () -> Void
+        let updateGames: () -> Void
+    }
+    
+    struct Output {
+        let fetchSummoner: (Summoner) -> Void
+        let fetchMatches: (Matches) -> Void
+        let fetchGames: ([Matches.Game]) -> Void
     }
 }
