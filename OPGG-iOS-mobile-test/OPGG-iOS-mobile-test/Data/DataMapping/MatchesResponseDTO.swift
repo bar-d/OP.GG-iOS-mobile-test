@@ -151,7 +151,7 @@ extension MatchesResponseDTO.GameDTO.StatsDTO.GeneralDTO {
             assist: assist,
             contributionForKillRate: contributionForKillRate,
             largestMultiKillString: largestMultiKillString,
-            opScoreBadge: opScoreBadge
+            opScoreBadge: .init(rawValue: opScoreBadge)
         )
     }
 }

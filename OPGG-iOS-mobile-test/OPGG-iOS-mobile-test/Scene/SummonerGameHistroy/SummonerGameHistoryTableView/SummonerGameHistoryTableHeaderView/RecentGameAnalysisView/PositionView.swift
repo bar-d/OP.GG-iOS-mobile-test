@@ -63,7 +63,9 @@ final class PositionView: UIView {
             
             return  firstPosition > secondPosition
         }
-        guard let bestPosition = sortedPositions.first else { return }
+        guard let bestPosition = sortedPositions.first else {
+            return
+        }
         
         positionImageView.image = UIImage(
             named:"iconLol\(bestPosition.position.firstLetterUppercased)"

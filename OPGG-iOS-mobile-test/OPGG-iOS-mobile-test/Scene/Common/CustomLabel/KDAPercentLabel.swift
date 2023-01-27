@@ -19,7 +19,9 @@ final class KDAPercentLabel: UILabel {
         let winRate = Int.winRate(wins: summary.wins, losses: summary.losses)
         
         var totalKDAAttribute: [NSAttributedString.Key: Any] {
-            guard let totalKDA = Double(totalKDA) else { return [:] }
+            guard let totalKDA = Double(totalKDA) else {
+                return [:]
+            }
             
             if totalKDA > 6 {
                 return [.foregroundColor: UIColor.darkishPink]

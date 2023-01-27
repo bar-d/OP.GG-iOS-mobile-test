@@ -12,6 +12,8 @@ final class TopView: UIView {
     
     // MARK: Properties
     
+    private weak var refreshButtonDelegate: RefreshButtonDelegate?
+    
     private let iconImageView: CircleImageView = {
         let circleImageView = CircleImageView()
         circleImageView.image = Design.iconImage
@@ -72,8 +74,8 @@ final class TopView: UIView {
     
     // MARK: - Methods
     
-    func getRefreshGameHistoryButton() -> UIButton {
-        return refreshGameHistoryButton
+    func setupRefreshButtonDelegate(_ delegate: RefreshButtonDelegate) {
+        refreshButtonDelegate = delegate
     }
     
     func setupContent(with summoner: Summoner) {
@@ -86,7 +88,9 @@ final class TopView: UIView {
     }
     
     func setupSummonerLevelLabelText(_ text: String?) {
-        guard let unwrappedText = text else { return }
+        guard let unwrappedText = text else {
+            return
+        }
         
         if unwrappedText.count == Design.one {
             summonerLevelLabel.text = " \(unwrappedText) "
@@ -107,6 +111,7 @@ final class TopView: UIView {
         setupConstraintsAutomatic(false)
         setupSubviews()
         setupConstraints()
+        setupRefreshGameHistoryButton()
     }
     
     private func setupConstraintsAutomatic(_ bool: Bool) {
@@ -193,6 +198,18 @@ final class TopView: UIView {
                 equalToConstant: Design.refreshGameHistoryButtonHeight
             )
         ])
+    }
+    
+    private func setupRefreshGameHistoryButton() {
+        refreshGameHistoryButton.addTarget(
+            self,
+            action: #selector(refreshGameHistoryButtonDidTap),
+            for: .touchUpInside
+        )
+    }
+    
+    @objc private func refreshGameHistoryButtonDidTap() {
+        refreshButtonDelegate?.refreshGameHistoryButtonDidTap()
     }
 }
 

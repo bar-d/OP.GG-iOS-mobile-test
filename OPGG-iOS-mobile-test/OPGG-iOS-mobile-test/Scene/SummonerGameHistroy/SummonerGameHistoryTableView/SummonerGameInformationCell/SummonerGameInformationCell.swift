@@ -231,8 +231,8 @@ final class SummonerGameInformationCell: UITableViewCell {
     
     private func setupSummonerGameInformationCell(with game: Matches.Game) {
         championImageView.kf.setImage(with: game.champion.iamgeURL)
-        bestPlayerBadge.text = game.stats.general.opScoreBadge
-        bestPlayerBadge.backgroundColor = game.isWin ? .orangeYellow : .periwinkle
+        bestPlayerBadge.text = game.stats.general.opScoreBadge?.rawValue
+        bestPlayerBadge.backgroundColor = game.stats.general.opScoreBadge?.color
         bestPlayerBadge.isHidden = bestPlayerBadge.text == "" ? true : false
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4300F882983D205001A4213 /* RefreshButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4300F872983D205001A4213 /* RefreshButtonDelegate.swift */; };
+		C4300F8A2983DEA5001A4213 /* OPScoreBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4300F892983DEA5001A4213 /* OPScoreBadge.swift */; };
 		C454AF1E2966BC9200391F73 /* OPGGMatchesAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF1D2966BC9200391F73 /* OPGGMatchesAPIRequest.swift */; };
 		C454AF202966BEB800391F73 /* DTOError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF1F2966BEB800391F73 /* DTOError.swift */; };
 		C454AF222966BECE00391F73 /* DefaultMatchesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454AF212966BECE00391F73 /* DefaultMatchesRepository.swift */; };
@@ -79,6 +81,8 @@
 		00F0CE30987868D3A0DD58B3 /* Pods-OPGG-iOS-mobile-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OPGG-iOS-mobile-test.release.xcconfig"; path = "Target Support Files/Pods-OPGG-iOS-mobile-test/Pods-OPGG-iOS-mobile-test.release.xcconfig"; sourceTree = "<group>"; };
 		47AFDA211BE954D3C8D7E9D3 /* Pods-OPGG-iOS-mobile-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OPGG-iOS-mobile-test.debug.xcconfig"; path = "Target Support Files/Pods-OPGG-iOS-mobile-test/Pods-OPGG-iOS-mobile-test.debug.xcconfig"; sourceTree = "<group>"; };
 		8882213A82A2E5FCB30CC187 /* Pods_OPGG_iOS_mobile_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OPGG_iOS_mobile_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4300F872983D205001A4213 /* RefreshButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButtonDelegate.swift; sourceTree = "<group>"; };
+		C4300F892983DEA5001A4213 /* OPScoreBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPScoreBadge.swift; sourceTree = "<group>"; };
 		C454AF1D2966BC9200391F73 /* OPGGMatchesAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPGGMatchesAPIRequest.swift; sourceTree = "<group>"; };
 		C454AF1F2966BEB800391F73 /* DTOError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOError.swift; sourceTree = "<group>"; };
 		C454AF212966BECE00391F73 /* DefaultMatchesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMatchesRepository.swift; sourceTree = "<group>"; };
@@ -424,6 +428,7 @@
 				C4669F50296BC8C900347847 /* Rank.swift */,
 				C48A123E2964737C0043466D /* GameType.swift */,
 				C4669F3C296B5D5900347847 /* KillingSpreeType.swift */,
+				C4300F892983DEA5001A4213 /* OPScoreBadge.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				C48A121C296418330043466D /* TopView.swift */,
+				C4300F872983D205001A4213 /* RefreshButtonDelegate.swift */,
 			);
 			path = TopView;
 			sourceTree = "<group>";
@@ -624,6 +630,7 @@
 				C4669F51296BC8C900347847 /* Rank.swift in Sources */,
 				C4669F41296B5DFC00347847 /* Double+Extension.swift in Sources */,
 				C48A122629641F110043466D /* UIFont+Extension.swift in Sources */,
+				C4300F882983D205001A4213 /* RefreshButtonDelegate.swift in Sources */,
 				C46E4ED429666718009412D0 /* SummonerResponseDTO.swift in Sources */,
 				C46E4EEC2966A7B0009412D0 /* OPGGSummonerAPIRequest.swift in Sources */,
 				C4669F59296C38A700347847 /* PlayedTimeLabel.swift in Sources */,
@@ -636,6 +643,7 @@
 				C48A12462964933A0043466D /* RecentTwentyGameAnalysisView.swift in Sources */,
 				C48A123D296466330043466D /* LeagueSummaryScrollView.swift in Sources */,
 				C4669F4B296BB4DB00347847 /* KDAPercentLabel.swift in Sources */,
+				C4300F8A2983DEA5001A4213 /* OPScoreBadge.swift in Sources */,
 				C454AF262966C4AA00391F73 /* MatchesUseCase.swift in Sources */,
 				C46E4EE12966964C009412D0 /* APIRequest.swift in Sources */,
 				C48A123F2964737C0043466D /* GameType.swift in Sources */,

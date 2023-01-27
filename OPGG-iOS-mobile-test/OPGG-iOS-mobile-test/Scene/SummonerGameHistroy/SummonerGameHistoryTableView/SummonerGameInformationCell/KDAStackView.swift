@@ -17,6 +17,7 @@ final class KDAStackView: UIStackView {
         label.textColor = .darkGrey
         label.font = Design.kdaLabelFont
         label.text = Design.kdaLabelDefaultText
+        
         return label
     }()
     

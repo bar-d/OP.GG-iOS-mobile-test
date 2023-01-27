@@ -37,7 +37,7 @@ final class SummonerGameHistoryViewModel: ViewModel {
             case .success(let summoner):
                 self?.output.fetchSummoner(summoner)
             case .failure(let error):
-                print(error)
+                self?.output.errorOccured(error)
             }
         }
         
@@ -48,7 +48,7 @@ final class SummonerGameHistoryViewModel: ViewModel {
                 self?.games.append(contentsOf: matches.games)
                 self?.output.fetchMatches(matches)
             case .failure(let error):
-                print(error)
+                self?.output.errorOccured(error)
             }
         }
     }
@@ -63,7 +63,7 @@ final class SummonerGameHistoryViewModel: ViewModel {
                 self?.games.append(contentsOf: matches.games)
                 self?.output.fetchGames(matches.games)
             case .failure(let error):
-                print(error)
+                self?.output.errorOccured(error)
             }
         }
     }
@@ -80,5 +80,6 @@ extension SummonerGameHistoryViewModel {
         let fetchSummoner: (Summoner) -> Void
         let fetchMatches: (Matches) -> Void
         let fetchGames: ([Matches.Game]) -> Void
+        let errorOccured: (Error) -> Void
     }
 }

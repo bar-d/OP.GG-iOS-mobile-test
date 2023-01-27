@@ -11,6 +11,7 @@ final class SummonerGameHistoryTableHeaderView: UIView {
     
     // MARK: Properties
     
+    private weak var refreshButtonDelegate: RefreshButtonDelegate?
     private let topView = TopView()
     private let leagueSummaryScrollView = LeagueSummaryScrollView()
     private let recentGameAnalysisView = RecentGameAnalysisView()
@@ -29,8 +30,8 @@ final class SummonerGameHistoryTableHeaderView: UIView {
     
     // MARK: - Methods
     
-    func getRefreshGameHistoryButton() -> UIButton {
-        return topView.getRefreshGameHistoryButton()
+    func setupRefreshButtonDelegate(_ delegate: RefreshButtonDelegate) {
+        topView.setupRefreshButtonDelegate(delegate)
     }
     
     func setupContent(with summoner: Summoner) {

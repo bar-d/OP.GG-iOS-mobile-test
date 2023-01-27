@@ -7,12 +7,10 @@
 
 extension Double {
     var withOneDecimal: String {
-        
         return String(format: "%.1f", self)
     }
     
     func withDecimal(decimalPoint: Int) -> String {
-        
         return String(format: "%.\(decimalPoint)f", self)
     }
 }
