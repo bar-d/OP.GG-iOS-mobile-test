@@ -24,7 +24,8 @@ final class SummonerGameHistoryViewController: UIViewController {
         output: .init(
             fetchSummoner: setupHeaderViewWithSummoner(_:),
             fetchMatches: setupHeaderViewWithMatches(_:),
-            fetchGames: setupCellWithGames(_:)
+            fetchGames: setupCellWithGames(_:),
+            errorOccured: presentAlertController(_:)
         )
     )
     
@@ -100,6 +101,18 @@ final class SummonerGameHistoryViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.games.append(contentsOf: games)
         }
+    }
+    
+    private func presentAlertController(_ error: Error) {
+        let alertController = UIAlertController(
+            title: "에러가 발생했습니다.",
+            message: error.localizedDescription,
+            preferredStyle: .alert
+        )
+        let alertAction = UIAlertAction(title: "확인", style: .default)
+        
+        alertController.addAction(alertAction)
+        present(alertController, animated: true)
     }
     
     private func setupRefreshGameHistoryButton() {
