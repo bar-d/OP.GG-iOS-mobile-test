@@ -10,7 +10,9 @@ import Foundation.NSDate
 extension Int {
     var convertToGameLength: String {
         let dateComponents = DateComponents(second: self)
-        guard let date = Calendar.current.date(from: dateComponents) else { return "" }
+        guard let date = Calendar.current.date(from: dateComponents) else {
+            return ""
+        }
         
         let formatter = DateFormatter()
         formatter.dateFormat = "mm:ss"
@@ -58,12 +60,10 @@ extension Int {
     }
     
     static func winRate(wins: Int, games: Int) -> Self {
-        
         return Int(round(Double(wins) / Double(games) * 100))
     }
     
     static func winRate(wins: Int, losses: Int) -> Self {
-        
         return Int(round(Double(wins) / Double(wins + losses) * 100))
     }
 }

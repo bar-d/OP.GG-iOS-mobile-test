@@ -86,7 +86,9 @@ final class TopView: UIView {
     }
     
     func setupSummonerLevelLabelText(_ text: String?) {
-        guard let unwrappedText = text else { return }
+        guard let unwrappedText = text else {
+            return
+        }
         
         if unwrappedText.count == Design.one {
             summonerLevelLabel.text = " \(unwrappedText) "

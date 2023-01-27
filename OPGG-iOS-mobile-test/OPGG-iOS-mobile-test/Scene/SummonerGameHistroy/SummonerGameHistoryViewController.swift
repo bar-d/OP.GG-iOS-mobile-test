@@ -119,7 +119,6 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        
         return games.count
     }
     
@@ -153,7 +152,6 @@ extension SummonerGameHistoryViewController: UITableViewDelegate, UITableViewDat
         _ tableView: UITableView,
         heightForRowAt indexPath: IndexPath
     ) -> CGFloat {
-        
         return Design.tableViewHeightForRow
     }
 }

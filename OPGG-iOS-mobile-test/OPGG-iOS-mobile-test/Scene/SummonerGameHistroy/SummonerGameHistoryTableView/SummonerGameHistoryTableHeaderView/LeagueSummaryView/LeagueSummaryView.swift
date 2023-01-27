@@ -79,7 +79,9 @@ final class LeagueSummaryView: UIView {
     // MARK: - Methods
     
     func setupContent(with league: Summoner.League) {
-        guard league.hasResults == true else { return }
+        guard league.hasResults == true else {
+            return
+        }
         
         tierIconImageView.kf.setImage(with: league.tierRank.imageURL)
         rankTypeLabel.text = Rank.type(of: league.tierRank.name).value
