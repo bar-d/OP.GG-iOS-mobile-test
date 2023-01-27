@@ -17,6 +17,7 @@ final class SummonerGameHistoryViewController: UIViewController {
         }
     }
     
+    private weak var refreshButtonDelegate: RefreshButtonDelegate?
     private let summonerGameHisoryTableView = SummonerGameHistoryTableView()
     
     private lazy var viewModel = SummonerGameHistoryViewModel(
@@ -44,6 +45,7 @@ final class SummonerGameHistoryViewController: UIViewController {
         setupConstraints()
         setupTableView()
         setupRefreshGameHistoryButton()
+        summonerGameHisoryTableView.setupRefreshButtonDelegate(self)
     }
     
     private func setupBackgroundColor(_ color: UIColor?) {
@@ -101,15 +103,12 @@ final class SummonerGameHistoryViewController: UIViewController {
     }
     
     private func setupRefreshGameHistoryButton() {
-        let button = summonerGameHisoryTableView.getRefreshGameHistoryButton()
-        button.addTarget(
-            self,
-            action: #selector(refreshGameHistoryButtonDidTap),
-            for: .touchUpInside
-        )
+        refreshButtonDelegate?.refreshGameHistoryButtonDidTap()
     }
-    
-    @objc private func refreshGameHistoryButtonDidTap() {
+}
+
+extension SummonerGameHistoryViewController: RefreshButtonDelegate {
+    func refreshGameHistoryButtonDidTap() {
         viewModel.input.refreshButtonDidTap()
     }
 }

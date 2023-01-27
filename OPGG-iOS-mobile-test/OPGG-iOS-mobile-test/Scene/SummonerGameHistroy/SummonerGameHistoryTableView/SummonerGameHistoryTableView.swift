@@ -11,6 +11,7 @@ final class SummonerGameHistoryTableView: UITableView {
     
     // MARK: Properties
     
+    private weak var refreshButtonDelegate: RefreshButtonDelegate?
     private let summonerGameHistoryTableHeaderView = SummonerGameHistoryTableHeaderView()
     
     // MARK: Initializers
@@ -29,8 +30,8 @@ final class SummonerGameHistoryTableView: UITableView {
     
     // MARK: - Mehtods
     
-    func getRefreshGameHistoryButton() -> UIButton {
-        return summonerGameHistoryTableHeaderView.getRefreshGameHistoryButton()
+    func setupRefreshButtonDelegate(_ delegate: RefreshButtonDelegate) {
+        summonerGameHistoryTableHeaderView.setupRefreshButtonDelegate(delegate)
     }
     
     func setupDelegate(_ delegate: UITableViewDelegate) {
