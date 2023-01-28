@@ -22,9 +22,9 @@ final class SummonerGameHistoryViewController: UIViewController {
     
     private lazy var viewModel = SummonerGameHistoryViewModel(
         output: .init(
-            fetchSummoner: setupHeaderViewWithSummoner(_:),
-            fetchMatches: setupHeaderViewWithMatches(_:),
-            fetchGames: setupCellWithGames(_:),
+            fetchSummoner: setupHeaderView(with:),
+            fetchMatches: setupHeaderView(with:),
+            fetchGames: setupCell(with:),
             errorOccured: presentAlertController(_:)
         )
     )
@@ -84,20 +84,20 @@ final class SummonerGameHistoryViewController: UIViewController {
         summonerGameHisoryTableView.setupDataSource(self)
     }
     
-    private func setupHeaderViewWithSummoner(_ summoner: Summoner) {
+    private func setupHeaderView(with summoner: Summoner) {
         DispatchQueue.main.async { [weak self] in
             self?.summonerGameHisoryTableView.setupHeaderView(with: summoner)
         }
     }
     
-    private func setupHeaderViewWithMatches(_ matches: Matches) {
+    private func setupHeaderView(with matches: Matches) {
         DispatchQueue.main.async { [weak self] in
             self?.games = matches.games
             self?.summonerGameHisoryTableView.setupHeaderView(with: matches)
         }
     }
     
-    private func setupCellWithGames(_ games: [Matches.Game]) {
+    private func setupCell(with games: [Matches.Game]) {
         DispatchQueue.main.async { [weak self] in
             self?.games.append(contentsOf: games)
         }
